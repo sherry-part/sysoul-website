@@ -4,6 +4,7 @@ import Image from "next/image";
 
 export default function SiteHeader({ productPage = false }: { productPage?: boolean }) {
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
 
   return (
     <header className="site-header">
@@ -12,7 +13,29 @@ export default function SiteHeader({ productPage = false }: { productPage?: bool
       </a>
       <nav className="nav-links">
         <a href="/">首页</a>
-        <a className={productPage ? "active" : ""} href="/products">具身产品</a>
+
+        {/* Products dropdown */}
+        <div
+          className="nav-dropdown"
+          onMouseEnter={() => setProductsOpen(true)}
+          onMouseLeave={() => setProductsOpen(false)}
+        >
+          <a
+            className={`nav-dropdown-trigger${productPage ? " active" : ""}`}
+            href="/products"
+          >
+            具身产品 <span className="dropdown-arrow">▾</span>
+          </a>
+          {productsOpen && (
+            <div className="nav-dropdown-menu">
+              <a href="/products">产品总览</a>
+              <a href="/products/allinone">一体机 · 智脑盒子</a>
+              <a href="/products/body">联名本体</a>
+              <a href="/products/cyber">赛博机器人</a>
+            </div>
+          )}
+        </div>
+
         <a href="https://robonix.syswonder.org/" target="_blank" rel="noreferrer">Robonix</a>
         <a href="http://121.43.228.68:4000/" target="_blank" rel="noreferrer">工业物联</a>
 

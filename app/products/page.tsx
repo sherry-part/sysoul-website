@@ -145,9 +145,6 @@ export default function Products() {
                   <div className="body-joint-dot j3" />
                   <div className="body-joint-dot j4" />
                 </div>
-                <div className="body-spec-callout spec-1">7-DOF 关节</div>
-                <div className="body-spec-callout spec-2">XiUOS 实时控制</div>
-                <div className="body-spec-callout spec-3">±0.1mm 精度</div>
               </div>
             </ScrollReveal>
           </div>
@@ -189,49 +186,33 @@ export default function Products() {
            6. Cyber Product — 赛博机器人
            ============================================ */}
       <section className="cyber-section" id="cyber-product">
-        <div className="cyber-layout">
-          <div className="cyber-text">
-            <ScrollReveal>
-              <p className="kicker">CYBER ROBOT / 03</p>
-            </ScrollReveal>
-            <ScrollReveal>
-              <h2>在虚拟世界<br /><em>先行一万步</em></h2>
-            </ScrollReveal>
-            <ScrollReveal>
-              <p>
-                赛博机器人感控一体，连接仿真与真实部署。每一个想法，
-                都可以先在数字世界里被验证、优化、再推向物理世界。
-                降低试错成本，加速技能迭代。
-              </p>
-            </ScrollReveal>
-            <ScrollReveal>
-              <div className="cyber-metrics">
-                <span className="cyber-metric">
-                  <b>1:1</b>
-                  <small>数字孪生保真度</small>
-                </span>
-                <span className="cyber-metric">
-                  <b>&lt;5ms</b>
-                  <small>感控闭环延迟</small>
-                </span>
-              </div>
-            </ScrollReveal>
-          </div>
-          <div className="cyber-visual-container">
-            <ScrollReveal threshold={0.1}>
-              <div className="cyber-visual-large">
-                <div className="cyber-grid-large" />
-                <div className="cyber-head-large">
-                  CYBER
-                  <br />
-                  <b>BOT</b>
-                </div>
-                <div className="cyber-scan-line" />
-                <div className="cyber-data-tag tag-a">SIM → REAL</div>
-                <div className="cyber-data-tag tag-b">DIGITAL TWIN</div>
-              </div>
-            </ScrollReveal>
-          </div>
+        <div className="cyber-grid-large" />
+        <div className="cyber-text-only">
+          <ScrollReveal>
+            <p className="kicker">CYBER ROBOT / 03</p>
+          </ScrollReveal>
+          <ScrollReveal>
+            <h2>在虚拟世界<br /><em>先行一万步</em></h2>
+          </ScrollReveal>
+          <ScrollReveal>
+            <p>
+              赛博机器人感控一体，连接仿真与真实部署。每一个想法，
+              都可以先在数字世界里被验证、优化、再推向物理世界。
+              降低试错成本，加速技能迭代。
+            </p>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="cyber-metrics">
+              <span className="cyber-metric">
+                <b>1:1</b>
+                <small>数字孪生保真度</small>
+              </span>
+              <span className="cyber-metric">
+                <b>&lt;5ms</b>
+                <small>感控闭环延迟</small>
+              </span>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -300,79 +281,7 @@ export default function Products() {
       </section>
 
       {/* ============================================
-           8. Education — 101 计划 & 课程体系
-           ============================================ */}
-      <section className="education">
-        <div className="education-banner">
-          <ScrollReveal>
-            <p className="kicker">EDUCATION</p>
-          </ScrollReveal>
-          <ScrollReveal>
-            <h2>对标教育部<br /><em>计算机"101"计划</em></h2>
-          </ScrollReveal>
-          <ScrollReveal>
-            <p>
-              建设具身智能课程体系与实训平台，培养新一代具身智能开发人才。
-              让高校学生从理论到实践，完整掌握机器人技能开发全流程。
-            </p>
-          </ScrollReveal>
-        </div>
-        <div className="education-grid">
-          <ScrollReveal delay={0}>
-            <div className="edu-item">
-              <span className="edu-num">01</span>
-              <b>课程体系</b>
-              <p>
-                对标"101"计划核心课程标准，涵盖操作系统、机器人运动学、
-                具身感知与决策，构建从本科到研究生的完整课程路径。
-              </p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <div className="edu-item">
-              <span className="edu-num">02</span>
-              <b>实训平台</b>
-              <p>
-                基于 Robonix 与一体机构建实训环境，学生可直接在真实硬件上
-                验证算法，而非停留在仿真阶段。
-              </p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <div className="edu-item">
-              <span className="edu-num">03</span>
-              <b>竞赛与案例</b>
-              <p>
-                支持学生参加机器人技能大赛，提供真实产业场景作为实训案例。
-                辽宁财贸大学等高校已率先接入课程体系。
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
-        <div className="education-case">
-          <ScrollReveal>
-            <div className="case-block">
-              <span className="case-badge">案例</span>
-              <b>辽宁财贸大学 — 具身智能课程搭建</b>
-              <p>
-                作为"101"计划的一部分，辽财已基于 Sysoul 一体机
-                与 Robonix 平台完成具身智能课程体系搭建，覆盖
-                机器人操作系统、运动规划、技能开发三大模块，
-                首批 120 名学生已完成实训。
-              </p>
-              <span className="case-stat">
-                <b>120+</b> 学生实训完成
-              </span>
-              <span className="case-stat">
-                <b>3</b> 门核心课程
-              </span>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ============================================
-           9. Partners
+           8. Partners
            ============================================ */}
       <section className="partners" id="partners">
         <ScrollReveal>
@@ -380,13 +289,15 @@ export default function Products() {
         </ScrollReveal>
         <div className="partner-track">
           {[...partners, ...partners].map((p, i) => (
-            <span key={`${p}-${i}`}>{p}</span>
+            <div key={`${p.name}-${i}`} className="partner-logo-card">
+              <img src={p.logo} alt={p.name} />
+            </div>
           ))}
         </div>
       </section>
 
       {/* ============================================
-           10. Footer
+           9. Footer
            ============================================ */}
       <footer>
         <span>© 2025 Sysoul</span>
