@@ -1,21 +1,18 @@
 # ----------- 1. 构建阶段 -----------
 FROM node:lts-alpine AS builder
 
-# 安装 pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
 WORKDIR /app
 
 # 复制依赖清单并安装依赖
-COPY pnpm-lock.yaml ./
+COPY package-lock.json ./
 COPY package.json ./
 
-RUN pnpm install
+RUN npm ci
 
 # 拷贝所有项目文件并构建
 COPY . .
 
-RUN pnpm build
+RUN npm run build
 
 # ----------- 2. 生产运行阶段（支持 Sharp + Edge Runtime）-----------
 FROM node:lts-alpine
