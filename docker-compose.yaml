@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    image: portal-web:0.1
+    container_name: portal-web
+    ports:
+      - '3000:3000'
