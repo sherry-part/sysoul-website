@@ -46,11 +46,7 @@ export default function Docs() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="docs-hero">
-        <ScrollReveal>
-          <p className="kicker">DOCUMENTATION</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="docs-hero"><ScrollReveal>
           <h1>
             知识库
             <br />
@@ -67,11 +63,7 @@ export default function Docs() {
 
       {/* Categories */}
       <section className="docs-categories">
-        <div className="docs-cat-head">
-          <ScrollReveal>
-            <p className="kicker">BROWSE BY TOPIC</p>
-          </ScrollReveal>
-          <ScrollReveal>
+        <div className="docs-cat-head"><ScrollReveal>
             <h2>
               按主题浏览
               <br />
@@ -99,11 +91,7 @@ export default function Docs() {
       </section>
 
       {/* Popular & API */}
-      <section className="docs-popular">
-        <ScrollReveal>
-          <p className="kicker">QUICK LINKS</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="docs-popular"><ScrollReveal>
           <h2>
             热门文档
             <br />
@@ -163,8 +151,9 @@ export default function Docs() {
       </section>
 
       <footer>
-        <span>© 2025 Sysoul</span>
-        <span>Embodied intelligence infrastructure</span>
+        <span>杭州希秀泛在计算技术有限公司</span>
+        <span>浙ICP备2023005800号-1</span>
+        <span>浙公网安备 33010902003532号</span>
         <a href="/">返回首页 ↗</a>
       </footer>
     </main>

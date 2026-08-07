@@ -155,6 +155,16 @@ h1, h2, h3, p { margin-top: 0; }
   color: var(--ink);
 }
 
+.nav-external .ext-icon {
+  font-size: 10px;
+  opacity: .45;
+  margin-left: 2px;
+}
+
+.nav-external:hover .ext-icon {
+  opacity: .7;
+}
+
 /* Dropdown */
 .nav-dropdown {
   position: relative;
@@ -1354,7 +1364,7 @@ h1, h2, h3, p { margin-top: 0; }
 .spec-3 { bottom: 20%; right: -8%; }
 .spec-3::after { left: -20px; top: 50%; }
 
-.body-text { order: 1; }
+.body-text { grid-column: 2; }
 
 .body-text p {
   color: var(--muted);
@@ -1497,7 +1507,8 @@ h1, h2, h3, p { margin-top: 0; }
 
 .tutorials-head {
   max-width: 600px;
-  margin-bottom: 60px;
+  margin: 0 auto 60px;
+  text-align: center;
 }
 
 .tutorials-head p {
@@ -3264,19 +3275,33 @@ h1, h2, h3, p { margin-top: 0; }
   padding: 80px 8vw;
   overflow: hidden;
   border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.partner-track {
+.partner-marquee {
+  overflow: hidden;
+}
+
+.partner-marquee-track {
   display: flex;
+  gap: 28px;
   width: max-content;
-  animation: marquee 50s linear infinite;
+}
+
+.pm-forward {
+  animation: partnerScroll 30s linear infinite;
+}
+
+.pm-reverse {
+  animation: partnerScroll 30s linear infinite reverse;
 }
 
 .partner-logo-card {
   flex-shrink: 0;
   width: 220px;
   height: 110px;
-  margin-right: 28px;
   background: #ffffff;
   border-radius: 6px;
   display: flex;
@@ -3292,6 +3317,19 @@ h1, h2, h3, p { margin-top: 0; }
 }
 
 .partners .kicker { margin-bottom: 45px; }
+
+@keyframes partnerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-50% - 14px)); }
+}
+
+.partners-title {
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 40px;
+}
 
 /* Footer */
 footer {
@@ -3499,8 +3537,8 @@ footer {
 
   /* Partners & Footer */
   .partners { padding: 65px 24px; }
-  .partner-track { animation-duration: 35s; }
-  .partner-logo-card { width: 150px; height: 75px; margin-right: 18px; padding: 12px 16px; }
+  .pm-forward, .pm-reverse { animation-duration: 25s; }
+  .partner-logo-card { width: 150px; height: 75px; padding: 12px 16px; }
   footer { padding: 24px; flex-wrap: wrap; gap: 15px; }
 }
 

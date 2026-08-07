@@ -69,11 +69,7 @@ export default function AllinonePage() {
           <div className="pd-orbit-ring" />
           <div className="pd-core-glow" />
         </div>
-        <div className="pd-hero-content">
-          <ScrollReveal>
-            <p className="kicker">THE BRAIN / 01</p>
-          </ScrollReveal>
-          <ScrollReveal>
+        <div className="pd-hero-content"><ScrollReveal>
             <h1>一体机<br /><em>智脑盒子</em></h1>
           </ScrollReveal>
           <ScrollReveal>
@@ -93,11 +89,7 @@ export default function AllinonePage() {
       </section>
 
       {/* Overview */}
-      <section className="pd-section">
-        <ScrollReveal>
-          <p className="kicker">OVERVIEW</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="pd-section"><ScrollReveal>
           <h2>一台机器<br /><em>就是一支工程团队</em></h2>
         </ScrollReveal>
         <div className="pd-overview-grid">
@@ -117,11 +109,7 @@ export default function AllinonePage() {
       </section>
 
       {/* Features */}
-      <section className="pd-section pd-section-alt">
-        <ScrollReveal>
-          <p className="kicker">CORE FEATURES</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="pd-section pd-section-alt"><ScrollReveal>
           <h2>核心功能<br /><em>为机器人而生</em></h2>
         </ScrollReveal>
         <div className="pd-features-grid">
@@ -137,11 +125,7 @@ export default function AllinonePage() {
       </section>
 
       {/* What's in the box */}
-      <section className="pd-section">
-        <ScrollReveal>
-          <p className="kicker">WHAT'S INCLUDED</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="pd-section"><ScrollReveal>
           <h2>产品组成<br /><em>所见即所得</em></h2>
         </ScrollReveal>
         <div className="pd-includes-grid">
@@ -165,11 +149,7 @@ export default function AllinonePage() {
       </section>
 
       {/* Specs */}
-      <section className="pd-section pd-section-alt">
-        <ScrollReveal>
-          <p className="kicker">TECHNICAL SPECS</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="pd-section pd-section-alt"><ScrollReveal>
           <h2>技术规格<br /><em>一览</em></h2>
         </ScrollReveal>
         <div className="pd-specs-table">
@@ -185,11 +165,7 @@ export default function AllinonePage() {
       </section>
 
       {/* Pricing */}
-      <section className="pd-section">
-        <ScrollReveal>
-          <p className="kicker">PRICING</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="pd-section"><ScrollReveal>
           <h2>价格方案<br /><em>按需选择</em></h2>
         </ScrollReveal>
         <div className="pd-pricing-grid">
@@ -215,11 +191,7 @@ export default function AllinonePage() {
       </section>
 
       {/* Selling Points */}
-      <section className="pd-section pd-section-alt">
-        <ScrollReveal>
-          <p className="kicker">WHY ALL-IN-ONE</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="pd-section pd-section-alt"><ScrollReveal>
           <h2>为什么选择<br /><em>智脑盒子</em></h2>
         </ScrollReveal>
         <div className="pd-selling-grid">
@@ -256,8 +228,9 @@ export default function AllinonePage() {
       </section>
 
       <footer>
-        <span>© 2025 Sysoul</span>
-        <span>Embodied intelligence infrastructure</span>
+        <span>杭州希秀泛在计算技术有限公司</span>
+        <span>浙ICP备2023005800号-1</span>
+        <span>浙公网安备 33010902003532号</span>
         <a href="/">返回首页 ↗</a>
       </footer>
     </main>

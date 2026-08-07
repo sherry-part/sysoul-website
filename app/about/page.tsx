@@ -7,11 +7,7 @@ export default function About() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="about-hero">
-        <ScrollReveal>
-          <p className="kicker">ABOUT SYSOUL</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="about-hero"><ScrollReveal>
           <h1>
             希秀计算
             <br />
@@ -29,11 +25,7 @@ export default function About() {
 
       {/* Timeline */}
       <section className="about-timeline">
-        <div className="timeline-head">
-          <ScrollReveal>
-            <p className="kicker">MILESTONES</p>
-          </ScrollReveal>
-          <ScrollReveal>
+        <div className="timeline-head"><ScrollReveal>
             <h2>从社区到系统<br /><em>一步步走来</em></h2>
           </ScrollReveal>
         </div>
@@ -106,8 +98,9 @@ export default function About() {
       </section>
 
       <footer>
-        <span>© 2025 Sysoul</span>
-        <span>Embodied intelligence infrastructure</span>
+        <span>杭州希秀泛在计算技术有限公司</span>
+        <span>浙ICP备2023005800号-1</span>
+        <span>浙公网安备 33010902003532号</span>
         <a href="/">返回首页 ↗</a>
       </footer>
     </main>

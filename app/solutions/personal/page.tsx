@@ -73,11 +73,7 @@ export default function PersonalSolutions() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="per-hero">
-        <ScrollReveal>
-          <p className="kicker">FOR INDIVIDUALS</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="per-hero"><ScrollReveal>
           <h1>
             每个开发者
             <br />
@@ -93,11 +89,7 @@ export default function PersonalSolutions() {
       </section>
 
       {/* Developer Tools */}
-      <section className="per-tools">
-        <ScrollReveal>
-          <p className="kicker">DEVELOPER TOOLS</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="per-tools"><ScrollReveal>
           <h2>
             趁手的工具
             <br />
@@ -128,11 +120,7 @@ export default function PersonalSolutions() {
       </section>
 
       {/* Community */}
-      <section className="per-community">
-        <ScrollReveal>
-          <p className="kicker">COMMUNITY</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="per-community"><ScrollReveal>
           <h2>
             你不是一个人在战斗
             <br />
@@ -161,11 +149,7 @@ export default function PersonalSolutions() {
       </section>
 
       {/* Getting Started */}
-      <section className="per-start">
-        <ScrollReveal>
-          <p className="kicker">GETTING STARTED</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="per-start"><ScrollReveal>
           <h2>
             三步开始
             <br />
@@ -211,8 +195,9 @@ export default function PersonalSolutions() {
       </section>
 
       <footer>
-        <span>© 2025 Sysoul</span>
-        <span>Embodied intelligence infrastructure</span>
+        <span>杭州希秀泛在计算技术有限公司</span>
+        <span>浙ICP备2023005800号-1</span>
+        <span>浙公网安备 33010902003532号</span>
         <a href="/">返回首页 ↗</a>
       </footer>
     </main>

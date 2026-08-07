@@ -51,11 +51,7 @@ export default function ResearchSolutions() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="res-hero">
-        <ScrollReveal>
-          <p className="kicker">FOR RESEARCH</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="res-hero"><ScrollReveal>
           <h1>
             推动具身智能
             <br />
@@ -77,11 +73,7 @@ export default function ResearchSolutions() {
 
       {/* 101 Plan — 教育部"101"计划 */}
       <section className="res-plan">
-        <div className="res-plan-banner">
-          <ScrollReveal>
-            <p className="kicker">FEATURED INITIATIVE</p>
-          </ScrollReveal>
-          <ScrollReveal>
+        <div className="res-plan-banner"><ScrollReveal>
             <h2>
               对标教育部
               <br />
@@ -135,11 +127,7 @@ export default function ResearchSolutions() {
       </section>
 
       {/* Research Areas */}
-      <section className="res-areas">
-        <ScrollReveal>
-          <p className="kicker">RESEARCH AREAS</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="res-areas"><ScrollReveal>
           <h2>
             研究方向
             <br />
@@ -164,11 +152,7 @@ export default function ResearchSolutions() {
       </section>
 
       {/* Academic Partners */}
-      <section className="res-partners">
-        <ScrollReveal>
-          <p className="kicker">ACADEMIC ECOSYSTEM</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="res-partners"><ScrollReveal>
           <h2>
             学术合作
             <br />
@@ -210,8 +194,9 @@ export default function ResearchSolutions() {
       </section>
 
       <footer>
-        <span>© 2025 Sysoul</span>
-        <span>Embodied intelligence infrastructure</span>
+        <span>杭州希秀泛在计算技术有限公司</span>
+        <span>浙ICP备2023005800号-1</span>
+        <span>浙公网安备 33010902003532号</span>
         <a href="/">返回首页 ↗</a>
       </footer>
     </main>

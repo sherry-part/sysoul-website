@@ -18,11 +18,7 @@ export default function Products() {
            ============================================ */}
       <section className="compare-section">
         <div className="compare-grid">
-          <div className="compare-text">
-            <ScrollReveal>
-              <p className="kicker">ALL-IN-ONE VS BARE METAL</p>
-            </ScrollReveal>
-            <ScrollReveal>
+          <div className="compare-text"><ScrollReveal>
               <h2>裸机给你零件<br /><em>一体机给你结果</em></h2>
             </ScrollReveal>
             <ScrollReveal>
@@ -83,11 +79,7 @@ export default function Products() {
            4. Open Ecosystem
            ============================================ */}
       <section className="ecosystem">
-        <div className="ecosystem-head">
-          <ScrollReveal>
-            <p className="kicker">OPEN ECOSYSTEM</p>
-          </ScrollReveal>
-          <ScrollReveal>
+        <div className="ecosystem-head"><ScrollReveal>
             <h2>打破封闭<br /><em>共建开放生态</em></h2>
           </ScrollReveal>
           <ScrollReveal>
@@ -134,25 +126,7 @@ export default function Products() {
            ============================================ */}
       <section className="body-section" id="body-product">
         <div className="body-layout">
-          <div className="body-visual-container">
-            <ScrollReveal threshold={0.1}>
-              <div className="body-visual-large">
-                <div className="body-ring-large" />
-                <div className="body-torso-large">
-                  <div className="body-core-glow" />
-                  <div className="body-joint-dot j1" />
-                  <div className="body-joint-dot j2" />
-                  <div className="body-joint-dot j3" />
-                  <div className="body-joint-dot j4" />
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-          <div className="body-text">
-            <ScrollReveal>
-              <p className="kicker">PHYSICAL BODY / 02</p>
-            </ScrollReveal>
-            <ScrollReveal>
+          <div className="body-text"><ScrollReveal>
               <h2>让每一个动作<br /><em>稳定 · 精准 · 可复用</em></h2>
             </ScrollReveal>
             <ScrollReveal>
@@ -187,11 +161,7 @@ export default function Products() {
            ============================================ */}
       <section className="cyber-section" id="cyber-product">
         <div className="cyber-grid-large" />
-        <div className="cyber-text-only">
-          <ScrollReveal>
-            <p className="kicker">CYBER ROBOT / 03</p>
-          </ScrollReveal>
-          <ScrollReveal>
+        <div className="cyber-text-only"><ScrollReveal>
             <h2>在虚拟世界<br /><em>先行一万步</em></h2>
           </ScrollReveal>
           <ScrollReveal>
@@ -220,11 +190,7 @@ export default function Products() {
            7. Tutorial Videos
            ============================================ */}
       <section className="tutorials">
-        <div className="tutorials-head">
-          <ScrollReveal>
-            <p className="kicker">LEARN</p>
-          </ScrollReveal>
-          <ScrollReveal>
+        <div className="tutorials-head"><ScrollReveal>
             <h2>从零到一<br /><em>掌握具身智能开发</em></h2>
           </ScrollReveal>
           <ScrollReveal>
@@ -285,14 +251,39 @@ export default function Products() {
            ============================================ */}
       <section className="partners" id="partners">
         <ScrollReveal>
-          <p className="kicker">BUILT WITH THE ECOSYSTEM</p>
+          <p className="partners-title">合作伙伴</p>
         </ScrollReveal>
-        <div className="partner-track">
-          {[...partners, ...partners].map((p, i) => (
-            <div key={`${p.name}-${i}`} className="partner-logo-card">
-              <img src={p.logo} alt={p.name} />
-            </div>
-          ))}
+
+        {/* Row 1 — forward */}
+        <div className="partner-marquee">
+          <div className="partner-marquee-track pm-forward">
+            {partners.slice(0, 10).map((p) => (
+              <div key={p.name} className="partner-logo-card">
+                <img src={p.logo} alt={p.name} />
+              </div>
+            ))}
+            {partners.slice(0, 10).map((p) => (
+              <div key={`${p.name}-dup`} className="partner-logo-card">
+                <img src={p.logo} alt={p.name} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2 — reverse */}
+        <div className="partner-marquee">
+          <div className="partner-marquee-track pm-reverse">
+            {partners.slice(10).map((p) => (
+              <div key={p.name} className="partner-logo-card">
+                <img src={p.logo} alt={p.name} />
+              </div>
+            ))}
+            {partners.slice(10).map((p) => (
+              <div key={`${p.name}-dup`} className="partner-logo-card">
+                <img src={p.logo} alt={p.name} />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -300,8 +291,9 @@ export default function Products() {
            9. Footer
            ============================================ */}
       <footer>
-        <span>© 2025 Sysoul</span>
-        <span>Embodied intelligence infrastructure</span>
+        <span>杭州希秀泛在计算技术有限公司</span>
+        <span>浙ICP备2023005800号-1</span>
+        <span>浙公网安备 33010902003532号</span>
         <a href="/">返回首页 ↗</a>
       </footer>
     </main>

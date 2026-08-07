@@ -36,8 +36,8 @@ export default function SiteHeader({ productPage = false }: { productPage?: bool
           )}
         </div>
 
-        <a href="https://robonix.syswonder.org/" target="_blank" rel="noreferrer">Robonix</a>
-        <a href="http://121.43.228.68:4000/" target="_blank" rel="noreferrer">工业物联</a>
+        <a className="nav-external" href="https://robonix.syswonder.org/" target="_blank" rel="noreferrer">Robonix <span className="ext-icon">↗</span></a>
+        <a className="nav-external" href="http://121.43.228.68:4000/" target="_blank" rel="noreferrer">工业物联 <span className="ext-icon">↗</span></a>
 
         {/* Solutions dropdown */}
         <div

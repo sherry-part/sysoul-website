@@ -79,11 +79,7 @@ export default function EnterpriseSolutions() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="ent-hero">
-        <ScrollReveal>
-          <p className="kicker">FOR ENTERPRISE</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="ent-hero"><ScrollReveal>
           <h1>
             从实验室
             <br />
@@ -115,11 +111,7 @@ export default function EnterpriseSolutions() {
       </section>
 
       {/* Industries */}
-      <section className="ent-industries">
-        <ScrollReveal>
-          <p className="kicker">INDUSTRIES</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="ent-industries"><ScrollReveal>
           <h2>
             覆盖关键行业
             <br />
@@ -150,11 +142,7 @@ export default function EnterpriseSolutions() {
       </section>
 
       {/* Capabilities */}
-      <section className="ent-capabilities">
-        <ScrollReveal>
-          <p className="kicker">CAPABILITIES</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="ent-capabilities"><ScrollReveal>
           <h2>
             企业级能力
             <br />
@@ -183,11 +171,7 @@ export default function EnterpriseSolutions() {
       </section>
 
       {/* Case Studies */}
-      <section className="ent-cases">
-        <ScrollReveal>
-          <p className="kicker">CASE STUDIES</p>
-        </ScrollReveal>
-        <ScrollReveal>
+      <section className="ent-cases"><ScrollReveal>
           <h2>
             客户实践
             <br />
@@ -237,8 +221,9 @@ export default function EnterpriseSolutions() {
       </section>
 
       <footer>
-        <span>© 2025 Sysoul</span>
-        <span>Embodied intelligence infrastructure</span>
+        <span>杭州希秀泛在计算技术有限公司</span>
+        <span>浙ICP备2023005800号-1</span>
+        <span>浙公网安备 33010902003532号</span>
         <a href="/">返回首页 ↗</a>
       </footer>
     </main>
