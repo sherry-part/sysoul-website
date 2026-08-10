@@ -3,147 +3,243 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ============================================
-   Data — Dual-core + Dual-domain topology
+   Data
    ============================================ */
 
 interface EcoNode {
-  id: string; name: string; level: number; tag?: string; accent?: "cyan" | "purple"; children?: EcoNode[];
+  id: string;
+  name: string;
+  level: number;
+  tag?: string;
+  children?: EcoNode[];
 }
 
-const systemTopology: EcoNode = {
+const ecosystemData: EcoNode = {
   id: "root",
   name: "泛在操作系统",
   level: 0,
-  tag: "UBIQUITOUS OS",
   children: [
+    {
+      id: "xiuos-top",
+      name: "XiUOS",
+      level: 1,
+      tag: "OS Branch",
+    },
     {
       id: "robonix",
       name: "Robonix",
       level: 1,
-      tag: "大脑 · 具身认知",
-      accent: "cyan",
-    },
-    {
-      id: "xiuos",
-      name: "XiUOS",
-      level: 1,
-      tag: "小脑 · 实时控制",
-      accent: "cyan",
-    },
-  ],
-};
-
-// Tier 1: parallel domain engines (manually placed at same Y)
-const cyberDomain: EcoNode = {
-  id: "cyber-engine",
-  name: "赛博机器人",
-  level: 2,
-  tag: "作用于赛博空间",
-  accent: "purple",
-  children: [
-    { id: "virtual-body", name: "虚拟本体", level: 3, accent: "purple" },
-  ],
-};
-
-const physicalDomain: EcoNode = {
-  id: "physical-engine",
-  name: "希秀智脑",
-  level: 2,
-  tag: "作用于物理空间",
-  accent: "cyan",
-  children: [
-    {
-      id: "physical-body",
-      name: "物理本体",
-      level: 3,
-      accent: "cyan",
       children: [
-        { id: "open-source", name: "开源款本体", level: 4, accent: "cyan" },
-        { id: "co-branded", name: "联名款本体", level: 4, accent: "cyan" },
+        {
+          id: "xixiu-brain",
+          name: "希秀智脑",
+          level: 2,
+          children: [
+            {
+              id: "physical-body",
+              name: "物理本体",
+              level: 3,
+              children: [
+                { id: "co-branded", name: "联名款本体", level: 4 },
+                {
+                  id: "open-source",
+                  name: "开源款本体",
+                  level: 4,
+                  children: [
+                    { id: "xiuos-bottom", name: "XiUOS", level: 5, tag: "搭载 XiUOS" },
+                  ],
+                },
+              ],
+            },
+            {
+              id: "virtual-body",
+              name: "虚拟本体",
+              level: 3,
+              children: [
+                { id: "cyber-robot", name: "赛博机器人", level: 4 },
+              ],
+            },
+          ],
+        },
       ],
     },
   ],
 };
 
 /* ============================================
-   Layout — manual coordinate grid
+   Layout Engine
    ============================================ */
-
-const SVG_W = 1500;
-const SVG_H = 850;
 
 interface LayoutNode {
-  id: string; name: string; tag?: string; accent: "cyan" | "purple";
-  x: number; y: number; w: number; h: number;
+  id: string;
+  name: string;
+  level: number;
+  tag?: string;
+  x: number;
+  y: number;
+  parentId?: string;
+  children: LayoutNode[];
 }
 
-const NODE_W = 150;
-const NODE_H = 52;
-const ROOT_Y = 80;
-const CORE_Y = 200;    // Robonix + XiUOS
-const ENGINE_Y = 340;  // 赛博机器人 + 希秀智脑 (same Y!)
-const BODY_Y = 470;    // 虚拟本体 + 物理本体
-const LEAF_Y = 600;    // 开源款 + 联名款
+const LEVEL_H = 115;
+const MIN_LEAF_GAP = 130;
+const NODE_W = 140;
+const NODE_H = 42;
+const SVG_W = 1000;
+const SVG_H = 750;
+const ROOT_Y = 52;
 
-const layouts: LayoutNode[] = [
-  // Tier 0
-  { id: "root", name: "泛在操作系统", tag: "UBIQUITOUS OS", accent: "cyan", x: SVG_W / 2, y: ROOT_Y, w: 180, h: NODE_H },
-  // Tier 0 cores
-  { id: "robonix", name: "Robonix", tag: "大脑 · 具身认知", accent: "cyan", x: 450, y: CORE_Y, w: NODE_W, h: NODE_H },
-  { id: "xiuos", name: "XiUOS", tag: "小脑 · 实时控制", accent: "cyan", x: 1050, y: CORE_Y, w: NODE_W, h: NODE_H },
-  // Tier 1 — parallel engines
-  { id: "cyber-engine", name: "赛博机器人", tag: "作用于赛博空间", accent: "purple", x: 400, y: ENGINE_Y, w: 160, h: NODE_H },
-  { id: "physical-engine", name: "希秀智脑", tag: "作用于物理空间", accent: "cyan", x: 1100, y: ENGINE_Y, w: 160, h: NODE_H },
-  // Tier 2 — bodies
-  { id: "virtual-body", name: "虚拟本体", tag: "", accent: "purple", x: 400, y: BODY_Y, w: 130, h: 44 },
-  { id: "physical-body", name: "物理本体", tag: "", accent: "cyan", x: 1100, y: BODY_Y, w: 130, h: 44 },
-  // Tier 3 — leaf entities
-  { id: "open-source", name: "开源款本体", tag: "", accent: "cyan", x: 950, y: LEAF_Y, w: 130, h: 44 },
-  { id: "co-branded", name: "联名款本体", tag: "", accent: "cyan", x: 1250, y: LEAF_Y, w: 130, h: 44 },
-];
+function buildLayout(root: EcoNode): LayoutNode {
+  // Flatten all leaves first
+  const leaves: { id: string; parentId?: string }[] = [];
+  function collectLeaves(node: EcoNode, parentId?: string) {
+    if (!node.children || node.children.length === 0) {
+      leaves.push({ id: node.id, parentId });
+    } else {
+      for (const child of node.children) {
+        collectLeaves(child, node.id);
+      }
+    }
+  }
+  collectLeaves(root);
 
-const nodeMap = new Map(layouts.map(n => [n.id, n]));
+  // Assign leaf x positions
+  const leafX = new Map<string, number>();
+  leaves.forEach((leaf, i) => {
+    leafX.set(leaf.id, i * MIN_LEAF_GAP);
+  });
 
-/* ============================================
-   Orthogonal circuit edges
-   ============================================ */
+  // Internal node x = average of children's leaf x positions
+  function computeLeafXs(node: EcoNode): number[] {
+    if (!node.children || node.children.length === 0) {
+      return [leafX.get(node.id)!];
+    }
+    const xs: number[] = [];
+    for (const child of node.children) {
+      xs.push(...computeLeafXs(child));
+    }
+    return xs;
+  }
 
-interface Edge { id: string; fx: number; fy: number; tx: number; ty: number; phase: number; accent: "cyan" | "purple"; }
+  function computeX(node: EcoNode): number {
+    const xs = computeLeafXs(node);
+    const avg = xs.reduce((a, b) => a + b, 0) / xs.length;
+    return avg;
+  }
 
-function ortho(x1: number, y1: number, x2: number, y2: number): string {
-  const my = y1 + (y2 - y1) * 0.45;
-  return `M ${x1} ${y1} L ${x1} ${my} L ${x2} ${my} L ${x2} ${y2}`;
+  // Build layout tree
+  function build(node: EcoNode, parentId?: string): LayoutNode {
+    const x = computeX(node);
+    const y = ROOT_Y + node.level * LEVEL_H;
+    const children = (node.children || []).map((c) => build(c, node.id));
+    return {
+      id: node.id,
+      name: node.name,
+      level: node.level,
+      tag: node.tag,
+      x,
+      y,
+      parentId,
+      children,
+    };
+  }
+
+  return build(root);
 }
 
-const edges: Edge[] = [
-  // Root → Robonix
-  { id: "root->robonix", fx: SVG_W / 2, fy: ROOT_Y + NODE_H / 2, tx: 450, ty: CORE_Y - NODE_H / 2, phase: 1, accent: "cyan" },
-  // Root → XiUOS
-  { id: "root->xiuos", fx: SVG_W / 2, fy: ROOT_Y + NODE_H / 2, tx: 1050, ty: CORE_Y - NODE_H / 2, phase: 1, accent: "cyan" },
-  // Robonix → 赛博机器人
-  { id: "robonix->cyber", fx: 450, fy: CORE_Y + NODE_H / 2, tx: 400, ty: ENGINE_Y - NODE_H / 2, phase: 2, accent: "purple" },
-  // XiUOS → 希秀智脑
-  { id: "xiuos->physical", fx: 1050, fy: CORE_Y + NODE_H / 2, tx: 1100, ty: ENGINE_Y - NODE_H / 2, phase: 2, accent: "cyan" },
-  // 赛博机器人 → 虚拟本体
-  { id: "cyber->virtual", fx: 400, fy: ENGINE_Y + NODE_H / 2, tx: 400, ty: BODY_Y - NODE_H / 2, phase: 3, accent: "purple" },
-  // 希秀智脑 → 物理本体
-  { id: "physical->body", fx: 1100, fy: ENGINE_Y + NODE_H / 2, tx: 1100, ty: BODY_Y - NODE_H / 2, phase: 3, accent: "cyan" },
-  // 物理本体 → 开源款
-  { id: "body->open", fx: 1100, fy: BODY_Y + NODE_H / 2, tx: 950, ty: LEAF_Y - NODE_H / 2, phase: 4, accent: "cyan" },
-  // 物理本体 → 联名款
-  { id: "body->branded", fx: 1100, fy: BODY_Y + NODE_H / 2, tx: 1250, ty: LEAF_Y - NODE_H / 2, phase: 4, accent: "cyan" },
-];
+const layoutRoot = buildLayout(ecosystemData);
+
+// Offset so tree is centered in SVG
+const allNodes: LayoutNode[] = [];
+function flatten(n: LayoutNode) {
+  allNodes.push(n);
+  n.children.forEach(flatten);
+}
+flatten(layoutRoot);
+
+const totalWidth = Math.max(...allNodes.map((n) => n.x)) + NODE_W;
+const offsetX = (SVG_W - totalWidth) / 2 + NODE_W / 2;
+const centeredNodes = allNodes.map((n) => ({ ...n, x: n.x + offsetX }));
+
+// Build edge list
+interface Edge {
+  id: string;
+  fromX: number;
+  fromY: number;
+  toX: number;
+  toY: number;
+  level: number;
+}
+
+const edges: Edge[] = [];
+for (const n of allNodes) {
+  for (const child of n.children) {
+    edges.push({
+      id: `${n.id}->${child.id}`,
+      fromX: n.x + offsetX,
+      fromY: n.y + NODE_H / 2,
+      toX: child.x + offsetX,
+      toY: child.y - NODE_H / 2,
+      level: child.level,
+    });
+  }
+}
 
 /* ============================================
-   Timing
+   Cubic Bézier path builder
    ============================================ */
 
-const phaseDelays = [0.3, 1.2, 2.8, 4.4];
-const ctaDelay = 6.2;
-const phase2Delay = 7.4;
-const logoDelay = 8.0;
-const sloganDelay = 9.0;
-const rootXPercent = (layouts[0].x / SVG_W) * 100;
+function bezierPath(e: Edge): string {
+  const { fromX, fromY, toX, toY } = e;
+  const dy = toY - fromY;
+  const cpOffset = Math.max(Math.abs(dy) * 0.55, 40);
+  const cp1x = fromX;
+  const cp1y = fromY + cpOffset;
+  const cp2x = toX;
+  const cp2y = toY - cpOffset;
+  return `M ${fromX} ${fromY} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${toX} ${toY}`;
+}
+
+/* ============================================
+   Variant styles
+   ============================================ */
+
+type Variant = "root" | "xiuos" | "robonix" | "brain" | "physical" | "virtual" | "leaf";
+
+function getVariant(n: LayoutNode): Variant {
+  if (n.id === "root") return "root";
+  if (n.id.includes("xiuos")) return "xiuos";
+  if (n.id === "robonix") return "robonix";
+  if (n.id === "xixiu-brain") return "brain";
+  if (n.id === "physical-body") return "physical";
+  if (n.id === "virtual-body") return "virtual";
+  return "leaf";
+}
+
+const variantStyle: Record<Variant, { bg: string; border: string; text: string; glow: string }> = {
+  root:     { bg: "rgba(255,255,255,0.09)", border: "rgba(255,255,255,0.45)", text: "#edf4ff", glow: "rgba(255,255,255,0.3)" },
+  xiuos:    { bg: "rgba(120,180,255,0.09)", border: "rgba(120,180,255,0.5)",  text: "#8cc8ff", glow: "rgba(120,180,255,0.25)" },
+  robonix:  { bg: "rgba(104,225,255,0.09)", border: "rgba(104,225,255,0.55)", text: "#68e1ff", glow: "rgba(104,225,255,0.3)" },
+  brain:    { bg: "rgba(104,225,255,0.11)", border: "rgba(104,225,255,0.6)",  text: "#edf4ff", glow: "rgba(104,225,255,0.35)" },
+  physical: { bg: "rgba(90,180,255,0.09)",  border: "rgba(90,180,255,0.5)",   text: "#5db8fe", glow: "rgba(90,180,255,0.25)" },
+  virtual:  { bg: "rgba(167,139,250,0.09)", border: "rgba(167,139,250,0.5)",  text: "#a78bfa", glow: "rgba(167,139,250,0.25)" },
+  leaf:     { bg: "rgba(255,255,255,0.04)", border: "rgba(255,255,255,0.22)", text: "#8a9ab5", glow: "rgba(255,255,255,0.1)" },
+};
+
+/* ============================================
+   Phase timing
+   ============================================ */
+
+const levelToPhase = [1, 2, 2, 3, 4, 5]; // level → phase
+
+const phaseDelays = [0.3, 1.2, 2.8, 4.6, 6.4]; // seconds for phase 1-5
+const ctaDelay = 8.2; // seconds
+const phase2Delay = 9.5; // seconds — tree starts sliding right
+const logoDelay = 10.2; // seconds — logo scan reveal
+const sloganDelay = 11.5; // seconds — slogan text appear
+
+// Root node x as percentage of SVG width — used to align CTA
+const rootXPercent = centeredNodes.length > 0 ? (centeredNodes[0].x / SVG_W) * 100 : 50;
 
 /* ============================================
    Component
@@ -158,116 +254,251 @@ export default function EcosystemTree({ show }: { show: boolean }) {
 
   useEffect(() => {
     if (!show) { setPhase(0); setShowCta(false); setIsPhase2(false); setShowLogo(false); setShowSlogan(false); return; }
-    const t: NodeJS.Timeout[] = [];
-    phaseDelays.forEach((d, i) => t.push(setTimeout(() => setPhase(i + 1), d * 1000)));
-    t.push(setTimeout(() => setShowCta(true), ctaDelay * 1000));
-    t.push(setTimeout(() => setIsPhase2(true), phase2Delay * 1000));
-    t.push(setTimeout(() => setShowLogo(true), logoDelay * 1000));
-    t.push(setTimeout(() => setShowSlogan(true), sloganDelay * 1000));
-    return () => t.forEach(clearTimeout);
+    const timers: NodeJS.Timeout[] = [];
+    phaseDelays.forEach((d, i) => timers.push(setTimeout(() => setPhase(i + 1), d * 1000)));
+    timers.push(setTimeout(() => setShowCta(true), ctaDelay * 1000));
+    timers.push(setTimeout(() => setIsPhase2(true), phase2Delay * 1000));
+    timers.push(setTimeout(() => setShowLogo(true), logoDelay * 1000));
+    timers.push(setTimeout(() => setShowSlogan(true), sloganDelay * 1000));
+    return () => timers.forEach(clearTimeout);
   }, [show]);
 
-  const pa = (p: number) => phase >= p;
+  const phaseActive = (p: number) => phase >= p;
 
-  const accentColor = (a: "cyan" | "purple") => a === "purple" ? "#a78bfa" : "#68e1ff";
+  const nodesByLevel = new Map<number, LayoutNode[]>();
+  for (const n of centeredNodes) {
+    const arr = nodesByLevel.get(n.level) || [];
+    arr.push(n);
+    nodesByLevel.set(n.level, arr);
+  }
 
   return (
     <AnimatePresence>
       {show && (
-        <motion.div className="eco-tree-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-          {/* Brand — Phase 2 */}
+        <motion.div
+          className="eco-tree-overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {/* Phase 2: Brand identity on the left */}
           {isPhase2 && (
             <div className="eco-brand">
-              <motion.div className="eco-logo-wrap"
+              {/* Logo with laser scan reveal */}
+              <motion.div
+                className="eco-logo-wrap"
                 initial={{ clipPath: "inset(0 100% 0 0)" }}
                 animate={showLogo ? { clipPath: "inset(0 0% 0 0)" } : {}}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               >
-                <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/logo1.webp" alt="Sysoul" className="eco-logo-img" />
-                {showLogo && <motion.div className="eco-laser-line" initial={{ left: "0%" }} animate={{ left: "100%" }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }} />}
+                <img src="/images/logo1.webp" alt="Sysoul" className="eco-logo-img" />
+                {/* Laser scan line */}
+                {showLogo && (
+                  <motion.div
+                    className="eco-laser-line"
+                    initial={{ left: "0%" }}
+                    animate={{ left: "100%" }}
+                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                  />
+                )}
               </motion.div>
-              <motion.div className="eco-slogan-wrap"
+
+              {/* Slogan */}
+              <motion.div
+                className="eco-slogan-wrap"
                 initial={{ clipPath: "inset(0 100% 0 0)" }}
                 animate={showSlogan ? { clipPath: "inset(0 0% 0 0)" } : {}}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               >
-                <p className="eco-slogan">让机器人走进千行百业，更好地服务人类</p>
-                <motion.div className="eco-slogan-line" initial={{ scaleX: 0 }} animate={showSlogan ? { scaleX: 1 } : {}} transition={{ delay: 0.6, duration: 0.8 }} style={{ transformOrigin: "left" }} />
+                <p className="eco-slogan">
+                  让机器人走进千行百业，更好地服务人类
+                </p>
+                <motion.div
+                  className="eco-slogan-line"
+                  initial={{ scaleX: 0 }}
+                  animate={showSlogan ? { scaleX: 1 } : {}}
+                  transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+                  style={{ transformOrigin: "left" }}
+                />
               </motion.div>
             </div>
           )}
 
-          <motion.div className="eco-tree-wrap"
-            animate={{ x: isPhase2 ? "14vw" : 0, scale: isPhase2 ? 0.92 : 1 }}
+          {/* Tree container — slides right in Phase 2 */}
+          <motion.div
+            className="eco-tree-wrap"
+            animate={{
+              x: isPhase2 ? "22vw" : 0,
+              scale: isPhase2 ? 0.86 : 1,
+            }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} className="eco-tree-svg" preserveAspectRatio="xMidYMid meet">
+            <p className="eco-kicker">ECOSYSTEM & PRODUCTS</p>
+
+            <svg
+              viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+              className="eco-tree-svg"
+              preserveAspectRatio="xMidYMid meet"
+            >
               <defs>
-                <filter id="glowLine" x="-60%" y="-60%" width="220%" height="220%">
-                  <feGaussianBlur stdDeviation="2" result="blur" />
+                <filter id="glowLight" x="-60%" y="-60%" width="220%" height="220%">
+                  <feGaussianBlur stdDeviation="2.5" result="blur" />
                   <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
                 </filter>
-                <radialGradient id="bgGlow" cx="50%" cy="35%" r="55%">
-                  <stop offset="0%" stopColor="rgba(56,189,248,0.06)" />
-                  <stop offset="100%" stopColor="transparent" />
-                </radialGradient>
+                <filter id="glowStrong" x="-60%" y="-60%" width="220%" height="220%">
+                  <feGaussianBlur stdDeviation="5" result="blur" />
+                  <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                </filter>
+                <filter id="glowNode" x="-80%" y="-80%" width="260%" height="260%">
+                  <feGaussianBlur stdDeviation="8" result="blur" />
+                  <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                </filter>
               </defs>
 
-              <rect x="0" y="0" width={SVG_W} height={SVG_H} fill="url(#bgGlow)" />
-
-              {/* Edges */}
-              {edges.map(e => (
-                <g key={e.id}>
-                  {pa(e.phase) && (
-                    <>
-                      <motion.path d={ortho(e.fx, e.fy, e.tx, e.ty)} fill="none" stroke={accentColor(e.accent)} strokeWidth={2.5} strokeOpacity={0.12} filter="url(#glowLine)" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.6 }} />
-                      <motion.path d={ortho(e.fx, e.fy, e.tx, e.ty)} fill="none" stroke={accentColor(e.accent)} strokeWidth={1.2} strokeOpacity={0.45} initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.6 }} />
-                      {/* Joint dot at corner */}
-                      <motion.circle cx={e.tx} cy={(e.fy + e.ty) / 2 * 0.45 + (e.fy + e.ty) / 2 * 0.55} r={2} fill={accentColor(e.accent)} opacity={0} animate={{ opacity: 0.6 }} transition={{ delay: 0.5 }} />
-                    </>
-                  )}
-                </g>
-              ))}
+              {/* Edges — drawn when phase active */}
+              {edges.map((e) => {
+                const edgePhase = levelToPhase[e.level];
+                return (
+                  <g key={e.id}>
+                    {phaseActive(edgePhase) && (
+                      <>
+                        <motion.path
+                          d={bezierPath(e)}
+                          fill="none"
+                          stroke={e.id.includes("virtual") || e.id.includes("cyber") ? "#a78bfa" : "#68e1ff"}
+                          strokeWidth={3}
+                          strokeOpacity={0.15}
+                          filter="url(#glowLight)"
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 0.7, ease: "easeInOut" }}
+                        />
+                        <motion.path
+                          d={bezierPath(e)}
+                          fill="none"
+                          stroke={e.id.includes("virtual") || e.id.includes("cyber") ? "#a78bfa" : "#68e1ff"}
+                          strokeWidth={1.2}
+                          strokeOpacity={0.55}
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 0.7, ease: "easeInOut" }}
+                        />
+                        <motion.circle r={2.5} fill="#fff" filter="url(#glowLight)">
+                          <animateMotion
+                            dur="2.5s"
+                            repeatCount="indefinite"
+                            path={bezierPath(e)}
+                          />
+                        </motion.circle>
+                      </>
+                    )}
+                  </g>
+                );
+              })}
 
               {/* Nodes */}
-              {layouts.map(n => {
-                const c = accentColor(n.accent);
-                const np = n.id === "root" ? 1 :
-                  (n.id === "robonix" || n.id === "xiuos") ? 1 :
-                  (n.id === "cyber-engine" || n.id === "physical-engine") ? 2 :
-                  (n.id === "virtual-body" || n.id === "physical-body") ? 3 : 4;
+              {centeredNodes.map((n) => {
+                const v = getVariant(n);
+                const s = variantStyle[v];
+                const nodePhase = levelToPhase[n.level];
+                const tw = n.name.length * 14 + (n.tag ? 0 : 0);
+                const w = Math.max(tw + 32, 100);
+                const h = NODE_H;
 
                 return (
                   <g key={n.id}>
-                    {pa(np) && (
-                      <motion.foreignObject x={n.x - n.w / 2} y={n.y - n.h / 2} width={n.w} height={n.h}
-                        initial={{ opacity: 0, scale: 0.7 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
-                      >
-                        <div className="hud-node" style={{ "--accent": c, width: "100%", height: "100%" } as React.CSSProperties}>
-                          <span className="hud-corner hud-tl" />
-                          <span className="hud-corner hud-tr" />
-                          <span className="hud-corner hud-bl" />
-                          <span className="hud-corner hud-br" />
-                          <span className="hud-label">{n.name}</span>
-                          {n.tag && <span className="hud-tag">{n.tag}</span>}
-                        </div>
-                      </motion.foreignObject>
+                    {phaseActive(nodePhase) && (
+                      <>
+                        <motion.rect
+                          x={n.x - w / 2} y={n.y - h / 2}
+                          width={w} height={h} rx={h / 2}
+                          fill={s.glow}
+                          initial={{ opacity: 0, scale: 0.5 }}
+                          animate={{ opacity: [0, 0.5, 0.25], scale: 1 }}
+                          transition={{
+                            opacity: { delay: 0.25, duration: 0.6 },
+                            scale: { delay: 0, duration: 0.5, type: "spring", stiffness: 200 },
+                          }}
+                          style={{ filter: "blur(14px)" }}
+                        />
+                        <motion.rect
+                          x={n.x - w / 2} y={n.y - h / 2}
+                          width={w} height={h} rx={h / 2}
+                          fill={s.bg}
+                          stroke={s.border}
+                          strokeWidth={1.5}
+                          initial={{ opacity: 0, scale: 0.6 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.08, duration: 0.45, type: "spring", stiffness: 180 }}
+                        />
+                        <motion.rect
+                          x={n.x - w / 2} y={n.y - h / 2}
+                          width={w} height={h} rx={h / 2}
+                          fill="none"
+                          stroke={s.border}
+                          strokeWidth={1}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: [0, 0.35, 0] }}
+                          transition={{ delay: 1, duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                        <motion.text
+                          x={n.x} y={n.y + 5}
+                          textAnchor="middle"
+                          fill={s.text}
+                          fontSize={n.level === 0 ? 15 : n.level <= 2 ? 13 : 12}
+                          fontWeight={n.level <= 2 ? 600 : 400}
+                          letterSpacing={0.8}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: 0.25, duration: 0.4 }}
+                        >
+                          {n.name}
+                        </motion.text>
+                        {n.tag && (
+                          <motion.text
+                            x={n.x} y={n.y + h / 2 + 16}
+                            textAnchor="middle"
+                            fill={s.text}
+                            fontSize={10}
+                            opacity={0.7}
+                            letterSpacing={0.5}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 0.7 }}
+                            transition={{ delay: 0.45, duration: 0.4 }}
+                          >
+                            {n.tag}
+                          </motion.text>
+                        )}
+                      </>
                     )}
                   </g>
                 );
               })}
             </svg>
 
+            {/* CTA */}
             {showCta && (
-              <motion.div className="eco-cta-wrap" style={{ left: `${rootXPercent}%`, x: "-50%" }}
-                initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
+              <motion.div
+                className="eco-cta-wrap"
+                style={{ left: `${rootXPercent}%`, x: "-50%" }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <motion.a href="/products" className="eco-cta-btn"
-                  animate={{ boxShadow: ["0 0 20px rgba(104,225,255,0.15)", "0 0 45px rgba(104,225,255,0.35)", "0 0 20px rgba(104,225,255,0.15)"] }}
-                  transition={{ duration: 2.5, repeat: Infinity }}
-                >进入产品世界 <span>↗</span></motion.a>
+                <motion.a
+                  href="/products"
+                  className="eco-cta-btn"
+                  animate={{
+                    boxShadow: [
+                      "0 0 20px rgba(104,225,255,0.15)",
+                      "0 0 45px rgba(104,225,255,0.35)",
+                      "0 0 20px rgba(104,225,255,0.15)",
+                    ],
+                  }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  进入产品世界 <span>↗</span>
+                </motion.a>
               </motion.div>
             )}
           </motion.div>
