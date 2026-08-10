@@ -1,63 +1,6 @@
 "use client";
 import { useState } from "react";
-import { slides, type Slide } from "../constants";
-
-function MachineVisual() {
-  return (
-    <div className="slide-visual-inner machine-visual">
-      <div className="machine-ring" />
-      <div className="machine-ring orbit-b" />
-      <div className="machine-body">
-        <div className="machine-screen">
-          SYSOUL
-          <br />
-          <b>ROBONIX</b>
-        </div>
-        <div className="machine-light" />
-      </div>
-    </div>
-  );
-}
-
-function BodyVisual() {
-  return (
-    <div className="slide-visual-inner body-visual-type">
-      <div className="body-ring" />
-      <div className="body-torso">
-        <div className="body-core" />
-        <div className="body-joint joint-l1" />
-        <div className="body-joint joint-l2" />
-        <div className="body-joint joint-r1" />
-        <div className="body-joint joint-r2" />
-      </div>
-      <div className="body-head-unit" />
-      <div className="body-glow" />
-    </div>
-  );
-}
-
-function CyberVisual() {
-  return (
-    <div className="slide-visual-inner cyber-visual-type">
-      <div className="cyber-grid-bg" />
-      <div className="cyber-head-shape">
-        CYBER
-        <br />
-        <b>BOT</b>
-      </div>
-      <div className="cyber-scan" />
-      <div className="cyber-particle p1" />
-      <div className="cyber-particle p2" />
-      <div className="cyber-particle p3" />
-    </div>
-  );
-}
-
-function renderVisual(type: Slide["visual"]) {
-  if (type === "body") return <BodyVisual />;
-  if (type === "cyber") return <CyberVisual />;
-  return <MachineVisual />;
-}
+import { slides } from "../constants";
 
 export default function ProductCarousel() {
   const [index, setIndex] = useState(0);
@@ -72,42 +15,45 @@ export default function ProductCarousel() {
         style={{ transform: `translateX(-${index * 100}%)` }}
       >
         {slides.map((slide, i) => (
-          <div key={slide.id} className={`carousel-slide${i === index ? " active" : ""}`}>
-            {/* Left chat bubbles */}
+          <div
+            key={slide.id}
+            className={`carousel-slide slide-${slide.id}${i === index ? " active" : ""}`}
+          >
+            {/* Left HUD cards */}
             <div className="bubble-group bubble-left">
               {slide.leftBubbles.map((b, i) => (
                 <div
                   key={i}
-                  className="chat-bubble left"
+                  className={`hud-card hud-left${i === index ? " active" : ""}`}
                   style={{ top: b.top }}
                 >
-                  {b.text}
+                  <span className="hud-dot" />
+                  <span className="hud-tag">SYS_{(i + 1).toString().padStart(2, "0")}</span>
+                  <p className="hud-text">{b.text}</p>
                 </div>
               ))}
             </div>
 
-            {/* Center visual */}
-            <div className="slide-visual">{renderVisual(slide.visual)}</div>
+            {/* Center product image */}
+            <div className="carousel-center-img">
+              <img src={`https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/${({ allinone: "agentbrain.png", body: "jaka.png", cyber: "cyberbot.png" } as Record<string, string>)[slide.id]}`} alt="" />
+            </div>
 
-            {/* Right chat bubbles */}
+            {/* Right HUD cards */}
             <div className="bubble-group bubble-right">
               {slide.rightBubbles.map((b, i) => (
                 <div
                   key={i}
-                  className="chat-bubble right"
+                  className={`hud-card hud-right${i === index ? " active" : ""}`}
                   style={{ top: b.top }}
                 >
-                  {b.text}
+                  <span className="hud-dot" />
+                  <span className="hud-tag">SYS_{(i + 1).toString().padStart(2, "0")}</span>
+                  <p className="hud-text">{b.text}</p>
                 </div>
               ))}
             </div>
 
-            {/* Bottom label */}
-            <div className="slide-label">
-              <span className="slide-label-index">{slide.index}</span>
-              <span className="slide-label-tag">{slide.label}</span>
-              <span className="slide-label-title">{slide.title}</span>
-            </div>
           </div>
         ))}
       </div>

@@ -1,6 +1,7 @@
 import SiteHeader from "../../components/site-header";
 import ScrollReveal from "../../components/scroll-reveal";
 import ProductCarousel from "../../components/product-carousel";
+import Footer from "../../components/footer";
 import { partners } from "../../constants";
 
 export default function Products() {
@@ -14,69 +15,7 @@ export default function Products() {
       <ProductCarousel />
 
       {/* ============================================
-           2. All-in-one vs Bare Metal + comparison video
-           ============================================ */}
-      <section className="compare-section">
-        <div className="compare-grid">
-          <div className="compare-text"><ScrollReveal>
-              <h2>裸机给你零件<br /><em>一体机给你结果</em></h2>
-            </ScrollReveal>
-            <ScrollReveal>
-              <p>
-                电源、算力、驱动、系统已经深度协同。
-                工程团队不再耗费数月适配硬件，把时间放在真正的技能开发上。
-              </p>
-            </ScrollReveal>
-            <ScrollReveal>
-              <div className="compare-stats">
-                <span>
-                  <b>3×</b>
-                  <small>更快部署</small>
-                </span>
-                <span>
-                  <b>0</b>
-                  <small>额外适配工作</small>
-                </span>
-                <span>
-                  <b>∞</b>
-                  <small>技能持续接入</small>
-                </span>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <div className="compare-badges">
-                <span className="badge">即插即用</span>
-                <span className="badge">系统协同</span>
-                <span className="badge">持续进化</span>
-              </div>
-            </ScrollReveal>
-          </div>
-          <div className="compare-media">
-            <ScrollReveal threshold={0.1}>
-              <div className="video-placeholder">
-                <video
-                  src="/videos/empty.mp4"
-                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect fill='%23071020' width='800' height='450'/%3E%3Ctext fill='%2368e1ff' x='400' y='225' text-anchor='middle' font-size='14' font-family='monospace'%3ECOMPARISON FILM%3C/text%3E%3C/svg%3E"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  preload="auto"
-                  className="compare-video"
-                />
-                <div className="video-play-overlay">
-                  <div className="play-btn">▶</div>
-                  <span>ALL-IN-ONE 对比演示</span>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================
-           4. Open Ecosystem
+           2. Open Ecosystem
            ============================================ */}
       <section className="ecosystem">
         <div className="ecosystem-head"><ScrollReveal>
@@ -122,34 +61,111 @@ export default function Products() {
       </section>
 
       {/* ============================================
-           5. Body Product — 联名本体
+           3. 大脑 — 智脑盒子
            ============================================ */}
-      <section className="body-section" id="body-product">
-        <div className="body-layout">
-          <div className="body-text"><ScrollReveal>
-              <h2>让每一个动作<br /><em>稳定 · 精准 · 可复用</em></h2>
+      <section className="compare-section brain-section">
+        <div className="compare-grid">
+          <div className="compare-text">
+            <ScrollReveal>
+              <span className="brain-label">大脑</span>
+            </ScrollReveal>
+            <ScrollReveal>
+              <h2>智脑盒子<br /><em>一体化控制平台</em></h2>
             </ScrollReveal>
             <ScrollReveal>
               <p>
-                面向真实物理世界的机器人本体。兼容联名款与搭载 XiUOS 小脑的开放款，
-                关节运控算法确保每一次动作都在毫秒级精度内完成。
+                电源、算力、驱动、系统深度协同，工程团队不再耗费数月适配硬件，
+                把时间放在真正的技能开发上。
               </p>
             </ScrollReveal>
             <ScrollReveal>
-              <div className="body-features">
-                <div className="bf-item">
-                  <b>联名款</b>
-                  <small>与头部本体厂商深度适配，开箱精度即达生产级。</small>
-                </div>
-                <div className="bf-item">
-                  <b>开源款</b>
-                  <small>搭载 XiUOS 小脑，全栈开放，研究与教学首选。</small>
-                </div>
+              <div className="compare-stats">
+                <span>
+                  <b>3×</b>
+                  <small>更快部署</small>
+                </span>
+                <span>
+                  <b>0</b>
+                  <small>额外适配工作</small>
+                </span>
+                <span>
+                  <b>∞</b>
+                  <small>技能持续接入</small>
+                </span>
               </div>
             </ScrollReveal>
             <ScrollReveal>
-              <a className="text-link" href="mailto:contact@sysoul.ai">
-                预约本体体验 ↗
+              <div className="compare-badges">
+                <span className="badge">即插即用</span>
+                <span className="badge">系统协同</span>
+                <span className="badge">持续进化</span>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal>
+              <a className="text-link" href="/products/allinone">
+                了解智脑盒子 ↗
+              </a>
+            </ScrollReveal>
+          </div>
+          <div className="compare-media">
+            <ScrollReveal threshold={0.1}>
+              <div className="video-placeholder">
+                <video
+                  src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/empty.mp4"
+                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect fill='%23071020' width='800' height='450'/%3E%3Ctext fill='%2368e1ff' x='400' y='225' text-anchor='middle' font-size='14' font-family='monospace'%3ECOMPARISON FILM%3C/text%3E%3C/svg%3E"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="auto"
+                  className="compare-video"
+                />
+                <div className="video-play-overlay">
+                  <div className="play-btn">▶</div>
+                  <span>智脑盒子演示</span>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+           4. 大脑 — 赛博机器人
+           ============================================ */}
+      <section className="cyber-section" id="cyber-product">
+        <div className="cyber-layout">
+          <div className="body-visual-side">
+            <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/cyberbot.png" alt="赛博机器人" className="body-prod-img" />
+          </div>
+          <div className="cyber-text"><ScrollReveal>
+              <span className="brain-label">大脑</span>
+            </ScrollReveal>
+            <ScrollReveal>
+              <h2>赛博机器人<br /><em>非侵入式智能数据引擎</em></h2>
+            </ScrollReveal>
+            <ScrollReveal>
+              <p>
+                独创硬件层直采技术，无需安装任何软件，一插即用。
+                破除封闭系统壁垒，为工业设备、企业系统、互联网与政务场景提供毫秒级智能数据采集。
+              </p>
+            </ScrollReveal>
+            <ScrollReveal>
+              <div className="cyber-metrics">
+                <span className="cyber-metric">
+                  <b>100%</b>
+                  <small>采集精度</small>
+                </span>
+                <span className="cyber-metric">
+                  <b>1000+</b>
+                  <small>并行终端</small>
+                </span>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal>
+              <a className="text-link" href="/products/cyber">
+                了解赛博机器人 ↗
               </a>
             </ScrollReveal>
           </div>
@@ -157,37 +173,58 @@ export default function Products() {
       </section>
 
       {/* ============================================
-           6. Cyber Product — 赛博机器人
+           5. 小脑 — 运控算法
            ============================================ */}
-      <section className="cyber-section" id="cyber-product">
-        <div className="cyber-grid-large" />
-        <div className="cyber-text-only"><ScrollReveal>
-            <h2>在虚拟世界<br /><em>先行一万步</em></h2>
-          </ScrollReveal>
-          <ScrollReveal>
-            <p>
-              赛博机器人感控一体，连接仿真与真实部署。每一个想法，
-              都可以先在数字世界里被验证、优化、再推向物理世界。
-              降低试错成本，加速技能迭代。
-            </p>
-          </ScrollReveal>
-          <ScrollReveal>
-            <div className="cyber-metrics">
-              <span className="cyber-metric">
-                <b>1:1</b>
-                <small>数字孪生保真度</small>
-              </span>
-              <span className="cyber-metric">
-                <b>&lt;5ms</b>
-                <small>感控闭环延迟</small>
-              </span>
+      <section className="cerebellum-section" id="cerebellum">
+        <div className="cerebellum-layout">
+          <div className="cerebellum-text">
+            <ScrollReveal>
+              <span className="brain-label">小脑</span>
+            </ScrollReveal>
+            <ScrollReveal>
+              <h2>运控算法<br /><em>自主研发的实时运动控制</em></h2>
+            </ScrollReveal>
+            <ScrollReveal>
+              <p>
+                基于 XiUOS 小脑架构，从底层驱动到上层运控全部自主可控。
+                支持多轴联动、力控柔顺、轨迹规划与实时插补，
+                为工业机器人与协作机器人提供毫秒级精密运动控制能力。
+              </p>
+            </ScrollReveal>
+            <ScrollReveal>
+              <div className="cerebellum-metrics">
+                <span className="cyber-metric">
+                  <b>&lt;1ms</b>
+                  <small>控制周期</small>
+                </span>
+                <span className="cyber-metric">
+                  <b>7-DOF</b>
+                  <small>全空间支持</small>
+                </span>
+                <span className="cyber-metric">
+                  <b>100%</b>
+                  <small>自主可控</small>
+                </span>
+              </div>
+            </ScrollReveal>
+          </div>
+          <div className="cerebellum-visual">
+            <div className="cerebellum-card">
+              <div className="cerebellum-icon">⟐</div>
+              <b>XiUOS 小脑</b>
+              <small>实时操作系统内核，硬实时调度，微秒级中断响应。支持 EtherCAT、CANopen 等工业总线协议，兼容主流伺服驱动。</small>
             </div>
-          </ScrollReveal>
+            <div className="cerebellum-card">
+              <div className="cerebellum-icon">⚙</div>
+              <b>运控算法库</b>
+              <small>轨迹规划、速度前瞻、力位混合控制、振动抑制等核心算法。提供 C/Python SDK，支持 ROS2 与 Robonix 技能框架集成。</small>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ============================================
-           7. Tutorial Videos
+           6. Tutorial Videos
            ============================================ */}
       <section className="tutorials">
         <div className="tutorials-head"><ScrollReveal>
@@ -205,7 +242,7 @@ export default function Products() {
             <div className="tutorial-card">
               <div className="tutorial-thumb">
                 <video
-                  src="/videos/empty.mp4"
+                  src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/empty.mp4"
                   controls
                   preload="auto"
                 />
@@ -219,7 +256,7 @@ export default function Products() {
             <div className="tutorial-card">
               <div className="tutorial-thumb">
                 <video
-                  src="/videos/empty.mp4"
+                  src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/empty.mp4"
                   controls
                   preload="auto"
                 />
@@ -233,7 +270,7 @@ export default function Products() {
             <div className="tutorial-card">
               <div className="tutorial-thumb">
                 <video
-                  src="/videos/empty.mp4"
+                  src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/empty.mp4"
                   controls
                   preload="auto"
                 />
@@ -247,7 +284,7 @@ export default function Products() {
       </section>
 
       {/* ============================================
-           8. Partners
+           7. Partners
            ============================================ */}
       <section className="partners" id="partners">
         <ScrollReveal>
@@ -288,14 +325,9 @@ export default function Products() {
       </section>
 
       {/* ============================================
-           9. Footer
+           8. Footer
            ============================================ */}
-      <footer>
-        <span>杭州希秀泛在计算技术有限公司</span>
-        <span>浙ICP备2023005800号-1</span>
-        <span>浙公网安备 33010902003532号</span>
-        <a href="/">返回首页 ↗</a>
-      </footer>
+      <Footer />
     </main>
   );
 }

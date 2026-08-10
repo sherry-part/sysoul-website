@@ -1,4 +1,5 @@
 import SiteHeader from "../../../components/site-header";
+import Footer from "../../../components/footer";
 import ScrollReveal from "../../../components/scroll-reveal";
 
 const specs = [
@@ -63,13 +64,7 @@ export default function AllinonePage() {
       <SiteHeader productPage />
 
       {/* Hero */}
-      <section className="pd-hero pd-hero-allinone">
-        <div className="pd-hero-bg">
-          <div className="pd-orbit-ring" />
-          <div className="pd-orbit-ring" />
-          <div className="pd-core-glow" />
-        </div>
-        <div className="pd-hero-content"><ScrollReveal>
+      <section className="pd-hero pd-hero-allinone"><div className="pd-hero-content"><ScrollReveal>
             <h1>一体机<br /><em>智脑盒子</em></h1>
           </ScrollReveal>
           <ScrollReveal>
@@ -227,12 +222,7 @@ export default function AllinonePage() {
         </ScrollReveal>
       </section>
 
-      <footer>
-        <span>杭州希秀泛在计算技术有限公司</span>
-        <span>浙ICP备2023005800号-1</span>
-        <span>浙公网安备 33010902003532号</span>
-        <a href="/">返回首页 ↗</a>
-      </footer>
+      <Footer />
     </main>
   );
 }

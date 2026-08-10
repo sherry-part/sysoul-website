@@ -1,4 +1,5 @@
 import SiteHeader from "../../../components/site-header";
+import Footer from "../../../components/footer";
 import ScrollReveal from "../../../components/scroll-reveal";
 
 const tools = [
@@ -194,12 +195,7 @@ export default function PersonalSolutions() {
         </ScrollReveal>
       </section>
 
-      <footer>
-        <span>杭州希秀泛在计算技术有限公司</span>
-        <span>浙ICP备2023005800号-1</span>
-        <span>浙公网安备 33010902003532号</span>
-        <a href="/">返回首页 ↗</a>
-      </footer>
+      <Footer />
     </main>
   );
 }

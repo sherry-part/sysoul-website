@@ -18,6 +18,11 @@ log "2. 打包产物..."
 cp -r .next/standalone /tmp/sysoul-standalone
 cp -r .next/static /tmp/sysoul-standalone/.next/static
 cp -r public /tmp/sysoul-standalone/public
+
+# 清理缓存减小体积
+rm -rf /tmp/sysoul-standalone/.next/cache 2>/dev/null || true
+find /tmp/sysoul-standalone -name "*.map" -delete 2>/dev/null || true
+
 cd /tmp/sysoul-standalone
 tar czf /tmp/sysoul-deploy.tar.gz .
 cd - > /dev/null
