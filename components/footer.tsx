@@ -1,15 +1,12 @@
-import Image from "next/image";
-
 export default function Footer() {
   return (
     <footer className="site-footer" id="site-footer">
       <div className="footer-main">
         <div className="footer-brand">
-          <Image
+          <img
             src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/logo1.webp"
-            width={160}
-            height={37}
             alt="Sysoul"
+            className="footer-logo"
           />
           <p className="footer-tagline">让机器人走进千行百业，更好地服务人类</p>
         </div>

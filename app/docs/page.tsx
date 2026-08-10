@@ -7,38 +7,26 @@ const categories = [
     icon: "⊡",
     title: "Robonix 操作系统",
     desc: "内核架构、技能管理、设备抽象层与实时调度文档。",
+    href: "https://book.robonix.ai",
   },
   {
     icon: "⚙",
     title: "XiUOS 小脑",
     desc: "实时控制、关节运控算法、硬件适配与驱动开发指南。",
+    href: "#",
   },
   {
     icon: "⟐",
     title: "技能 SDK",
     desc: "技能创建、测试、发布全流程，多平台部署与调试工具。",
+    href: "#",
   },
   {
     icon: "↗",
-    title: "API 参考",
-    desc: "REST 与 gRPC 接口文档，兼容主流机器人中间件标准。",
+    title: "包目录",
+    desc: "Robonix 预置技能与工具包，开箱即用，期待你的复用与贡献。",
+    href: "https://packages.robonix.ai",
   },
-];
-
-const popularDocs = [
-  { label: "快速开始：5 分钟部署 Robonix", tag: "入门" },
-  { label: "Robonix 架构总览", tag: "概念" },
-  { label: "技能开发工作流", tag: "指南" },
-  { label: "一体机硬件安装指南", tag: "硬件" },
-  { label: "从仿真到真实部署", tag: "教程" },
-];
-
-const apiDocs = [
-  { label: "Skill API 参考", tag: "API" },
-  { label: "Device Abstraction Layer", tag: "API" },
-  { label: "Robonix CLI 命令手册", tag: "CLI" },
-  { label: "gRPC 接口定义", tag: "协议" },
-  { label: "错误码与诊断指南", tag: "参考" },
 ];
 
 export default function Docs() {
@@ -80,7 +68,7 @@ export default function Docs() {
         <div className="docs-cat-grid">
           {categories.map((cat, i) => (
             <ScrollReveal key={cat.title} delay={i * 0.08}>
-              <a className="docs-cat-card" href="#">
+              <a className="docs-cat-card" href={cat.href} target={cat.href.startsWith("http") ? "_blank" : undefined} rel={cat.href.startsWith("http") ? "noreferrer" : undefined}>
                 <span className="docs-cat-icon">{cat.icon}</span>
                 <b>{cat.title}</b>
                 <small>{cat.desc}</small>
@@ -88,40 +76,6 @@ export default function Docs() {
               </a>
             </ScrollReveal>
           ))}
-        </div>
-      </section>
-
-      {/* Popular & API */}
-      <section className="docs-popular"><ScrollReveal>
-          <h2>
-            热门文档
-            <br />
-            <em>快速跳转</em>
-          </h2>
-        </ScrollReveal>
-        <div className="docs-popular-grid">
-          <ScrollReveal delay={0}>
-            <div className="docs-popular-col">
-              <h3>入门与指南</h3>
-              {popularDocs.map((doc) => (
-                <a key={doc.label} className="doc-link-item" href="#">
-                  <span>{doc.label}</span>
-                  <span className="doc-link-tag">{doc.tag}</span>
-                </a>
-              ))}
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.12}>
-            <div className="docs-popular-col">
-              <h3>API 与工具</h3>
-              {apiDocs.map((doc) => (
-                <a key={doc.label} className="doc-link-item" href="#">
-                  <span>{doc.label}</span>
-                  <span className="doc-link-tag">{doc.tag}</span>
-                </a>
-              ))}
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 

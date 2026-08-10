@@ -18,15 +18,8 @@ export default function Home() {
 
   return (
     <main className="home-page">
-      <SiteHeader />
+      <SiteHeader homePage />
       <section className="film-hero">
-        {/* Background image */}
-        <img
-          src="/images/background.jpg"
-          className="home-video"
-          alt="Sysoul background"
-        />
-
         {/* Logo overlay */}
         <motion.div
           className="eco-brand"

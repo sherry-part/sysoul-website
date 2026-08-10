@@ -18,7 +18,7 @@ export const slides: Slide[] = [
     id: "allinone",
     index: "01",
     label: "THE BRAIN",
-    title: "智脑盒子",
+    title: "希秀智脑",
     visual: "machine",
     leftBubbles: [
       { text: "Robonix 操作系统", top: "20%" },

@@ -1,0 +1,3903 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYSOUL 希秀科技 · 商业计划书</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./SYSOUL 希秀科技 · 商业计划书_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0F172A;
+    --ink-soft: #1E293B;
+    --muted: #64748B;
+    --muted-2: #94A3B8;
+    --line: #E2E8F0;
+    --line-2: #CBD5E1;
+    --bg: #FFFFFF;
+    --bg-soft: #F8FAFC;
+    --bg-cool: #F1F5F9;
+    --navy: #123E7C;
+    --navy-deep: #0B2447;
+    --navy-mid: #19376D;
+    --blue: #576CBC;
+    --teal: #0F766E;
+    --purple: #6D5BD0;
+    --orange: #EA580C;
+    --red: #C00000;
+    --amber: #D97706;
+    --green: #16A34A;
+    --white: #FFFFFF;
+    --serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    --sans: "Inter", "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+    --mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { height: 100%; overflow: hidden; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    font-feature-settings: "tnum" 1, "ss01" 1;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* ========== Layout ========== */
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 32px;
+    gap: 64px;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* ========== Sidebar TOC ========== */
+  .toc {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 32px 0;
+    overflow-y: auto;
+    border-right: 1px solid var(--line);
+    align-self: start;
+  }
+  .toc::-webkit-scrollbar { width: 4px; }
+  .toc::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 2px; }
+  .toc-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .toc-brand .mark {
+    width: auto; height: 28px;
+    border-radius: 4px;
+    display: block;
+    object-fit: contain;
+  }
+  .toc-brand .name {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .toc-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .toc-list a {
+    display: block;
+    padding: 6px 12px 6px 14px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all 0.2s;
+    line-height: 1.4;
+  }
+  .toc-list a:hover { color: var(--ink); }
+  .toc-list a.active {
+    color: var(--navy);
+    border-left-color: var(--navy);
+    font-weight: 600;
+    background: var(--bg-soft);
+  }
+  .toc-list .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    margin-right: 8px;
+    color: var(--muted-2);
+  }
+  .toc-list a.active .num { color: var(--navy); }
+
+  /* ========== Main ========== */
+  .main {
+    min-width: 0;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* ========== Hero ========== */
+  .hero {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    padding: 48px 0 64px;
+    border-bottom: 1px solid var(--line);
+    display: none;
+  }
+  .hero.page-active { display: block; }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--navy);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .hero-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--navy);
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .hero-meta .m-item .m-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  .hero-meta .m-item .m-value {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  /* ========== Section primitives ========== */
+  section.content-section {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    padding: 48px 0 64px;
+    border-bottom: 1px solid var(--line);
+    display: none;
+  }
+  section.content-section.page-active { display: block; }
+  .sec-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .sec-num {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .sec-title {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.2;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .sec-lede {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+
+  /* ========== Cards ========== */
+  .card {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px;
+  }
+  .card-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .card-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .card-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  /* ========== Pain points ========== */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .pain-item {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    padding: 20px;
+    background: var(--bg-soft);
+    border-radius: 8px;
+    border-left: 3px solid var(--red);
+  }
+  .pain-item .p-num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .pain-item .p-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .pain-item .p-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ========== Solution flow ========== */
+  .flow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    flex: 1;
+    min-width: 110px;
+    background: var(--ink);
+    color: white;
+    padding: 18px 14px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .flow-arrow {
+    align-self: center;
+    color: var(--muted-2);
+    font-size: 18px;
+  }
+
+  /* ========== Product modules ========== */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .product-card {
+    padding: 28px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    transition: all 0.25s;
+  }
+  .product-card:hover {
+    border-color: var(--navy);
+    background: white;
+    box-shadow: 0 4px 16px rgba(15,23,42,0.06);
+  }
+  .product-card .pc-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .product-card .pc-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: grid; place-items: center;
+    color: white;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .product-card .pc-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+  .product-card .pc-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .product-card .pc-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .product-card .pc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .product-card .pc-list li {
+    font-size: 13px;
+    color: var(--ink-soft);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .product-card .pc-list li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 9px;
+    width: 6px;
+    height: 1px;
+    background: var(--navy);
+  }
+
+  /* Product card icon colors */
+  .pc-c1 { background: var(--navy); }
+  .pc-c2 { background: #0B5650; }
+  .pc-c3 { background: var(--purple); }
+  .pc-c4 { background: var(--orange); }
+  .pc-c5 { background: var(--navy-mid); }
+
+  /* ========== Core product deep dive ========== */
+  .deep-card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 16px;
+  }
+  .deep-card .dc-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .deep-card .dc-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 10px;
+    background: var(--navy);
+    color: white;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+  .deep-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--ink);
+  }
+  .deep-card .dc-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .deep-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+  }
+  .deep-grid.full { grid-template-columns: 1fr; }
+  .deep-section .ds-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--navy);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .deep-section .ds-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .deep-section .ds-list li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    padding-left: 14px;
+    position: relative;
+  }
+  .deep-section .ds-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--navy);
+    font-family: var(--mono);
+  }
+  .deep-section .ds-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  /* ========== Pipeline diagram ========== */
+  .pipeline {
+    background: var(--ink);
+    color: #F8FAFC;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+  .pipeline-code {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.7;
+    color: #93B5E1;
+    white-space: nowrap;
+  }
+  .pipeline-code .arrow { color: #93B5E1; margin: 0 6px; }
+
+  /* ========== Tech metrics ========== */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .metric {
+    padding: 28px 24px;
+    background: var(--bg-soft);
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .metric .m-name {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+  }
+  .metric .m-values {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .metric .m-from {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--muted-2);
+    text-decoration: line-through;
+  }
+  .metric .m-arrow { color: var(--muted-2); font-family: var(--mono); }
+  .metric .m-to {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--green);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .metric .m-unit { font-size: 14px; color: var(--muted); margin-left: 4px; font-weight: 400; }
+  .metric .m-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* ========== Business model ========== */
+  .bm-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .bm-card {
+    padding: 20px 16px;
+    background: var(--bg-soft);
+    border-radius: 10px;
+    border-top: 3px solid var(--navy);
+    text-align: left;
+  }
+  .bm-card:nth-child(1) { border-color: var(--navy); }
+  .bm-card:nth-child(2) { border-color: var(--teal); }
+  .bm-card:nth-child(3) { border-color: var(--purple); }
+  .bm-card:nth-child(4) { border-color: var(--orange); }
+  .bm-card:nth-child(5) { border-color: var(--red); }
+  .bm-card .bm-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .bm-card .bm-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .bm-card .bm-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .bm-card .bm-list li {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ========== Customer segments ========== */
+  .customer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .customer-card {
+    padding: 24px;
+    background: var(--bg-soft);
+    border-radius: 10px;
+    border: 1px solid var(--line);
+  }
+  .customer-card .cc-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .customer-card .cc-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .customer-card .cc-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 10px;
+    background: white;
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    color: var(--muted);
+  }
+  .customer-card .cc-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .customer-card .cc-needs {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .customer-card .cc-needs li {
+    font-size: 13px;
+    color: var(--ink-soft);
+    padding-left: 12px;
+    position: relative;
+  }
+  .customer-card .cc-needs li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ========== Advantages ========== */
+  .adv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .adv-card {
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .adv-card .a-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .adv-card .a-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .adv-card .a-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ========== Roadmap timeline ========== */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 24px;
+    border-top: 2px solid var(--line);
+    position: relative;
+  }
+  .phase {
+    padding: 24px 24px 24px 0;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .phase:last-child { border-right: none; padding-right: 0; }
+  .phase:not(:first-child) { padding-left: 24px; }
+  .phase-dot {
+    position: absolute;
+    top: -7px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--navy);
+  }
+  .phase:nth-child(2) .phase-dot { background: var(--navy); }
+  .phase:nth-child(3) .phase-dot { background: var(--navy-mid); }
+  .phase .p-time {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .phase .p-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .phase .p-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .phase .p-list li {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    padding-left: 14px;
+    position: relative;
+  }
+  .phase .p-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--navy);
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+  .phase .p-goal {
+    font-size: 13px;
+    color: var(--muted);
+    background: var(--bg-soft);
+    padding: 10px 12px;
+    border-radius: 6px;
+    border-left: 2px solid var(--navy);
+  }
+
+  /* ========== Use of funds ========== */
+  .funds-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .fund-card {
+    padding: 20px 16px;
+    background: var(--bg-soft);
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--line);
+  }
+  .fund-card .f-pct {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .fund-card .f-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .fund-card .f-bar {
+    height: 4px;
+    background: var(--line);
+    border-radius: 2px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+  .fund-card .f-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 100%);
+    border-radius: 2px;
+  }
+  .fund-card .f-detail {
+    margin-top: 12px;
+    text-align: left;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ========== Highlights ========== */
+  .hl-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .hl-item {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 16px;
+    background: var(--bg-soft);
+    border-radius: 8px;
+  }
+  .hl-item .hl-num {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    background: var(--navy);
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+  }
+  .hl-item .hl-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .hl-item .hl-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ========== Quote / callout ========== */
+  .callout {
+    background: var(--ink);
+    color: #F8FAFC;
+    border-radius: 12px;
+    padding: 32px 40px;
+    margin: 32px 0;
+  }
+  .callout .q-text {
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .callout .q-text::before { content: '"'; color: #93B5E1; margin-right: 4px; }
+  .callout .q-text::after { content: '"'; color: #93B5E1; margin-left: 4px; }
+  .callout .q-source {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #93B5E1;
+    letter-spacing: 0.05em;
+  }
+
+  /* ========== Footer ========== */
+  .footer {
+    background: var(--ink);
+    color: #F8FAFC;
+    padding: 64px 0;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+  }
+  .footer h4 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-links a {
+    color: #93B5E1;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: var(--mono);
+  }
+  .footer-links a:hover { color: white; text-decoration: underline; }
+  .footer-bottom {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted-2);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ========== Mobile TOC toggle ========== */
+  .toc-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 50;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  /* ========== Responsive ========== */
+  @media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 0 24px; gap: 0; }
+    .toc { display: none; }
+    .toc-toggle { display: block; }
+    .toc.mobile-open { display: block; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 40; background: white; padding: 64px 24px 24px; height: 100vh; }
+    .pain-grid, .product-grid, .customer-grid { grid-template-columns: 1fr; }
+    .deep-grid { grid-template-columns: 1fr; }
+    .metric-grid { grid-template-columns: 1fr; }
+    .bm-grid { grid-template-columns: repeat(2, 1fr); }
+    .adv-grid { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr; border-top: none; border-left: 2px solid var(--line); padding-left: 24px; }
+    .phase { border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 24px 0 !important; }
+    .phase:last-child { border-bottom: none; padding-bottom: 0 !important; }
+    .phase-dot { top: 0; left: -31px; }
+    .funds-grid { grid-template-columns: repeat(2, 1fr); }
+    .hl-list { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 32px 0 48px; }
+    .hero h1 { font-size: 32px; }
+    .hero-subtitle { font-size: 16px; }
+    section.content-section { padding: 48px 0; }
+    .bm-grid, .funds-grid { grid-template-columns: 1fr; }
+    .hero-meta { gap: 16px; }
+  }
+
+  /* ===== Section 8: 三层能力体系导览 ===== */
+  .layer-overview {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    margin: 28px 0 12px;
+  }
+  .layer-card {
+    flex: 1;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--navy);
+    border-radius: 4px;
+    padding: 18px 18px 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .layer-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15,23,42,0.06);
+  }
+  .layer-card:nth-child(3) { border-top-color: var(--teal); }
+  .layer-card:nth-child(5) { border-top-color: var(--orange); }
+  .layer-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .layer-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .layer-q {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .layer-mark {
+    font-size: 13px;
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1.5;
+    padding-top: 8px;
+    border-top: 1px dashed var(--line);
+  }
+  .layer-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 22px;
+    font-weight: 300;
+    padding: 0 4px;
+  }
+  @media (max-width: 900px) {
+    .layer-overview { flex-direction: column; }
+    .layer-arrow { transform: rotate(90deg); padding: 4px 0; }
+  }
+
+  /* ===== Section 10: 重点展开卡（10.4 双场景） ===== */
+  .adv-spotlight {
+    background: linear-gradient(180deg, #f8fafc 0%, #fff 60%);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--navy);
+    margin-top: 18px;
+  }
+  .adv-spotlight .ds-list li strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ===== Section 8: 商业模式与未来前景 ===== */
+  /* 8.1 四层价值链 */
+  .bm-overview {
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .bm-layer {
+    flex: 1;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--navy);
+    border-radius: 4px;
+    padding: 14px 14px 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .bm-layer:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(15,23,42,0.06); }
+  .bm-layer:nth-child(1) { border-top-color: var(--navy); }
+  .bm-layer:nth-child(3) { border-top-color: var(--teal); }
+  .bm-layer:nth-child(5) { border-top-color: var(--purple); }
+  .bm-layer:nth-child(7) { border-top-color: var(--orange); }
+  .bml-tag {
+    display: inline-block;
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .bm-layer:nth-child(3) .bml-tag { color: var(--teal); }
+  .bm-layer:nth-child(5) .bml-tag { color: var(--purple); }
+  .bm-layer:nth-child(7) .bml-tag { color: var(--orange); }
+  .bml-type, .bml-cust, .bml-price {
+    font-size: 12px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .bml-price {
+    font-family: var(--mono);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 11px;
+    background: var(--bg);
+    padding: 3px 8px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+  .bml-val {
+    font-size: 11px;
+    color: #475569;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--line);
+    font-style: italic;
+  }
+  .bm-plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 22px;
+    font-weight: 300;
+    padding: 0 2px;
+  }
+  @media (max-width: 900px) {
+    .bm-overview { flex-direction: column; }
+    .bm-plus { transform: rotate(90deg); padding: 4px 0; }
+  }
+
+  /* 8.2 平台层三档 */
+  .bm-tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .bm-tier {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 18px 16px 14px;
+    text-align: center;
+  }
+  .bmt-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .bmt-price {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  .bm-tier:nth-child(2) .bmt-price { background: #E0F2F1; border-color: #0B5650; }
+  .bm-tier:nth-child(3) .bmt-price { background: #FFEDD5; border-color: #C2410C; }
+  .bm-tier .ds-list {
+    text-align: left;
+    margin: 0;
+  }
+  .bm-tier .ds-list li {
+    padding: 5px 0 5px 16px;
+    font-size: 13px;
+    border-bottom: 1px dotted var(--line);
+  }
+  .bm-tier .ds-list li:last-child { border-bottom: none; padding-top: 8px; }
+  .bm-tier .ds-list li:last-child strong { color: var(--navy); font-weight: 700; }
+  @media (max-width: 720px) {
+    .bm-tier-grid { grid-template-columns: 1fr; }
+  }
+
+  /* 8.5 生态层三栏 */
+  .bm-eco-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .eco-cell {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 16px;
+  }
+  .eco-icon {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    background: var(--navy);
+    color: #FFFFFF;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .eco-cell:nth-child(2) .eco-icon { background: var(--purple); }
+  .eco-cell:nth-child(3) .eco-icon { background: #0B5650; }
+  .eco-name {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .eco-cell .ds-list { margin: 0; }
+  .eco-cell .ds-list li {
+    padding: 5px 0 5px 16px;
+    font-size: 13px;
+    border-bottom: 1px dotted var(--line);
+  }
+  .eco-cell .ds-list li:last-child { border-bottom: none; }
+  @media (max-width: 720px) {
+    .bm-eco-grid { grid-template-columns: 1fr; }
+  }
+
+  /* 8.6 演进路径 */
+  .phase-row {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .phase-item {
+    flex: 1;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--navy);
+    border-radius: 4px;
+    padding: 14px 14px 12px;
+  }
+  .phase-item:nth-child(3) { border-left-color: var(--teal); }
+  .phase-item:nth-child(5) { border-left-color: var(--purple); }
+  .phase-item:nth-child(7) { border-left-color: var(--orange); }
+  .phase-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 2px;
+  }
+  .phase-time {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .phase-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .phase-mix {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--navy);
+    background: var(--bg);
+    padding: 3px 8px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .phase-goal {
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .phase-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 20px;
+    font-weight: 300;
+    padding: 0 4px;
+  }
+  @media (max-width: 1000px) {
+    .phase-row { flex-direction: column; }
+    .phase-arrow { transform: rotate(90deg); padding: 4px 0; }
+  }
+
+  /* 8.7 未来前景 */
+  .future-card {
+    background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--navy);
+  }
+  .era-table {
+    margin-top: 8px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .era-row {
+    display: grid;
+    grid-template-columns: 100px 1.2fr 1.5fr 1.3fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .era-row:last-child { border-bottom: none; }
+  .era-row.era-head {
+    background: var(--ink);
+    color: #FFFFFF;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .era-row.era-head .era-cell { padding: 10px 14px; }
+  .era-cell {
+    padding: 11px 14px;
+    font-size: 13px;
+    border-right: 1px solid var(--line);
+  }
+  .era-cell:last-child { border-right: none; }
+  .era-row.era-now {
+    background: linear-gradient(90deg, rgba(18,62,124,0.06), rgba(15,118,110,0.06));
+    border-top: 2px solid var(--navy);
+    border-bottom: 2px solid var(--navy);
+  }
+  .era-row.era-now .era-cell { color: var(--ink); }
+  @media (max-width: 720px) {
+    .era-row { grid-template-columns: 1fr; }
+    .era-cell { border-right: none; border-bottom: 1px dotted var(--line); }
+    .era-cell:last-child { border-bottom: none; }
+  }
+
+  .vision-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .vision-cell {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--navy);
+    border-radius: 4px;
+    padding: 14px 10px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .vision-cell:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(15,23,42,0.08); }
+  .vision-cell:nth-child(2) { border-top-color: var(--teal); }
+  .vision-cell:nth-child(3) { border-top-color: var(--purple); }
+  .vision-cell:nth-child(4) { border-top-color: var(--orange); }
+  .vision-cell:nth-child(5) { border-top-color: var(--red); }
+  .vision-cell:nth-child(6) { border-top-color: var(--navy); }
+  .vision-num {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .vision-cell:nth-child(2) .vision-num { color: var(--teal); }
+  .vision-cell:nth-child(3) .vision-num { color: var(--purple); }
+  .vision-cell:nth-child(4) .vision-num { color: #C2410C; }
+  .vision-cell:nth-child(5) .vision-num { color: #991B1B; }
+  .vision-lbl {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  @media (max-width: 900px) {
+    .vision-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 500px) {
+    .vision-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .ds-list-wide li {
+    padding: 7px 0 7px 16px;
+    font-size: 13px;
+    border-bottom: 1px dotted var(--line);
+  }
+  .ds-list-wide li:last-child { border-bottom: none; }
+
+  /* ===== Section 8.1: 业务基线 ===== */
+  .baseline-box {
+    margin-top: 22px;
+    background: linear-gradient(135deg, var(--ink) 0%, var(--navy-deep) 100%);
+    color: #fff;
+    border-radius: 4px;
+    padding: 18px 20px 16px;
+  }
+  .baseline-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: #93B5E1;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .baseline-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .bs-cell {
+    border-left: 2px solid #93B5E1;
+    padding: 4px 0 4px 12px;
+  }
+  .bs-cell.bs-target {
+    border-left-color: #F9E795;
+  }
+  .bs-num {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .bs-unit {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: #CBD5E1;
+    margin-left: 4px;
+  }
+  .bs-target .bs-unit { color: #F9E795; }
+  .bs-lbl {
+    font-size: 11px;
+    color: #CBD5E1;
+    line-height: 1.4;
+  }
+
+  /* ===== Section 12.6: 战略协同价值 ===== */
+  .strategy-card .deep-section { color: #E2E8F0; }
+  .strategy-card .deep-section .ds-label { color: #93B5E1; }
+  .strategy-card .deep-section .ds-list li {
+    color: #E2E8F0;
+    border-bottom: 1px dotted rgba(255,255,255,0.10);
+  }
+  .strategy-card .deep-section .ds-list li:last-child { border-bottom: none; }
+  .strategy-card .deep-section .ds-list li::before { color: #F9E795; }
+  .strategy-table {
+    margin-top: 10px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .strat-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1.3fr 1.2fr;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .strat-row:last-child { border-bottom: none; }
+  .strat-row.strat-head {
+    background: rgba(249,231,149,0.10);
+    border-bottom: 1px solid rgba(249,231,149,0.25);
+  }
+  .strat-row.strat-head .strat-cell {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: #F9E795;
+    letter-spacing: 0.05em;
+    padding: 10px 12px;
+  }
+  .strat-cell {
+    padding: 10px 12px;
+    font-size: 12.5px;
+    color: #E2E8F0;
+    line-height: 1.55;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .strat-cell:last-child { border-right: none; }
+  .strat-row:hover { background: rgba(255,255,255,0.03); }
+  @media (max-width: 900px) {
+    .strat-row { grid-template-columns: 1fr; }
+    .strat-cell { border-right: none; border-bottom: 1px dotted rgba(255,255,255,0.08); }
+    .strat-cell:last-child { border-bottom: none; }
+  }
+
+  /* 12.6 合作内容 编号列表 */
+  .coop-list {
+    counter-reset: coop;
+  }
+  .coop-list li {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px dotted rgba(255,255,255,0.10);
+    align-items: flex-start;
+  }
+  .coop-list li:last-child { border-bottom: none; }
+  .coop-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #F9E795;
+    color: #0B1428;
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .coop-list li > div {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #E2E8F0;
+    flex: 1;
+  }
+
+  /* 12.6 合作模式 四宫格 */
+  .coop-mode-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .cm-cell {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(249,231,149,0.25);
+    border-radius: 4px;
+    padding: 12px 10px;
+    text-align: center;
+  }
+  .cm-icon {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .cm-name {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 700;
+    color: #F9E795;
+    margin-bottom: 4px;
+  }
+  .cm-desc {
+    font-size: 11px;
+    color: #CBD5E1;
+    line-height: 1.5;
+  }
+  @media (max-width: 700px) {
+    .coop-mode-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ===== Section 8.3: Robonix 智脑 12 模块 ===== */
+  .brain-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .brain-chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--navy);
+    border-radius: 3px;
+    padding: 5px 10px 5px 8px;
+    font-size: 12px;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .brain-chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(15,23,42,0.08);
+  }
+  .brain-chip:nth-child(2n) { border-left-color: var(--teal); }
+  .brain-chip:nth-child(3n) { border-left-color: var(--purple); }
+  .brain-chip:nth-child(4n) { border-left-color: #C2410C; }
+  .brain-chip b {
+    font-family: var(--serif);
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 13px;
+  }
+  .brain-chip i {
+    font-style: normal;
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  /* ===== Section 8.3: 工具链三栏 ===== */
+  .toolchain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .tc-col {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 16px 16px 14px;
+  }
+  .tc-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .tc-data { background: var(--navy); }
+  .tc-model { background: var(--purple); }
+  .tc-eval { background: #0B5650; }
+  .tc-col .ds-list { margin: 0; }
+  .tc-col .ds-list li {
+    padding: 6px 0 6px 16px;
+    font-size: 13px;
+    border-bottom: 1px dotted var(--line);
+  }
+  .tc-col .ds-list li:last-child { border-bottom: none; }
+  @media (max-width: 720px) {
+    .toolchain-grid { grid-template-columns: 1fr; }
+  }
+  /* ========== Chapter Nav ========== */
+  .chap-nav {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 30;
+    font-family: var(--mono);
+  }
+  .chap-nav button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--line-2);
+    background: white;
+    color: var(--navy);
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(11, 20, 40, 0.08);
+    transition: all 0.18s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chap-nav button:hover:not(:disabled) {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(28, 67, 124, 0.25);
+  }
+  .chap-nav button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  .chap-nav .chap-hint {
+    background: var(--ink);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(11, 20, 40, 0.18);
+  }
+  .chap-nav .chap-hint .num {
+    color: var(--orange, #FF6C00);
+    font-weight: 700;
+  }
+  @media (max-width: 768px) {
+    .chap-nav { right: 12px; bottom: 12px; }
+    .chap-nav button { width: 38px; height: 38px; font-size: 17px; }
+    .chap-nav .chap-hint { display: none; }
+  }
+  /* ========== Team avatar ========== */
+  .tm-avatar {
+    width: 72px; height: 90px;
+    object-fit: cover; object-position: top;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: var(--bg-soft);
+    display: block;
+  }
+  .tm-avatar.mono {
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 32px; font-weight: 700;
+    color: #fff; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+    border: none;
+  }
+  .tm-card { break-inside: avoid; page-break-inside: avoid; }
+
+  /* ========== Continuous / Print-friendly override ========== */
+  html, body { height: auto; overflow: auto; background: var(--bg); }
+  .toc, .toc-toggle, .chap-nav { display: none !important; }
+  .layout {
+    display: block;
+    grid-template-columns: none;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: auto;
+    overflow: visible;
+    gap: 0;
+  }
+  .main {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+  .hero,
+  section.content-section {
+    position: static;
+    inset: auto;
+    display: block;
+    overflow: visible;
+    height: auto;
+    padding: 56px 0 64px;
+  }
+  .hero { padding-top: 80px; }
+  .hero h1 { font-size: 48px; }
+  .hero-subtitle { font-size: 19px; max-width: 820px; }
+  section.content-section { border-bottom: 1px solid var(--line); }
+  .sec-title { font-size: 30px; }
+  .sec-lede { font-size: 16px; max-width: 820px; }
+  .footer .layout { padding: 32px 0; }
+
+  /* 卡片/区块级避断 — 浏览器自动把卡块作为整体保留在同一页 */
+  .card, .deep-card, .adv-card, .product-card, .pain-item,
+  .fund-card, .hl-item, .callout, .tm-card,
+  .ds-label, .sec-header, .pc-head, .dc-head, .flow,
+  [class*="grid"]:not(.product-grid) { break-inside: avoid; page-break-inside: avoid; }
+  /* 章节标题不孤悬页底 */
+  .sec-header, .ds-label, h2, h3 { page-break-after: avoid; break-after: avoid; }
+
+  @media print {
+    @page { size: A4; margin: 12mm; }
+    body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .layout { max-width: 100%; padding: 0; }
+    .hero { padding-top: 0; }
+    .hero, section.content-section { padding: 14px 0 18px; }
+    .footer { padding: 18px 0 0; }
+    a { color: inherit; text-decoration: none; }
+    .card, .deep-card, .adv-card, .product-card, .pain-item,
+    .fund-card, .hl-item, .callout, .tm-card { box-shadow: none; }
+    /* 兼容 widows/orphans */
+    p, li { orphans: 3; widows: 3; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toc-toggle" id="tocToggle">☰ 目录</div>
+
+<div class="layout">
+
+  <!-- ========== Sidebar TOC ========== -->
+  <aside class="toc" id="toc">
+    <div class="toc-brand">
+      <img class="mark" src="./SYSOUL 希秀科技 · 商业计划书_files/sysoul.jpg" alt="杭州希秀">
+      <div class="name">杭州希秀</div>
+    </div>
+    <div class="toc-label">CONTENTS</div>
+    <ul class="toc-list">
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec1"><span class="num">01</span>商业概述</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec2"><span class="num">02</span>公司定位</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec_team"><span class="num">03</span>团队与组织建设</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec3"><span class="num">04</span>行业机会</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec4"><span class="num">05</span>市场痛点</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec5"><span class="num">06</span>公司的解决方案</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec6"><span class="num">07</span>产品体系</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec7"><span class="num">08</span>核心产品与技术进展</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec8"><span class="num">09</span>商业模式与未来前景</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec9"><span class="num">10</span>目标客户与切入路径</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec10"><span class="num">11</span>竞争优势</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec11"><span class="num">12</span>发展规划</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec12"><span class="num">13</span>投资亮点</a></li>
+      <li><a href="http://103.11.78.253/doc/sysoul_bp/sysoul_bp_web.html#sec13"><span class="num">14</span>结语</a></li>
+    </ul>
+  </aside>
+
+  <!-- ========== Main ========== -->
+  <main class="main">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-eyebrow">BUSINESS PLAN · 商业计划书</div>
+      <div style="display: flex; align-items: center; gap: 24px; margin-bottom: 24px;">
+        <img src="./SYSOUL 希秀科技 · 商业计划书_files/sysoul.jpg" alt="杭州希秀" style="height: 96px; width: auto;">
+      </div>
+      <h1>杭州希秀科技</h1>
+      <p class="hero-subtitle">以 <strong>Robonix 具身智能操作系统</strong> + <strong>XiUOS 矽璓工业物联泛在操作系统</strong> 双 OS 为软件底座，构建"上层智能编排 + 底层关节实时控制"的完整具身智能产品体系，让机器人能力可在教育、科研、工业等多种场景中规模化复用。</p>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 20px 0;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; background: rgba(28,67,124,0.08); border: 1px solid rgba(28,67,124,0.20); border-radius: 999px;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/robonix-logo.png" alt="Robonix" style="height: 22px; width: auto;">
+          <span style="font-size: 12px; color: #1C437C; font-weight: 600;">主线 · 具身智能操作系统</span>
+        </div>
+        <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; background: rgba(255,108,0,0.08); border: 1px solid rgba(255,108,0,0.25); border-radius: 999px;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/xiuos-hero.svg" alt="XiUOS" style="height: 22px; width: auto;">
+          <span style="font-size: 12px; color: var(--orange); font-weight: 600;">核心产品 · 工业物联泛在 OS</span>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <div class="m-item">
+          <div class="m-label">ENTITY</div>
+          <div class="m-value">杭州希秀泛在计算技术有限公司</div>
+        </div>
+        <div class="m-item">
+          <div class="m-label">ORIGIN</div>
+          <div class="m-value">北京大学信息技术高等研究院</div>
+        </div>
+        <div class="m-item">
+          <div class="m-label">FOUNDED</div>
+          <div class="m-value">2019 · 杭州萧山</div>
+        </div>
+        <div class="m-item">
+          <div class="m-label">LEAD</div>
+          <div class="m-value">梅宏院士 · 首席科学顾问</div>
+        </div>
+        <div class="m-item">
+          <div class="m-label">ECOSYSTEM</div>
+          <div class="m-value">多联名品牌 · 22K 套 OS 签约</div>
+        </div>
+        <div class="m-item">
+          <div class="m-label">WEBSITE</div>
+          <div class="m-value">www.sysoul.com</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 01 商业概述 -->
+    <section class="content-section" id="sec1">
+      <div class="sec-header">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title">商业概述</h2>
+      </div>
+      <p class="sec-lede">杭州希秀科技聚焦具身智能操作系统、智能硬件平台、端侧智能设备、机器人开发工具链和行业应用解决方案，致力于为教育、科研、工业、政企及服务场景提供可部署、可复用、可持续迭代的具身智能产品体系。</p>
+
+      <div class="callout">
+        <div class="q-text">公司的核心判断是：未来机器人产业的竞争，不仅在于单一机器人本体，也不仅在于单个大模型，而在于能否建立连接"机器人硬件、传感器、边缘计算、智能模型、机器人技能和行业场景"的统一软件底座。</div>
+      </div>
+
+      <p class="sec-lede" style="margin-top: 32px;">公司核心产品 <strong>Robonix 具身智能操作系统</strong>，正是面向这一趋势打造的软件底座；围绕这一底座，公司同时构建了软硬一体、覆盖多种机器人本体与端侧设备的硬件平台，以及面向开发者和行业场景的完整解决方案。</p>
+      <p class="sec-lede" style="color: var(--navy); font-weight: 500; font-family: var(--serif); font-size: 19px;">希秀科技的目标不是做一台机器人，而是让每一家本体厂商、每一个集成商都能在我们的底座上跑出自己的具身智能产品。</p>
+    </section>
+
+    <!-- 02 公司定位 -->
+    <section class="content-section" id="sec2">
+      <div class="sec-header">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">公司定位</h2>
+      </div>
+      <p class="sec-lede">从工业物联的多年沉淀出发，<strong>全面转型具身智能</strong>——以"双 OS + 多形态硬件"产品矩阵，定位为<strong>具身智能操作系统与机器人智能化解决方案提供商</strong>。</p>
+
+      <!-- 阶段一：工业物联沉淀 -->
+      <div class="ds-label" style="margin-top: 12px;">PHASE 1 · 工业物联沉淀（2019 — 2024）</div>
+      <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; margin-top: 10px;">
+        <div class="card" style="padding: 18px 20px;">
+          <div class="card-label" style="color: var(--orange); margin: 0 0 6px;">HERITAGE · 技术与场景沉淀</div>
+          <div style="font-size: 13px; color: var(--ink-soft); line-height: 1.7;">
+            公司以<strong>梅宏院士主导的工业物联泛在操作系统 XiUOS"矽璓"</strong>起家，围绕"全面感知 · 泛在互联 · 实时认知 · 精准控制"四大核心能力，沉淀出完整的<strong>工业物联技术框架与硬件体系</strong>：从数采终端、智慧终端到边缘智能终端，覆盖 PLC、传感、网关、边缘 AI 全链路。
+          </div>
+          <ul class="pc-list" style="margin-top: 10px; font-size: 12px;">
+            <li>XiUOS 工业物联泛在操作系统</li>
+            <li>矽数通 D 系列 · 矽慧通 i 系列智能终端</li>
+            <li>200+ 工业协议适配 · 10+ PLC 品牌兼容</li>
+            <li>污水处理 / 大胜达 / 海尔 / 杭钢 / 钱江电气 / 习酒 等 8+ 行业落地案例</li>
+          </ul>
+        </div>
+        <div class="card" style="padding: 18px 20px; background: var(--bg-soft);">
+          <div class="card-label" style="color: var(--navy); margin: 0 0 6px;">CAPABILITY · 沉淀出的核心能力</div>
+          <div style="font-size: 12px; color: var(--ink-soft); margin-bottom: 8px; line-height: 1.6;">全面感知 / 泛在互联 / 实时认知 / 精准控制 — "<strong style="color: var(--navy);">感联知控</strong>"四大能力底座</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+            <div style="background: #fff; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--line);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--ink);">感 · 全面感知</div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">多源数据采集</div>
+            </div>
+            <div style="background: #fff; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--line);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--ink);">联 · 泛在互联</div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">200+ 协议适配</div>
+            </div>
+            <div style="background: #fff; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--line);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--ink);">知 · 实时认知</div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">边缘 AI 推理</div>
+            </div>
+            <div style="background: #fff; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--line);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--ink);">控 · 精准控制</div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">工业级实时内核</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 战略转型 -->
+      <div class="ds-label" style="margin-top: 22px;">PHASE 2 · 全面转型具身智能（2025 — 至今）</div>
+      <div class="card" style="padding: 18px 20px; background: linear-gradient(135deg, rgba(28,67,124,0.06), rgba(255,108,0,0.04)); border-left: 4px solid var(--navy); margin-top: 10px;">
+        <div style="display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 280px;">
+            <div style="font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink); line-height: 1.5;">把工业物联的"现场计算"能力，迁移到具身设备的"关节与端侧"</div>
+            <div style="font-size: 13px; color: var(--ink-soft); margin-top: 8px; line-height: 1.7;">
+              公司判断：具身智能的下一阶段竞争，在于能否建立连接"机器人本体、传感器、边缘计算、大模型与行业场景"的<strong>统一软件底座</strong>。于是以 XiUOS 的实时内核与现场感知能力为底座，向上长出 <strong>Robonix 具身智能操作系统</strong>，全面切入教育、科研、行业验证市场，逐步向工业、能源、服务机器人生态扩展。
+            </div>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 14px;">
+          <div style="background: #fff; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--line); text-align: center;">
+            <div style="font-family: var(--mono); font-size: 11px; color: var(--orange); font-weight: 600;">OS</div>
+            <div style="font-size: 12px; color: var(--ink); font-weight: 600; margin-top: 2px;">Robonix + XiUOS 双 OS</div>
+          </div>
+          <div style="background: #fff; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--line); text-align: center;">
+            <div style="font-family: var(--mono); font-size: 11px; color: var(--orange); font-weight: 600;">HW</div>
+            <div style="font-size: 12px; color: var(--ink); font-weight: 600; margin-top: 2px;">多形态本体矩阵</div>
+          </div>
+          <div style="background: #fff; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--line); text-align: center;">
+            <div style="font-family: var(--mono); font-size: 11px; color: var(--orange); font-weight: 600;">ECO</div>
+            <div style="font-size: 12px; color: var(--ink); font-weight: 600; margin-top: 2px;">CCF 开放社区 + 联名品牌</div>
+          </div>
+          <div style="background: #fff; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--line); text-align: center;">
+            <div style="font-family: var(--mono); font-size: 11px; color: var(--orange); font-weight: 600;">SCENE</div>
+            <div style="font-size: 12px; color: var(--ink); font-weight: 600; margin-top: 2px;">教育 / 科研 / 行业</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 22px;">
+        <div class="q-text" style="font-size: 15px;"><strong>定位总结：</strong>工业物联的多年沉淀是公司的"地基"，具身智能是公司的"上层建筑"——Robonix <strong>向下抽象本体，向上编排任务/技能/模型</strong>，XiUOS 保障底层实时控制，二者构成完整泛在计算栈。</div>
+        <div class="q-source">— STRATEGIC POSITIONING</div>
+      </div>
+    </section>
+
+    <!-- 03 团队与组织建设 -->
+    <section class="content-section" id="sec_team">
+      <div class="sec-header">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">团队与组织建设</h2>
+      </div>
+      <p class="sec-lede">公司依托<strong>北京大学信息技术高等研究院智能软件技术应用中心</strong>成立，由<strong>梅宏院士</strong>领衔的泛在操作系统实验室创立，转化北京大学原创科研成果；团队学术传承源自国家级操作系统与泛在计算研究核心谱系，并辐射机器人、人工智能与工业物联等相关领域。</p>
+
+      <!-- 学术背书 -->
+      <div class="card" style="background: linear-gradient(135deg, #F8FAFC, #EFF4FA); border: 1px solid #D5DEE9; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="card-label" style="color: #1C437C;">ACADEMIC ANCHOR · 学术依托</div>
+        <div style="font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--ink); margin-top: 6px;">北京大学信息技术高等研究院</div>
+        <div style="font-size: 13px; color: var(--ink-soft); margin-top: 8px; line-height: 1.6;">由北京大学与浙江省共同发起成立，以发展人工智能、智慧城市、智慧医疗、智能制造等未来数字经济产业核心技术为重点，围绕打造人机物融合的信息系统，建设具有国际影响力、引领国内信息经济发展的信息技术研发和智库机构。<strong>多名图灵奖获得者、院士与资深教授担任首席科学家 / 经济学家</strong>。</div>
+      </div>
+
+      <!-- 首席科学顾问 -->
+      <div class="ds-label" style="margin-top: 22px;">CHIEF SCIENCE ADVISOR · 首席科学顾问</div>
+      <div style="display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 10px;">
+        <div class="card" style="padding: 20px 24px; border-left: 4px solid #1C437C;">
+          <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 0 0 140px; display: flex; flex-direction: column; align-items: center;">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/team-meihong.png" alt="梅宏院士" style="width: 140px; height: 175px; object-fit: cover; object-position: top; border-radius: 8px; border: 1px solid var(--line); background: var(--bg-soft);">
+              <div style="font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 6px; letter-spacing: 0.06em;">CHIEF SCIENCE ADVISOR</div>
+            </div>
+            <div style="flex: 1; min-width: 240px;">
+              <div style="font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink);">梅 宏</div>
+              <div style="font-size: 13px; color: var(--muted); margin-top: 2px;">北京大学信息科学与技术学部主任</div>
+              <div style="font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.6;">
+                <strong>中国科学院院士 · 欧洲科学院外籍院士 · 发展中国家科学院院士</strong><br>
+                IEEE Fellow · ACM Fellow<br>
+                原中国人民解放军军事科学院副院长 · 原 CCF 理事长
+              </div>
+            </div>
+            <div style="flex: 1.5; min-width: 280px; padding-left: 18px; border-left: 1px solid var(--line);">
+              <div style="font-size: 13px; color: var(--ink-soft); line-height: 1.7;">
+                <strong>2019 年 11 月</strong>，梅宏院士创立<strong>泛在操作系统实验室</strong>，团队面向制造业数字化转型开展泛在操作系统研发实践，研发并发布工业物联泛在操作系统 <strong>XiUOS"矽璓"</strong>，是公司核心技术资产与学术血脉的源头。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 院士团队 -->
+      <div class="ds-label" style="margin-top: 22px;">ACADEMICIAN TEAM · 院士团队</div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 10px;">
+
+        <!-- 陈康 -->
+        <div class="card tm-card" style="padding: 14px 12px; text-align: center;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/team-chenkang.jpg" alt="陈康" class="tm-avatar" style="margin: 0 auto 10px;">
+          <div style="font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--ink);">陈 康</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">博士</div>
+          <div style="font-size: 11px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5;">北京大学教授<br>教育部长江学者</div>
+          <div style="display: inline-block; margin-top: 8px; padding: 2px 8px; font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--navy); background: rgba(18,62,124,0.08); border-radius: 3px;">首席科学家</div>
+        </div>
+
+        <!-- 陈翔 -->
+        <div class="card tm-card" style="padding: 14px 12px; text-align: center;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/team-chenxiang.jpg" alt="陈翔" class="tm-avatar" style="margin: 0 auto 10px;">
+          <div style="font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--ink);">陈 翔</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">博士</div>
+          <div style="font-size: 11px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5;">北京大学研究员<br>矽望社区联合创始人</div>
+          <div style="display: inline-block; margin-top: 8px; padding: 2px 8px; font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--orange); background: rgba(234,88,12,0.08); border-radius: 3px;">希秀计算创始人</div>
+        </div>
+
+        <!-- 郭耀 -->
+        <div class="card tm-card" style="padding: 14px 12px; text-align: center;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/team-guoyao.png" alt="郭耀" class="tm-avatar" style="margin: 0 auto 10px;">
+          <div style="font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--ink);">郭 耀</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">博士</div>
+          <div style="font-size: 11px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5;">北京大学教授<br>泛在操作系统社区主任</div>
+          <div style="display: inline-block; margin-top: 8px; padding: 2px 8px; font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--teal); background: rgba(15,118,110,0.08); border-radius: 3px;">泛在操作系统顾问</div>
+        </div>
+
+        <!-- 黄林鹏 -->
+        <div class="card tm-card" style="padding: 14px 12px; text-align: center;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/team-huanglinpeng.jpeg" alt="黄林鹏" class="tm-avatar" style="margin: 0 auto 10px;">
+          <div style="font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--ink);">黄林鹏</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">博士</div>
+          <div style="font-size: 11px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5;">上海交通大学特聘教授<br>上海市政协委员</div>
+          <div style="display: inline-block; margin-top: 8px; padding: 2px 8px; font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--purple); background: rgba(109,91,208,0.08); border-radius: 3px;">智能计算顾问</div>
+        </div>
+
+        <!-- 曹东刚 -->
+        <div class="card tm-card" style="padding: 14px 12px; text-align: center;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/team-caodonggang.png" alt="曹东刚" class="tm-avatar" style="margin: 0 auto 10px;">
+          <div style="font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--ink);">曹东刚</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">博士</div>
+          <div style="font-size: 11px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5;">北京大学研究员<br>XiUOS 创始人</div>
+          <div style="display: inline-block; margin-top: 8px; padding: 2px 8px; font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--navy); background: rgba(18,62,124,0.08); border-radius: 3px;">XiUOS 创始人</div>
+        </div>
+
+        <!-- 薛栋梁 -->
+        <div class="card tm-card" style="padding: 14px 12px; text-align: center;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/team-xuedongliang.png" alt="薛栋梁" class="tm-avatar" style="margin: 0 auto 10px;">
+          <div style="font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--ink);">薛栋梁</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">博士</div>
+          <div style="font-size: 11px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5;">上海交通大学副研究员<br>XiUOS 团队技术负责人</div>
+          <div style="display: inline-block; margin-top: 8px; padding: 2px 8px; font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--orange); background: rgba(234,88,12,0.08); border-radius: 3px;">首席技术官 CTO</div>
+        </div>
+
+        <!-- 王飞 -->
+        <div class="card tm-card" style="padding: 14px 12px; text-align: center;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/team-wangfei.png" alt="王飞" class="tm-avatar" style="margin: 0 auto 10px;">
+          <div style="font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--ink);">王 飞</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">博士（在职）</div>
+          <div style="font-size: 11px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5;">北京大学副教授<br>国家级青年人才</div>
+          <div style="display: inline-block; margin-top: 8px; padding: 2px 8px; font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--teal); background: rgba(15,118,110,0.08); border-radius: 3px;">具身智脑顾问</div>
+        </div>
+
+        <!-- 张照博 -->
+        <div class="card tm-card" style="padding: 14px 12px; text-align: center;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/team-zhangzhaobo.png" alt="张照博" class="tm-avatar" style="margin: 0 auto 10px;">
+          <div style="font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--ink);">张照博</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">博士</div>
+          <div style="font-size: 11px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5;">北大信研院研究员<br>北京大学博士后</div>
+          <div style="display: inline-block; margin-top: 8px; padding: 2px 8px; font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--purple); background: rgba(109,91,208,0.08); border-radius: 3px;">具身智脑技术专家</div>
+        </div>
+
+      </div>
+
+      <!-- 资质荣誉 -->
+      <div class="ds-label" style="margin-top: 22px;">HONORS &amp; IP · 资质荣誉与知识产权</div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 10px;">
+        <div class="card" style="padding: 14px; text-align: center;">
+          <div style="font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--orange);">40+</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">授权专利</div>
+        </div>
+        <div class="card" style="padding: 14px; text-align: center;">
+          <div style="font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--orange);">10</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">发布标准</div>
+        </div>
+        <div class="card" style="padding: 14px; text-align: center;">
+          <div style="font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--orange);">40+</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">主持省部级项目</div>
+        </div>
+        <div class="card" style="padding: 14px; text-align: center;">
+          <div style="font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--orange);">6+</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">国家级奖项</div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
+        <div class="card" style="padding: 14px 16px;">
+          <div class="card-label" style="color: var(--navy); margin: 0 0 6px;">国家代表性奖项</div>
+          <div style="font-size: 12px; color: var(--ink-soft); line-height: 1.6;">国家技术发明奖<strong>一等奖 · 二等奖</strong> · 国家自然科学奖二等奖 · 国家科技进步奖二等奖 · 何梁何利基金科学技术进步奖 · 陈嘉庚科学奖信息技术科学奖 · 教育部科技进步一等奖</div>
+        </div>
+        <div class="card" style="padding: 14px 16px;">
+          <div class="card-label" style="color: var(--orange); margin: 0 0 6px;">国家级科研项目支撑</div>
+          <div style="font-size: 12px; color: var(--ink-soft); line-height: 1.6;">国家重大科研仪器研制项目 · 国家重点研发计划（泛在 OS / 工业互联网 OS）· 国家自然科学基金 · 浙江省领雁 / 尖兵项目</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 22px;">
+        <div class="q-text" style="font-size: 15px;">高校前沿 + 行业落地的<strong>双引擎结构</strong>，让公司既具备纯学术团队的技术深度，也具备纯产业团队的变现能力。院士科研团队提供前沿判断力与跨学科整合能力，持续把握具身智能的技术演进方向与产业节奏。</div>
+        <div class="q-source">— TEAM POSITIONING</div>
+      </div>
+    </section>
+
+    <!-- 04 行业机会 -->
+    <section class="content-section" id="sec3">
+      <div class="sec-header">
+        <span class="sec-num">04</span>
+        <h2 class="sec-title">行业机会</h2>
+      </div>
+      <p class="sec-lede">具身智能正在进入产业化窗口期，万亿级市场正在打开。</p>
+
+      <p style="font-size: 16px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 24px;">过去几年，大模型显著提升了机器的语言理解、视觉理解和任务规划能力；机械臂、移动机器人、四足机器人、人形机器人以及边缘计算设备的成本持续下降，推动机器人从传统自动化设备向智能自主体演进。美国、欧盟、日本均已将机器人与 AI 上升到国家战略层面——美国《A Roadmap for US Robotics》将"机器人作为 AI 具身化"列为重要趋势，欧盟《AI-powered Robotics Strategy》推动 AI 与机器人深度融合，日本《新机器人战略》提出建设"Robot Town"。</p>
+
+      <p style="font-size: 16px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 16px;">麦肯锡《下一个重大竞争领域》判断：人工智能与机器人将塑造全球生产力，2040 年前形成万亿美元级市场。Grand View Research 进一步测算，2030 年全球具身智能市场规模约 <strong>1500 亿美元</strong>、2035 年约 <strong>4000 亿美元</strong>；中国市场 2030 年约 <strong>4000 亿人民币</strong>、2035 年迈向 <strong>万亿人民币</strong>。</p>
+
+      <div class="card" style="background: var(--bg-soft); border: 1px solid var(--line); padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.08em;">SOURCES</div>
+        <img src="./SYSOUL 希秀科技 · 商业计划书_files/mckinsey-logo.png" alt="McKinsey Global Institute" style="height: 32px; width: auto; opacity: 0.85;">
+        <img src="./SYSOUL 希秀科技 · 商业计划书_files/grandview-logo.png" alt="Grand View Research" style="height: 32px; width: auto; opacity: 0.85;">
+        <span style="font-size: 12px; color: var(--muted);">美国 · 欧盟 · 日本 国家机器人战略文件</span>
+      </div>
+
+      <p style="font-size: 16px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 24px;">从产业发展阶段看，教育与科研市场仍是当前技术验证、人才培养、数据积累和生态建设的核心阵地，也是行业规模化落地的重要前置市场。</p>
+
+      <div class="card" style="background: var(--ink); color: white; border: none; padding: 32px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px;">
+        <div>
+          <div class="card-label" style="color: #93B5E1;">EVOLUTION PATH · OUR THESIS</div>
+          <div style="font-family: var(--serif); font-size: 22px; line-height: 1.6; font-weight: 600;">
+            <span style="color: #93B5E1;">教育科研先行</span> → <span style="color: white;">行业应用逐步扩展</span> → <span style="color: #93B5E1;">工业场景规模化落地</span>
+          </div>
+          <div style="margin-top: 12px; font-family: var(--mono); font-size: 13px; color: #93B5E1;">公司研判 · 基于产业落地经验</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 市场痛点 -->
+    <section class="content-section" id="sec4">
+      <div class="sec-header">
+        <span class="sec-num">05</span>
+        <h2 class="sec-title">市场痛点</h2>
+      </div>
+      <p class="sec-lede">目前具身智能企业基本号称全技术栈自研，从本体、感知、小脑、大脑到平台、应用全部包揽，行业碎片化严重、尚未形成充分的分工协作——这与操作系统出现前的计算机产业如出一辙。</p>
+
+      <div class="pain-grid">
+        <div class="pain-item">
+          <div class="p-num">5.1</div>
+          <div>
+            <div class="p-name">机器人硬件接口分散</div>
+            <div class="p-desc">不同厂商、不同型号机器人在驱动、通信协议、控制接口和数据格式上差异明显，导致每接入一种新本体都需要重复适配。</div>
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="p-num">5.2</div>
+          <div>
+            <div class="p-name">大模型难以稳定调用真实机器人</div>
+            <div class="p-desc">大模型具备语言理解和规划能力，但缺少统一、可靠、安全的机器人能力调用机制，难以直接控制真实设备完成复杂任务。</div>
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="p-num">5.3</div>
+          <div>
+            <div class="p-name">机器人技能开发门槛高</div>
+            <div class="p-desc">当前机器人技能开发往往依赖专业工程师，涉及控制、感知、规划、标定、仿真、部署等多个环节，开发成本高、复用率低。</div>
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="p-num">5.4</div>
+          <div>
+            <div class="p-name">数据、训练、评测和部署工具链缺失</div>
+            <div class="p-desc">具身智能模型需要大量真实操作数据，但当前数据采集、标注、训练、评测和端侧部署尚未形成标准化工具链。</div>
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="p-num">5.5</div>
+          <div>
+            <div class="p-name">客户需要完整解决方案</div>
+            <div class="p-desc">教育、科研、行业客户和机器人厂商需要的不是单一机械臂、单个模型或单点算法，而是一套覆盖硬件、软件、课程、工具、技能和场景应用的完整方案。</div>
+          </div>
+        </div>
+        <div class="card" style="display: grid; place-items: center; background: #FEF2F2; border-color: var(--red);">
+          <div style="text-align: center;">
+            <div style="font-family: var(--serif); font-size: 18px; color: var(--red); font-weight: 600; line-height: 1.4;">五重痛点<br>= 行业效率被严重拖慢</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 解决方案 -->
+    <section class="content-section" id="sec5">
+      <div class="sec-header">
+        <span class="sec-num">06</span>
+        <h2 class="sec-title">公司的解决方案</h2>
+      </div>
+      <p class="sec-lede">公司以 <strong>Robonix 具身智能操作系统</strong> + <strong>XiUOS 工业物联泛在操作系统</strong> "双 OS"为软件底座：Robonix 向上解耦任务/技能/模型，<strong>向下统一抽象本体设备</strong>；XiUOS 保障实时控制，端侧无缝衔接形成"任务下发—现场执行"的完整闭环。</p>
+
+      <p style="font-size: 16px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 24px;">对照计算机产业：操作系统出现之前，应用与硬件耦合、难以复用；UNIX、Windows 等通用操作系统出现之后，软硬件解耦、专业分工、产业规模迅速放大。具身智能与工业物联正处于这一历史窗口——Robonix 让本体厂商、模型团队、技能开发者、行业集成商在统一底座上协作；XiUOS 让现场设备、传感器、关节控制器在统一泛在操作系统上互联，二者在端侧无缝衔接，共同形成从工业现场到具身智能的全栈解决方案。</p>
+
+      <div class="flow">
+        <div class="flow-step">接口与协议</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">任务与编排</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">资源与数据</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">安全与监管</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">场景与应用</div>
+      </div>
+
+      <h3 class="card-label" style="margin: 32px 0 12px;">三层价值</h3>
+      <div class="product-grid">
+        <div class="card">
+          <div class="card-text" style="font-weight: 600; color: var(--ink);">标准化</div>
+          <div class="card-text" style="font-size: 13px; margin-top: 4px;">统一能力接口、协议与调用方式，让不同本体、不同模型、不同技能在同一底座上互相理解。</div>
+        </div>
+        <div class="card">
+          <div class="card-text" style="font-weight: 600; color: var(--ink);">复用化</div>
+          <div class="card-text" style="font-size: 13px; margin-top: 4px;">能力成为可复用组件：本体原子能力 Primitive、技能包、Agent 模板可在不同场景间沉淀与共享。</div>
+        </div>
+        <div class="card">
+          <div class="card-text" style="font-weight: 600; color: var(--ink);">规模化</div>
+          <div class="card-text" style="font-size: 13px; margin-top: 4px;">同一套应用可在不同厂商、不同形态的机器人本体上跨平台部署，规模复制的边际成本趋近于零。</div>
+        </div>
+      </div>
+
+      <h3 class="card-label" style="margin: 32px 0 12px;">核心能力</h3>
+      <div class="product-grid">
+        <div class="card"><div class="card-text">多类机器人与传感器接入</div></div>
+        <div class="card"><div class="card-text">机器人原子能力 Primitive 封装</div></div>
+        <div class="card"><div class="card-text">设备能力注册、发现与调用</div></div>
+        <div class="card"><div class="card-text">LLM / VLM / VLA 模型接入</div></div>
+        <div class="card"><div class="card-text">任务规划与技能编排</div></div>
+        <div class="card"><div class="card-text">端侧部署与分布式运行</div></div>
+        <div class="card"><div class="card-text">数据采集、模型训练和评测工具链</div></div>
+        <div class="card"><div class="card-text">教育实训、科研验证和行业应用快速构建</div></div>
+      </div>
+
+      <h3 class="card-label" style="margin: 32px 0 12px; color: var(--orange);">XiUOS 工业物联泛在操作系统解决方案</h3>
+      <p style="font-size: 15px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 14px;">XiUOS 已落地工业物联终端、D2200 Linux 终端与机器人关节控制器等现场场景，覆盖 RS-485 / Modbus / EtherCAT 等主流工业协议，与 Robonix 在端侧形成"任务—控制"闭环。</p>
+      <div class="product-grid">
+        <div class="card">
+          <div class="card-text" style="font-weight: 600; color: var(--ink);">现场物联</div>
+          <div class="card-text" style="font-size: 13px; margin-top: 4px;">RS-485 / Modbus / EtherCAT 等工业协议与传感器统一接入，解决工业现场"协议孤岛"问题。</div>
+        </div>
+        <div class="card">
+          <div class="card-text" style="font-weight: 600; color: var(--ink);">实时控制</div>
+          <div class="card-text" style="font-size: 13px; margin-top: 4px;">关节控制器 M0 核实时调度（已落地汉特云服务机器人），为具身本体提供毫秒级底层响应。</div>
+        </div>
+        <div class="card">
+          <div class="card-text" style="font-weight: 600; color: var(--ink);">边缘协同</div>
+          <div class="card-text" style="font-size: 13px; margin-top: 4px;">D2200 Linux 终端 + 3588 智慧终端形态，承担端侧算力、数据采集与 Robonix 任务下发之间的桥梁。</div>
+        </div>
+        <div class="card">
+          <div class="card-text" style="font-weight: 600; color: var(--ink);">开源生态</div>
+          <div class="card-text" style="font-size: 13px; margin-top: 4px;">依托 CCF 泛在操作系统开放社区持续沉淀，与 Robonix 共享开发者工具链与技能资产。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 产品体系 -->
+    <section class="content-section" id="sec6">
+      <div class="sec-header">
+        <span class="sec-num">07</span>
+        <h2 class="sec-title">产品体系</h2>
+      </div>
+      <p class="sec-lede">本节是<strong>"战略地图"</strong>——呈现公司产品全景、五层架构与品类关系，回答"我们布局了什么"；第 08 节是<strong>"落地实证"</strong>，回答"我们已经做出了什么"。</p>
+      <p style="font-size: 15px; line-height: 1.7; color: var(--muted); margin-bottom: 18px;">两条主线共享 CCF 泛在操作系统开放社区与开源生态，但定位、客户群与商业模式各有侧重——本节聚焦 Robonix 主线产品体系，XiUOS 详见 8.6。</p>
+
+      <!-- 产品战略架构图 · 五层全景 -->
+      <div style="margin: 0 0 24px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff;">
+        <div style="padding: 12px 18px; background: var(--bg-soft); border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <span style="font-family: var(--mono); font-size: 10px; padding: 3px 8px; background: var(--ink); color: white; border-radius: 4px; letter-spacing: 0.08em;">PORTFOLIO MAP</span>
+          <strong style="font-size: 14px; color: var(--ink);">产品战略架构图 · 五层全景</strong>
+          <span style="font-size: 11px; color: var(--muted); margin-left: auto;">上层面向用户与场景 · 下层面向硬件与现场</span>
+        </div>
+
+        <!-- L5 场景应用 -->
+        <div style="display: grid; grid-template-columns: 220px 1fr; border-bottom: 1px solid var(--line);">
+          <div style="padding: 14px 18px; background: linear-gradient(135deg, rgba(28,67,124,0.10), rgba(28,67,124,0.04)); border-right: 1px solid var(--line);">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--navy); letter-spacing: 0.08em;">L5 · 场景应用层</div>
+            <div style="font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--ink); margin-top: 2px;">行业解决方案</div>
+          </div>
+          <div style="padding: 14px 18px; display: flex; align-items: center; gap: 6px 12px; flex-wrap: wrap; font-size: 13px; color: var(--ink-soft);">
+            <span>高校实验室</span>·<span>实训平台</span>·<span>科研创新</span>·<span>工业验证</span>·<span>智慧能源</span>·<span>智慧园区</span>·<span>智能巡检</span>·<span>服务机器人</span>
+          </div>
+        </div>
+
+        <!-- L4 技能生态 -->
+        <div style="display: grid; grid-template-columns: 220px 1fr; border-bottom: 1px solid var(--line);">
+          <div style="padding: 14px 18px; background: linear-gradient(135deg, rgba(13,148,136,0.10), rgba(13,148,136,0.04)); border-right: 1px solid var(--line);">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--teal); letter-spacing: 0.08em;">L4 · 技能生态层</div>
+            <div style="font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--ink); margin-top: 2px;">Robonix Skill Hub</div>
+          </div>
+          <div style="padding: 14px 18px; display: flex; align-items: center; gap: 6px 12px; flex-wrap: wrap; font-size: 13px; color: var(--ink-soft);">
+            <span>Primitive 原子能力库</span>·<span>技能市场</span>·<span>Agent 模板</span>·<span>场景工作流</span>·<span>行业技能包</span>
+          </div>
+        </div>
+
+        <!-- L3 操作系统 · 核心层 -->
+        <div style="display: grid; grid-template-columns: 220px 1fr; border-bottom: 1px solid var(--line);">
+          <div style="padding: 18px; background: linear-gradient(135deg, var(--ink), #1E2A4A); border-right: 1px solid var(--line);">
+            <div style="font-family: var(--mono); font-size: 10px; color: #F9E795; letter-spacing: 0.08em;">L3 · 操作系统层 · CORE</div>
+            <div style="font-family: var(--serif); font-size: 18px; font-weight: 700; color: white; margin-top: 4px;">Robonix + XiUOS</div>
+            <div style="font-size: 11px; color: #93B5E1; margin-top: 4px;">双 OS 软件底座</div>
+          </div>
+          <div style="padding: 18px; background: #FAFBFC; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 13px;">
+            <div style="padding: 8px 14px; background: white; border: 1px solid var(--navy); border-radius: 6px;"><strong style="color: var(--navy);">Robonix</strong> <span style="color: var(--ink-soft); font-size: 12px;">· 智能编排 / 跨本体</span></div>
+            <div style="padding: 8px 14px; background: white; border: 1px solid var(--orange); border-radius: 6px;"><strong style="color: var(--orange);">XiUOS 矽璓</strong> <span style="color: var(--ink-soft); font-size: 12px;">· 现场实时 / 关节控制</span></div>
+            <span style="color: var(--muted); font-size: 12px;">CCF 泛在 OS 开放社区开源 · 自主可控</span>
+          </div>
+        </div>
+
+        <!-- L2 工具链 -->
+        <div style="display: grid; grid-template-columns: 220px 1fr; border-bottom: 1px solid var(--line);">
+          <div style="padding: 14px 18px; background: linear-gradient(135deg, rgba(124,58,237,0.10), rgba(124,58,237,0.04)); border-right: 1px solid var(--line);">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--purple); letter-spacing: 0.08em;">L2 · 工具链层</div>
+            <div style="font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--ink); margin-top: 2px;">开发工具链与数据基础设施</div>
+          </div>
+          <div style="padding: 14px 18px; display: flex; align-items: center; gap: 6px 12px; flex-wrap: wrap; font-size: 13px; color: var(--ink-soft);">
+            <span>VLA 训练</span>·<span>世界模型</span>·<span>数据采集</span>·<span>端侧部署</span>·<span>评测工具链</span>
+          </div>
+        </div>
+
+        <!-- L1 智能硬件 -->
+        <div style="display: grid; grid-template-columns: 220px 1fr;">
+          <div style="padding: 14px 18px; background: linear-gradient(135deg, rgba(255,108,0,0.10), rgba(255,108,0,0.04)); border-right: 1px solid var(--line);">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--orange); letter-spacing: 0.08em;">L1 · 智能硬件层</div>
+            <div style="font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--ink); margin-top: 2px;">智能硬件平台</div>
+          </div>
+          <div style="padding: 14px 18px; display: flex; align-items: center; gap: 6px 12px; flex-wrap: wrap; font-size: 13px; color: var(--ink-soft);">
+            <span>协作机械臂</span>·<span>移动底盘</span>·<span>四足机器人</span>·<span>人形机器人</span>·<span>灵巧手</span>·<span>服务机器人</span>·<span>Robonix Edge</span>·<span>XiUOS 智慧终端</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-label" style="margin: 24px 0 10px;">品类矩阵 · 多形态本体覆盖</div>
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-humanoid.png" alt="人形机器人" style="height: 60px; object-fit: contain;">
+          <div style="font-size: 12px; color: var(--ink-soft); font-weight: 500;">人形机器人</div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-quadruped.png" alt="四足机器人" style="height: 60px; object-fit: contain;">
+          <div style="font-size: 12px; color: var(--ink-soft); font-weight: 500;">四足机器人</div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-arm.png" alt="协作机械臂" style="height: 60px; object-fit: contain;">
+          <div style="font-size: 12px; color: var(--ink-soft); font-weight: 500;">协作机械臂</div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-hand.png" alt="灵巧手" style="height: 60px; object-fit: contain;">
+          <div style="font-size: 12px; color: var(--ink-soft); font-weight: 500;">灵巧手</div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-service.png" alt="服务机器人" style="height: 60px; object-fit: contain;">
+          <div style="font-size: 12px; color: var(--ink-soft); font-weight: 500;">服务机器人</div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px;">
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-chassis.png" alt="移动底盘" style="height: 60px; object-fit: contain;">
+          <div style="font-size: 12px; color: var(--ink-soft); font-weight: 500;">移动底盘</div>
+        </div>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="pc-head">
+            <div class="pc-icon pc-c1">7.1</div>
+            <div>
+              <div class="pc-num">CORE PLATFORM</div>
+              <div class="pc-name">Robonix 具身智能操作系统</div>
+            </div>
+          </div>
+          <div class="pc-desc">作为整个体系的核心底座，负责统一连接机器人硬件、传感器、边缘计算设备与 AI 模型，提供设备接入、能力抽象、任务编排、模型管理和运行调度能力。</div>
+          <ul class="pc-list">
+            <li>设备接入层</li>
+            <li>硬件抽象层</li>
+            <li>Primitive 原子能力层</li>
+            <li>运行时与能力管理层</li>
+            <li>智能规划与模型层</li>
+            <li>Agent 任务编排层</li>
+            <li>开发者工具链</li>
+          </ul>
+        </div>
+
+        <div class="product-card">
+          <div class="pc-head">
+            <div class="pc-icon pc-c2">7.2</div>
+            <div>
+              <div class="pc-num">HARDWARE</div>
+              <div class="pc-name">智能硬件平台</div>
+            </div>
+          </div>
+          <div class="pc-desc">智能硬件平台是 Robonix 操作系统的标准载体和生态扩展入口；同时承载 XiUOS 矽璓工业物联终端在工业现场的规模化部署。</div>
+          <ul class="pc-list">
+            <li>E3 / E5 智慧臂（Piper 协作机械臂）</li>
+            <li>云深处四足机器人平台</li>
+            <li>松灵移动底盘 + Piper 机械臂组合</li>
+            <li>节卡协作机械臂工业平台</li>
+            <li>汉特云服务机器人平台</li>
+            <li>BeingBeyond 灵巧手（智在无界联名）</li>
+            <li>Robonix Edge 边缘智能终端</li>
+            <li>XiUOS 智慧终端（3588）/ 关节控制器</li>
+          </ul>
+        </div>
+
+        <div class="product-card">
+          <div class="pc-head">
+            <div class="pc-icon pc-c3">7.3</div>
+            <div>
+              <div class="pc-num">TOOLCHAIN</div>
+              <div class="pc-name">开发工具链与数据基础设施</div>
+            </div>
+          </div>
+          <div class="pc-desc">负责构建从数据采集、模型训练到部署验证的完整研发闭环。核心价值是降低研发成本、提升模型迭代效率。</div>
+          <ul class="pc-list">
+            <li>数据采集与管理平台</li>
+            <li>模型训练与评测工具</li>
+            <li>仿真环境与调试工具</li>
+            <li>SDK 与 API 体系</li>
+            <li>端侧部署工具</li>
+          </ul>
+        </div>
+
+        <div class="product-card">
+          <div class="pc-head">
+            <div class="pc-icon pc-c4">7.4</div>
+            <div>
+              <div class="pc-num">SKILL HUB</div>
+              <div class="pc-name">Robonix Skill Hub 技能生态平台</div>
+            </div>
+          </div>
+          <div class="pc-desc">通过标准化技能封装机制，将机器人能力沉淀为可复用、可共享、可组合的技能资产。未来可形成开发者生态、技能订阅和平台型软件收入。</div>
+          <ul class="pc-list">
+            <li>Primitive 能力库</li>
+            <li>技能市场</li>
+            <li>Agent 模板</li>
+            <li>场景工作流</li>
+            <li>行业技能包</li>
+          </ul>
+        </div>
+
+        <div class="product-card" style="grid-column: 1 / -1;">
+          <div class="pc-head">
+            <div class="pc-icon pc-c5">7.5</div>
+            <div>
+              <div class="pc-num">SOLUTIONS</div>
+              <div class="pc-name">教育、科研与行业解决方案</div>
+            </div>
+          </div>
+          <div class="pc-desc">基于前述平台能力，公司面向不同客户群体形成标准化解决方案。</div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px;">
+            <div class="card" style="padding: 12px;"><div class="card-text" style="font-size: 13px;">高校具身智能实验室</div></div>
+            <div class="card" style="padding: 12px;"><div class="card-text" style="font-size: 13px;">职业教育实训平台</div></div>
+            <div class="card" style="padding: 12px;"><div class="card-text" style="font-size: 13px;">科研创新平台</div></div>
+            <div class="card" style="padding: 12px;"><div class="card-text" style="font-size: 13px;">工业智能化验证平台</div></div>
+            <div class="card" style="padding: 12px;"><div class="card-text" style="font-size: 13px;">智慧能源解决方案</div></div>
+            <div class="card" style="padding: 12px;"><div class="card-text" style="font-size: 13px;">智慧园区解决方案</div></div>
+            <div class="card" style="padding: 12px;"><div class="card-text" style="font-size: 13px;">智能巡检解决方案</div></div>
+            <div class="card" style="padding: 12px;"><div class="card-text" style="font-size: 13px;">服务机器人解决方案</div></div>
+          </div>
+        </div>
+
+        <div class="product-card" style="grid-column: 1 / -1;">
+          <div class="pc-head">
+            <div class="pc-icon pc-c1">7.6</div>
+            <div>
+              <div class="pc-num">EXTENSIONS · 拓展产品线</div>
+              <div class="pc-name">端侧智能终端 · 虚拟化底座 · 数字具身 · 智能体平台</div>
+            </div>
+          </div>
+          <div class="pc-desc">在 Robonix + XiUOS 双 OS 主线之外，公司围绕端侧智能与产业落地，延伸出多条已落地或正在产品化的拓展产品线，覆盖工业物联终端、边缘智能、现场虚拟化底座、数字具身与人机协同等场景。</div>
+
+          <h4 class="card-label" style="margin: 16px 0 10px; color: var(--ink);">智能终端系列 · 基于国产 XiUOS 自主可控</h4>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+            <div class="card" style="padding: 16px;">
+              <div style="margin: -16px -16px 12px; height: 120px; overflow: hidden; border-radius: 6px 6px 0 0; background: var(--bg-soft); border-bottom: 1px solid var(--line);">
+                <img src="./SYSOUL 希秀科技 · 商业计划书_files/product-d-series.png" alt="矽数通 D 系列产品图" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+              </div>
+              <div class="card-label" style="color: var(--orange); margin: 0 0 6px;">DATA HUB · 矽数通 D 系列</div>
+              <div class="card-title" style="font-size: 15px;">低功耗工业物联网数采终端</div>
+              <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.6;">面向工业与能源现场的多协议数据采集与边缘接入设备，对接 PLC、工业设备及各类传感器，构建现场到平台的数据入口与协议转换节点。</div>
+              <ul class="pc-list" style="margin-top: 8px;">
+                <li>200+ 工业与能源通信协议 · 持续扩展</li>
+                <li>覆盖 10+ 品牌、20+ 系列 PLC</li>
+                <li>以太网 / RS485 · 模拟量 / 数字量</li>
+                <li>D2200 Linux 终端 + RS-485 扩展（1→4 路独立接口）</li>
+                <li>QSPI 低成本 Flash 版本 · 远程动态加载</li>
+              </ul>
+            </div>
+            <div class="card" style="padding: 16px;">
+              <div style="margin: -16px -16px 12px; height: 120px; overflow: hidden; border-radius: 6px 6px 0 0; background: var(--bg-soft); border-bottom: 1px solid var(--line);">
+                <img src="./SYSOUL 希秀科技 · 商业计划书_files/product-i-series.png" alt="矽慧通 i 系列产品图" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+              </div>
+              <div class="card-label" style="color: var(--teal); margin: 0 0 6px;">EDGE AI · 矽慧通 i 系列</div>
+              <div class="card-title" style="font-size: 15px;">边缘智能终端（i3300）</div>
+              <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.6;">面向工业现场态势感知与复杂数据处理的边缘智能设备，具备本地实时推理与认知能力，为用户提供"感-联-知-控"一体化运行环境。</div>
+              <ul class="pc-list" style="margin-top: 8px;">
+                <li>边缘侧 AI 推理 · 智能应用部署</li>
+                <li>多源数据接入：设备 / 传感器 / 视频</li>
+                <li>16GB 内存 / 128GB 存储 · 高并发长稳运行</li>
+                <li>主要芯片全部国产化 · 供应链自主可控</li>
+              </ul>
+            </div>
+            <div class="card" style="padding: 16px;">
+              <div class="card-label" style="color: var(--navy); margin: 0 0 6px;">HYPERVISOR · SYSOUL Hypervisor</div>
+              <div class="card-title" style="font-size: 15px;">现场计算专用 Type-1 虚拟机监控器</div>
+              <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.6;">开源领域首个同时支持 ARM64 / RISC-V64 / LoongArch64 / X86_64 四种体系架构、基于 Rust 实现的裸机型虚拟机监控器，面向现场计算"专用、高安全、原生智能"三大需求。</div>
+              <ul class="pc-list" style="margin-top: 8px;">
+                <li>Type-1 轻量 Hypervisor · little kernel + BIG kernel 混合部署</li>
+                <li>zoneU / zoneR / zone0 多域隔离：管理 / AI / 实时应用</li>
+                <li>同时承载 RTOS 与 Linux · 兼顾实时性与生态</li>
+                <li>开源 Rust 实现 · 内存安全 · 全国产架构适配</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4 class="card-label" style="margin: 18px 0 10px; color: var(--ink);">具身智能衍生 · 数字具身与智能体平台</h4>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+            <div class="card" style="padding: 16px;">
+              <div class="card-label" style="color: var(--teal); margin: 0 0 6px;">CYBER ROBOT · 赛博机器人</div>
+              <div class="card-title" style="font-size: 15px;">运行于数字系统之外的数字具身机器人</div>
+              <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.6;">以人类操作方式对数字系统进行感知与执行，已提交专利《一种基于 RPA 技术的非侵入式人机协同控制系统》。提供低代码积木式 + 无代码录制式流程编排。</div>
+              <ul class="pc-list" style="margin-top: 8px;">
+                <li>非侵入式：无需在待采集设备中安装任何软件</li>
+                <li>智能画面解析 · 多模态大模型驱动</li>
+                <li>2 种场景化 SDK · 快速部署</li>
+                <li>已落地荣盛石化等头部石化企业</li>
+              </ul>
+            </div>
+            <div class="card" style="padding: 16px;">
+              <div class="card-label" style="color: var(--purple); margin: 0 0 6px;">DIGITAL HUMAN · 数字人产品</div>
+              <div class="card-title" style="font-size: 15px;">可协作 · 可沉淀 · 可治理的智能体平台</div>
+              <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.6;">院内自研、从无到有打造的智能体平台，不只是"能聊天的 AI"，而是一套完整的智能体协作与治理系统，前后端全栈开发，形成完整产品闭环交付。</div>
+              <ul class="pc-list" style="margin-top: 8px;">
+                <li>用户 / 文件 / 对话 / 技能 / 记忆 / 资源 管理</li>
+                <li>对接人事系统：AI 智能请假、补签 Agent</li>
+                <li>完整产品闭环交付</li>
+              </ul>
+            </div>
+            <div class="card" style="padding: 16px;">
+              <div class="card-label" style="color: var(--orange); margin: 0 0 6px;">EMBODIED KIT · 希秀智慧臂 / 智慧底座</div>
+              <div class="card-title" style="font-size: 15px;">面向教育与科研的具身智能实训硬件</div>
+              <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.6;">搭载国产 XiUOS，"会思考"的机器而非"会动"的机械：聚焦具身智脑与系统软件，所训技能可直接赋能前沿产业。国家 A 类大赛、中国开源大赛、国家基金项目支持。</div>
+              <ul class="pc-list" style="margin-top: 8px;">
+                <li>智慧臂：VLA 模型驱动 · 无需编程即可智能作业</li>
+                <li>智慧底座：SLAM / 导航 / 关节位姿 / 抓取全链可视</li>
+                <li>实时状态追踪 + 关键事件回溯 + 环境感知服务</li>
+                <li>产学研实训：教育部重点课题 5–30 万 / 项</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 12px;">
+            <div class="card" style="padding: 14px 16px; background: var(--bg-soft);">
+              <div class="card-label" style="color: var(--navy); margin: 0 0 4px;">EMBODIED BRAIN · 具身智脑</div>
+              <div style="font-size: 12px; color: var(--ink-soft); line-height: 1.6;">基于 Robonix 的端侧智能平台与运行时环境，为智能机器人提供多模态感知与实时决策能力，支持用户开发、调试与运行具身技能。</div>
+            </div>
+            <div class="card" style="padding: 14px 16px; background: var(--bg-soft);">
+              <div class="card-label" style="color: var(--orange); margin: 0 0 4px;">DATA TERMINAL · 数采终端</div>
+              <div style="font-size: 12px; color: var(--ink-soft); line-height: 1.6;">基于 XiUOS 的工业现场数据采集终端，解决工业物联场景中的全面感知、泛在互联、实时认知与精准调控问题。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 核心产品介绍 -->
+    <section class="content-section" id="sec7">
+      <div class="sec-header">
+        <span class="sec-num">08</span>
+        <h2 class="sec-title">核心产品与技术进展</h2>
+      </div>
+      <p class="sec-lede">本节是<strong>"落地实证"</strong>——不是产品规划或品类清单（已在第 07 节呈现），而是<strong>每个核心产品已跑通的关键链路、可度量指标、已签约合作与已交付场景</strong>。</p>
+
+      <!-- 技术进展速览 KPI -->
+      <div style="margin: 20px 0 24px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff;">
+        <div style="padding: 12px 18px; background: var(--bg-soft); border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <span style="font-family: var(--mono); font-size: 10px; padding: 3px 8px; background: var(--orange); color: white; border-radius: 4px; letter-spacing: 0.08em;">PROGRESS SNAPSHOT</span>
+          <strong style="font-size: 14px; color: var(--ink);">技术进展速览 · 截至 2026 上半年</strong>
+          <span style="font-size: 11px; color: var(--muted); margin-left: auto;">所有指标均已落地验证 · 非目标值</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;">
+          <div style="padding: 16px 14px; text-align: center; border-right: 1px solid var(--line); background: linear-gradient(180deg, #FAFBFC, #fff);">
+            <div style="font-family: var(--mono); font-size: 24px; font-weight: 700; color: var(--navy);">96<span style="font-size: 14px;">%</span></div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4;">视觉定位准确率<br><span style="color: var(--ink-soft);">较基线 +29pp</span></div>
+          </div>
+          <div style="padding: 16px 14px; text-align: center; border-right: 1px solid var(--line); background: linear-gradient(180deg, #FAFBFC, #fff);">
+            <div style="font-family: var(--mono); font-size: 24px; font-weight: 700; color: var(--teal);">65<span style="font-size: 14px;">%</span></div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4;">VLA 端到端成功率<br><span style="color: var(--ink-soft);">较基线 +35pp</span></div>
+          </div>
+          <div style="padding: 16px 14px; text-align: center; border-right: 1px solid var(--line); background: linear-gradient(180deg, #FAFBFC, #fff);">
+            <div style="font-family: var(--mono); font-size: 24px; font-weight: 700; color: var(--purple);">2.85<span style="font-size: 14px;">x</span></div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4;">推理速度提升<br><span style="color: var(--ink-soft);">4s → 1.4s</span></div>
+          </div>
+          <div style="padding: 16px 14px; text-align: center; border-right: 1px solid var(--line); background: linear-gradient(180deg, #FAFBFC, #fff);">
+            <div style="font-family: var(--mono); font-size: 24px; font-weight: 700; color: var(--orange);">6</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4;">已签约联名品牌<br><span style="color: var(--ink-soft);">5 家头部厂商</span></div>
+          </div>
+          <div style="padding: 16px 14px; text-align: center; border-right: 1px solid var(--line); background: linear-gradient(180deg, #FAFBFC, #fff);">
+            <div style="font-family: var(--mono); font-size: 24px; font-weight: 700; color: var(--ink);">22K<span style="font-size: 14px;"> 套</span></div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4;">OS 战略签约<br><span style="color: var(--ink-soft);">已执行 6K · 年 1.5K</span></div>
+          </div>
+          <div style="padding: 16px 14px; text-align: center; background: linear-gradient(180deg, #FAFBFC, #fff);">
+            <div style="font-family: var(--mono); font-size: 24px; font-weight: 700; color: var(--red);">12</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4;">Robonix 智脑<br><span style="color: var(--ink-soft);">核心服务模块</span></div>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size: 15px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 20px;">下列 8.1—8.6 按"产品定位 → 已落地链路 → 指标/合作证据"展开，<strong>所有数据均为已验证结果</strong>。</p>
+
+      <!-- 8.1 Robonix OS -->
+      <div class="deep-card">
+        <div class="dc-head">
+          <span class="dc-tag">8.1</span>
+          <h3>Robonix 具身智能操作系统</h3>
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/robonix-logo.png" alt="Robonix" style="height: 32px; width: auto; margin-left: auto; opacity: 0.85;">
+        </div>
+        <div class="dc-sub">解耦模型、技能与硬件，沉淀本体能力、技能资产与开发者工具链，形成可规模化的具身智能基础设施。</div>
+
+        <!-- 产品定位与设计初衷 -->
+        <div class="ds-label" style="margin-top: 8px;">产品定位与设计初衷</div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 8px;">
+          <div class="card" style="padding: 14px 16px;">
+            <div class="card-text" style="font-size: 13px; color: var(--ink); font-weight: 600;">统一能力接口</div>
+            <div class="card-text" style="font-size: 12px; margin-top: 4px;">统一的调用方式，让不同本体、模型、技能在同一底座上互相理解。</div>
+          </div>
+          <div class="card" style="padding: 14px 16px;">
+            <div class="card-text" style="font-size: 13px; color: var(--ink); font-weight: 600;">解耦模型与本体</div>
+            <div class="card-text" style="font-size: 12px; margin-top: 4px;">模型能力与本体能力分离，模型可替换、本体可替换、互不锁定。</div>
+          </div>
+          <div class="card" style="padding: 14px 16px;">
+            <div class="card-text" style="font-size: 13px; color: var(--ink); font-weight: 600;">降低适配成本</div>
+            <div class="card-text" style="font-size: 12px; margin-top: 4px;">一次接入，多平台运行，跨厂商、跨形态本体无需重复开发。</div>
+          </div>
+          <div class="card" style="padding: 14px 16px;">
+            <div class="card-text" style="font-size: 13px; color: var(--ink); font-weight: 600;">快速规模化落地</div>
+            <div class="card-text" style="font-size: 12px; margin-top: 4px;">同一套应用可在多机器人、多场景之间快速复用与部署。</div>
+          </div>
+        </div>
+
+        <!-- 面向的应用场景 -->
+        <div class="ds-label" style="margin-top: 22px;">面向的应用场景</div>
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 8px;">
+          <div class="card" style="padding: 14px 16px; text-align: center;">
+            <div class="card-text" style="font-size: 13px; color: var(--navy); font-weight: 600;">迎宾接待</div>
+          </div>
+          <div class="card" style="padding: 14px 16px; text-align: center;">
+            <div class="card-text" style="font-size: 13px; color: var(--navy); font-weight: 600;">配送巡检</div>
+          </div>
+          <div class="card" style="padding: 14px 16px; text-align: center;">
+            <div class="card-text" style="font-size: 13px; color: var(--navy); font-weight: 600;">工厂巡检</div>
+          </div>
+          <div class="card" style="padding: 14px 16px; text-align: center;">
+            <div class="card-text" style="font-size: 13px; color: var(--navy); font-weight: 600;">安防巡逻</div>
+          </div>
+          <div class="card" style="padding: 14px 16px; text-align: center;">
+            <div class="card-text" style="font-size: 13px; color: var(--navy); font-weight: 600;">更多场景</div>
+          </div>
+        </div>
+
+        <!-- 五层架构 -->
+        <div class="ds-label" style="margin-top: 22px;">统一系统底座 · 五层能力架构</div>
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 8px;">
+          <div class="card" style="padding: 14px 14px; background: var(--ink); color: white; border: none;">
+            <div style="font-family: var(--mono); font-size: 10px; color: #93B5E1; letter-spacing: 0.08em; margin-bottom: 6px;">LAYER 1</div>
+            <div style="font-family: var(--serif); font-size: 14px; font-weight: 700; color: white;">接口与协议</div>
+            <div style="font-size: 11px; color: #CBD5E1; margin-top: 4px;">统一接入</div>
+          </div>
+          <div class="card" style="padding: 14px 14px; background: var(--ink); color: white; border: none;">
+            <div style="font-family: var(--mono); font-size: 10px; color: #93B5E1; letter-spacing: 0.08em; margin-bottom: 6px;">LAYER 2</div>
+            <div style="font-family: var(--serif); font-size: 14px; font-weight: 700; color: white;">任务与编排</div>
+            <div style="font-size: 11px; color: #CBD5E1; margin-top: 4px;">任务执行</div>
+          </div>
+          <div class="card" style="padding: 14px 14px; background: var(--ink); color: white; border: none;">
+            <div style="font-family: var(--mono); font-size: 10px; color: #93B5E1; letter-spacing: 0.08em; margin-bottom: 6px;">LAYER 3</div>
+            <div style="font-family: var(--serif); font-size: 14px; font-weight: 700; color: white;">资源与数据</div>
+            <div style="font-size: 11px; color: #CBD5E1; margin-top: 4px;">本体 + 模型能力</div>
+          </div>
+          <div class="card" style="padding: 14px 14px; background: var(--ink); color: white; border: none;">
+            <div style="font-family: var(--mono); font-size: 10px; color: #93B5E1; letter-spacing: 0.08em; margin-bottom: 6px;">LAYER 4</div>
+            <div style="font-family: var(--serif); font-size: 14px; font-weight: 700; color: white;">安全与监管</div>
+            <div style="font-size: 11px; color: #CBD5E1; margin-top: 4px;">安全运行</div>
+          </div>
+          <div class="card" style="padding: 14px 14px; background: var(--ink); color: white; border: none;">
+            <div style="font-family: var(--mono); font-size: 10px; color: #93B5E1; letter-spacing: 0.08em; margin-bottom: 6px;">LAYER 5</div>
+            <div style="font-family: var(--serif); font-size: 14px; font-weight: 700; color: white;">场景与应用</div>
+            <div style="font-size: 11px; color: #CBD5E1; margin-top: 4px;">用户与生态</div>
+          </div>
+        </div>
+
+        <!-- 本体能力 + 模型能力 -->
+        <div class="ds-label" style="margin-top: 22px;">本体能力 + 模型能力 · 由 Robonix 统一调度</div>
+        <div class="deep-grid">
+          <div class="deep-section">
+            <div class="ds-label">本体能力</div>
+            <div class="ds-list">
+              <li><strong>运动底盘</strong>：差速、阿克曼、四足、人形等多种底盘</li>
+              <li><strong>机械臂 / 末端</strong>：6DoF / 7DoF 协作臂、夹爪、灵巧手</li>
+              <li><strong>传感器</strong>：深度相机、激光雷达、IMU、力矩传感器</li>
+              <li><strong>语音 / 视觉</strong>：多模态感知、SLAM、目标检测</li>
+            </div>
+          </div>
+          <div class="deep-section">
+            <div class="ds-label">模型能力</div>
+            <div class="ds-list">
+              <li><strong>大语言模型</strong>：任务理解、规划、对话</li>
+              <li><strong>多模态模型</strong>：视觉问答、场景理解</li>
+              <li><strong>VLA 模型</strong>：视觉-语言-动作联合决策</li>
+              <li><strong>世界模型</strong>：物理环境预测与具身推演</li>
+              <li><strong>行业模型</strong>：面向能源、制造、园区等垂直场景</li>
+            </div>
+          </div>
+        </div>
+
+        <!-- 原子能力 + 任务编排 -->
+        <div class="deep-grid" style="margin-top: 8px;">
+          <div class="deep-section">
+            <div class="ds-label">PRIMITIVE 原子能力</div>
+            <div class="ds-list">
+              <li>关节控制 · 末端位姿 · 抓取 / 放置 / 导航</li>
+              <li>视觉检测 · 语音交互 · 多机器人协同</li>
+              <li>URDF 运动学 · 夹爪控制 · 力控</li>
+            </div>
+          </div>
+          <div class="deep-section">
+            <div class="ds-label">AGENT ORCHESTRATION</div>
+            <div class="ds-list">
+              <li>多步骤任务规划 · 多设备协同</li>
+              <li>条件判断 · 工作流编排</li>
+              <li>MCP 工具调用 · Agent 自主执行</li>
+            </div>
+          </div>
+        </div>
+
+        <!-- 为什么需要操作系统 -->
+        <div class="ds-label" style="margin-top: 22px;">为什么需要 Robonix · 三层价值</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px;">
+          <div class="card" style="padding: 14px 16px;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--navy); letter-spacing: 0.08em;">STANDARDIZE</div>
+            <div class="card-text" style="font-size: 14px; color: var(--ink); font-weight: 600; margin-top: 4px;">标准化</div>
+            <div class="card-text" style="font-size: 12px; margin-top: 4px;">统一能力接口，让异构本体、异构模型在同一底座上互认、互调、互理解。</div>
+          </div>
+          <div class="card" style="padding: 14px 16px;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--teal); letter-spacing: 0.08em;">REUSE</div>
+            <div class="card-text" style="font-size: 14px; color: var(--ink); font-weight: 600; margin-top: 4px;">复用化</div>
+            <div class="card-text" style="font-size: 12px; margin-top: 4px;">跨场景沉淀——同一 Primitive / 技能 / Agent 模板在新场景中即插即用，避免重复造轮子。</div>
+          </div>
+          <div class="card" style="padding: 14px 16px;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--orange); letter-spacing: 0.08em;">SCALE</div>
+            <div class="card-text" style="font-size: 14px; color: var(--ink); font-weight: 600; margin-top: 4px;">规模化</div>
+            <div class="card-text" style="font-size: 12px; margin-top: 4px;">同一套应用可在不同厂商、不同形态机器人本体上跨平台部署，规模复制边际成本趋近于零。</div>
+          </div>
+        </div>
+
+        <!-- 多形态本体适配 -->
+        <div class="ds-label" style="margin-top: 22px;">多形态本体适配</div>
+        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 8px;">
+          <div class="card" style="padding: 14px 12px; text-align: center;">
+            <div class="card-text" style="font-size: 13px; color: var(--ink); font-weight: 600;">四足机器人</div>
+            <div class="card-text" style="font-size: 11px; margin-top: 4px;">巡检、安防、园区</div>
+          </div>
+          <div class="card" style="padding: 14px 12px; text-align: center;">
+            <div class="card-text" style="font-size: 13px; color: var(--ink); font-weight: 600;">协作机械臂</div>
+            <div class="card-text" style="font-size: 11px; margin-top: 4px;">抓取、装配、检测</div>
+          </div>
+          <div class="card" style="padding: 14px 12px; text-align: center;">
+            <div class="card-text" style="font-size: 13px; color: var(--ink); font-weight: 600;">人形机器人</div>
+            <div class="card-text" style="font-size: 11px; margin-top: 4px;">通用任务 · 家庭 / 工业</div>
+          </div>
+          <div class="card" style="padding: 14px 12px; text-align: center;">
+            <div class="card-text" style="font-size: 13px; color: var(--ink); font-weight: 600;">灵巧手</div>
+            <div class="card-text" style="font-size: 11px; margin-top: 4px;">复杂抓取 · 精细作业</div>
+          </div>
+          <div class="card" style="padding: 14px 12px; text-align: center;">
+            <div class="card-text" style="font-size: 13px; color: var(--ink); font-weight: 600;">服务机器人</div>
+            <div class="card-text" style="font-size: 11px; margin-top: 4px;">配送、清洁、安防</div>
+          </div>
+          <div class="card" style="padding: 14px 12px; text-align: center;">
+            <div class="card-text" style="font-size: 13px; color: var(--ink); font-weight: 600;">移动底盘</div>
+            <div class="card-text" style="font-size: 11px; margin-top: 4px;">物流、巡检、数据采集</div>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: 22px;">
+          <div class="q-text" style="font-size: 15px;">以 Piper 机械臂为代表，已打通 <strong>SDK → Primitive → 服务注册 → 任务编排 → LLM 调用</strong> 完整链路，关节控制、末端位姿、夹爪控制、URDF 运动学等核心能力已完成 Primitive 封装；公司同时构建了配套的 Mock 测试、单元测试与分布式部署适配，机器人底层能力开始进入统一操作系统框架。</div>
+          <div class="q-source">— PROGRESS · 8.1</div>
+        </div>
+      </div>
+
+      <!-- 8.2 标准硬件载体平台 · 多形态本体产品矩阵 -->
+      <div class="deep-card">
+        <div class="dc-head">
+          <span class="dc-tag">8.2</span>
+          <h3>标准硬件载体平台 · 多形态本体产品矩阵</h3>
+        </div>
+        <div class="dc-sub">Robonix 操作系统的标准参考本体系列，覆盖协作臂、移动底盘、四足、服务机器人、人形机器人与灵巧手六大形态；与 8.4 开放硬件生态平台互为补充。</div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px;">
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line);">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-arm.png" alt="协作机械臂" style="height: 38px; width: auto; object-fit: contain;">
+              <div>
+                <div class="card-label" style="color: var(--teal); margin: 0 0 2px;">协作机械臂</div>
+                <div style="font-size: 11px; color: var(--muted); font-weight: 500;">Piper / E3 · E5 / JAKA</div>
+              </div>
+            </div>
+            <div class="card-title" style="font-size: 15px;">教育科研与工业操作入口</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>E3 / E5 智慧臂 — 已跑通 Robonix 完整链路</li>
+              <li>Piper 6DoF 轻量化协作臂</li>
+              <li>JAKA Mini · Pro 工业协作臂</li>
+              <li>深度相机 / RGB 工业相机 + 智能夹爪</li>
+              <li>手眼标定 · 数据采集 · VLA 微调验证</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line);">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-quadruped.png" alt="四足机器人" style="height: 38px; width: auto; object-fit: contain;">
+              <div>
+                <div class="card-label" style="color: var(--orange); margin: 0 0 2px;">四足机器人</div>
+                <div style="font-size: 11px; color: var(--muted); font-weight: 500;">云深处 Lite3 / X30</div>
+              </div>
+            </div>
+            <div class="card-title" style="font-size: 15px;">巡检与科研教育平台</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>Lite3 科研教育版 — 高校与中小学教学</li>
+              <li>X30 行业级 — 电力、工厂、管廊巡检</li>
+              <li>视觉定位 · VLA 任务执行</li>
+              <li>Robonix + XiUOS 双 OS 协同</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line);">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-chassis.png" alt="移动底盘" style="height: 38px; width: auto; object-fit: contain;">
+              <div>
+                <div class="card-label" style="color: var(--purple); margin: 0 0 2px;">移动底盘</div>
+                <div style="font-size: 11px; color: var(--muted); font-weight: 500;">AgileX Scout / Piper</div>
+              </div>
+            </div>
+            <div class="card-title" style="font-size: 15px;">移动操作与数据采集底盘</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>差速 / 阿克曼 / 全向多构型</li>
+              <li>Piper 机械臂 + 移动底盘组合</li>
+              <li>具身智能数据采集方案</li>
+              <li>室内外场景适配</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line);">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-service.png" alt="服务机器人" style="height: 38px; width: auto; object-fit: contain;">
+              <div>
+                <div class="card-label" style="color: var(--navy); margin: 0 0 2px;">服务机器人</div>
+                <div style="font-size: 11px; color: var(--muted); font-weight: 500;">汉特云 配送 / 清洁 / 安防</div>
+              </div>
+            </div>
+            <div class="card-title" style="font-size: 15px;">商业场景规模化部署</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>智能配送 · 楼宇迎宾</li>
+              <li>商用清洁 · 安防巡逻</li>
+              <li>云边端一体化机器人方案</li>
+              <li>已对接 Robonix 任务编排</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line);">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-hand.png" alt="灵巧手" style="height: 38px; width: auto; object-fit: contain;">
+              <div>
+                <div class="card-label" style="color: var(--orange); margin: 0 0 2px;">灵巧手</div>
+                <div style="font-size: 11px; color: var(--muted); font-weight: 500;">BeingBeyond 智在无界</div>
+              </div>
+            </div>
+            <div class="card-title" style="font-size: 15px;">高自由度操作末端</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>多自由度灵巧操作末端</li>
+              <li>复杂抓取 · 精细作业</li>
+              <li>双臂操作任务执行</li>
+              <li>Robonix Primitive 适配</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line);">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/robot-humanoid.png" alt="人形机器人" style="height: 38px; width: auto; object-fit: contain;">
+              <div>
+                <div class="card-label" style="color: var(--teal); margin: 0 0 2px;">人形机器人</div>
+                <div style="font-size: 11px; color: var(--muted); font-weight: 500;">未来拓展 · 智元 / 宇树 / 越疆</div>
+              </div>
+            </div>
+            <div class="card-title" style="font-size: 15px;">通用人形本体接入</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>智元 AgiBot — 通用人形</li>
+              <li>宇树 Unitree — 通用人形 + 强化学习</li>
+              <li>越疆 DOBOT — 轻量协作人形</li>
+              <li>Robonix Primitive 抽象适配（规划中）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8.3 Robonix Edge -->
+      <div class="deep-card">
+        <div class="dc-head">
+          <span class="dc-tag">8.3</span>
+          <h3>Robonix Edge 边缘智能终端</h3>
+        </div>
+        <div class="dc-sub">连接云端模型与机器人现场执行的关键节点，为机器人提供实时、安全、稳定的智能计算。</div>
+
+        <div class="deep-grid">
+          <div class="deep-section">
+            <div class="ds-label">SUPPORTED HARDWARE</div>
+            <ul class="ds-list">
+              <li>RK3588</li>
+              <li>Jetson Orin Nano · NX · AGX</li>
+              <li>Jetson Thor</li>
+              <li>工业计算机</li>
+              <li>国产 AI 算力平台</li>
+            </ul>
+          </div>
+          <div class="deep-section">
+            <div class="ds-label">CORE CAPABILITIES</div>
+            <ul class="ds-list">
+              <li>本地模型部署 · 多模态推理</li>
+              <li>机器人控制</li>
+              <li>数据缓存 · 云边协同</li>
+              <li>Agent 运行环境</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8.4 开放硬件生态平台 -->
+      <div class="deep-card">
+        <div class="dc-head">
+          <span class="dc-tag">8.4</span>
+          <h3>开放硬件生态平台 · 多品牌联名</h3>
+        </div>
+        <div class="dc-sub">开放硬件生态策略 — 通过与主流机器人厂商多品牌联名合作，构建覆盖机械臂、移动底盘、四足机器人、服务机器人的多形态硬件矩阵。</div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px;">
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line);">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/partner-agilex.png" alt="松灵机器人" style="height: 28px; width: auto;">
+              <div class="card-label" style="color: var(--teal); margin: 0;">松灵机器人</div>
+            </div>
+            <div class="card-title" style="font-size: 16px;">机械臂与移动机器人底盘平台</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>Piper 轻量化六轴机械臂</li>
+              <li>移动机器人底盘</li>
+              <li>具身智能数据采集方案</li>
+              <li>移动操作机器人组合平台</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line);">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/partner-jaka.png" alt="节卡机器人" style="height: 24px; width: auto;">
+              <div class="card-label" style="color: var(--purple); margin: 0;">节卡机器人</div>
+            </div>
+            <div class="card-title" style="font-size: 16px;">协作机械臂与工业级操作平台</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>JAKA 协作机器人系列</li>
+              <li>JAKA Mini · Pro 系列</li>
+              <li>视觉与力控感知组件</li>
+              <li>工业应用工作站</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line);">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/partner-deeprobotics.png" alt="云深处科技" style="height: 24px; width: auto;">
+              <div class="card-label" style="color: var(--orange); margin: 0;">云深处科技</div>
+            </div>
+            <div class="card-title" style="font-size: 16px;">四足机器人与巡检机器人平台</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>Lite3 科研教育四足机器人</li>
+              <li>X30 行业级四足机器人</li>
+              <li>电力、工厂、管廊巡检方案</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line);">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/partner-hantewin.png" alt="汉特云" style="height: 24px; width: auto;">
+              <div class="card-label" style="color: var(--navy); margin: 0;">汉特云</div>
+            </div>
+            <div class="card-title" style="font-size: 16px;">服务机器人与场景机器人平台</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>智能服务 · 配送机器人</li>
+              <li>安防巡逻 · 清洁机器人</li>
+              <li>云边端一体化机器人解决方案</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line);">
+              <img src="./SYSOUL 希秀科技 · 商业计划书_files/partner-beingbeyond.png" alt="BeingBeyond 智在无界" style="height: 28px; width: auto;">
+              <div class="card-label" style="color: var(--orange); margin: 0;">BeingBeyond 智在无界</div>
+            </div>
+            <div class="card-title" style="font-size: 16px;">灵巧手 · 高自由度操作末端</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>多自由度灵巧操作末端</li>
+              <li>复杂抓取 · 精细作业</li>
+              <li>双臂协同任务执行</li>
+              <li>Robonix Primitive 已完成适配</li>
+            </ul>
+          </div>
+          <div class="card" style="background: var(--bg-soft);">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line);">
+              <div style="display: inline-flex; align-items: center; justify-content: center; height: 28px; padding: 0 12px; border: 1px dashed var(--line-2); border-radius: 6px; font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: 0.04em;">PIPELINE</div>
+              <div class="card-label" style="color: var(--muted); margin: 0;">未来联名品牌 · 生态合作储备</div>
+            </div>
+            <div class="card-title" style="font-size: 16px;">持续接洽中的本体与组件厂商</div>
+            <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px 16px; margin-top: 10px;">
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-soft); font-weight: 500;">
+                <img src="./SYSOUL 希秀科技 · 商业计划书_files/partner-agibot.png" alt="智元机器人" style="height: 20px; width: auto; opacity: 0.85;"> 智元 AgiBot
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-soft); font-weight: 500;">
+                <img src="./SYSOUL 希秀科技 · 商业计划书_files/partner-psibot.png" alt="灵初智能" style="height: 20px; width: auto; opacity: 0.85;"> 灵初 PsiBot
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-soft); font-weight: 500;">
+                <img src="./SYSOUL 希秀科技 · 商业计划书_files/partner-yobotics.png" alt="优宝特" style="height: 18px; width: auto; opacity: 0.85;"> 优宝特 YOBOTICS
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-soft); font-weight: 500;">
+                <img src="./SYSOUL 希秀科技 · 商业计划书_files/partner-aubo.png" alt="遨博智能" style="height: 20px; width: auto; opacity: 0.85;"> 遨博 AUBO
+              </span>
+              <span style="display: inline-flex; align-items: center; height: 20px; padding: 0 10px; border: 1px dashed var(--line-2); border-radius: 5px; font-size: 12px; color: var(--muted); font-weight: 500;">宇树 Unitree</span>
+              <span style="display: inline-flex; align-items: center; height: 20px; padding: 0 10px; border: 1px dashed var(--line-2); border-radius: 5px; font-size: 12px; color: var(--muted); font-weight: 500;">越疆 DOBOT</span>
+              <span style="display: inline-flex; align-items: center; height: 20px; padding: 0 10px; border: 1px dashed var(--line-2); border-radius: 5px; font-size: 12px; color: var(--muted); font-weight: 500;">思灵 AgileBot</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: 20px;">
+          <div class="q-text" style="font-size: 16px;">硬件伙伴提供本体载体，Robonix 提供统一的软件能力、任务编排能力和技能复用能力；生态合作储备清单将按季度评估，逐步纳入联名矩阵。</div>
+          <div class="q-source">— ECOSYSTEM POSITIONING</div>
+        </div>
+      </div>
+
+      <!-- 8.5 算法与数据闭环 -->
+      <div class="deep-card">
+        <div class="dc-head">
+          <span class="dc-tag">8.5</span>
+          <h3>算法与数据闭环</h3>
+        </div>
+        <div class="dc-sub">已初步建立"数据 — 模型 — 评测"闭环工具链，三者相互驱动形成迭代飞轮。</div>
+
+        <div class="toolchain-grid">
+          <div class="tc-col">
+            <div class="tc-tag tc-data">数据</div>
+            <ul class="ds-list">
+              <li>半自动数据采集</li>
+              <li>视觉定位数据集</li>
+              <li>VLA 数据集</li>
+              <li>数据跨生态迁移</li>
+              <li>数据质量优化</li>
+            </ul>
+          </div>
+          <div class="tc-col">
+            <div class="tc-tag tc-model">模型</div>
+            <ul class="ds-list">
+              <li>视觉定位模型</li>
+              <li>YOLO 识别</li>
+              <li>VLA 微调</li>
+              <li>GR00T / SmoLVLA 适配</li>
+            </ul>
+          </div>
+          <div class="tc-col">
+            <div class="tc-tag tc-eval">评测</div>
+            <ul class="ds-list">
+              <li>准确率评测</li>
+              <li>推理效率评测</li>
+              <li>端到端成功率评测</li>
+              <li>E3 / E5 工程化评估</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="metric-grid" style="margin-top: 24px;">
+          <div class="metric">
+            <div class="m-name">视觉定位准确率</div>
+            <div class="m-values">
+              <span class="m-from">67%</span>
+              <span class="m-arrow">→</span>
+              <span class="m-to">96<span class="m-unit">%</span></span>
+            </div>
+            <div class="m-note">提升 29 个百分点</div>
+          </div>
+          <div class="metric">
+            <div class="m-name">视觉定位推理时间</div>
+            <div class="m-values">
+              <span class="m-from">4<span class="m-unit">秒</span></span>
+              <span class="m-arrow">→</span>
+              <span class="m-to">1.4<span class="m-unit">秒</span></span>
+            </div>
+            <div class="m-note">速度提升 2.85 倍</div>
+          </div>
+          <div class="metric">
+            <div class="m-name">VLA 端到端成功率</div>
+            <div class="m-values">
+              <span class="m-from">30%</span>
+              <span class="m-arrow">→</span>
+              <span class="m-to">65<span class="m-unit">%</span></span>
+            </div>
+            <div class="m-note">提升 35 个百分点</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8.6 XiUOS 工业物联泛在操作系统 -->
+      <div class="deep-card" style="background: linear-gradient(135deg, #F8FAFC 0%, #EFF4FA 100%); border-color: #D5DEE9;">
+        <div class="dc-head">
+          <span class="dc-tag" style="background: rgba(28, 67, 124, 0.10); color: #1C437C;">8.6</span>
+          <h3>XiUOS 工业物联泛在操作系统</h3>
+          <img src="./SYSOUL 希秀科技 · 商业计划书_files/xiuos-hero.svg" alt="XiUOS" style="height: 36px; width: auto; margin-left: auto; opacity: 0.9;">
+        </div>
+        <div class="dc-sub">公司另一条产品线：XiUOS 矽璓工业物联泛在操作系统 — 面向工业物联与具身设备关节等"现场计算"场景的轻量化实时 OS，与 Robonix 共享开源社区与生态，但定位、客户群与商业模式各有侧重。</div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px;">
+          <div class="card">
+            <div class="card-title" style="font-size: 14px;">产品形态</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>XiUOS 智慧终端（基于 RK3588）</li>
+              <li>XiUOS 关节控制器 / 嵌入式 RTOS</li>
+              <li>RS-485 工业物联网关</li>
+              <li>具身设备关节与伺服节点</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title" style="font-size: 14px;">技术特性</div>
+            <ul class="pc-list" style="margin-top: 8px;">
+              <li>面向现场计算的轻量化实时内核</li>
+              <li>异构 SoC 适配（ARM / RISC-V）</li>
+              <li>内核可裁剪、应用可单跑</li>
+              <li>CCF 泛在 OS 开放社区开源项目</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="deep-grid" style="margin-top: 18px;">
+          <div class="deep-section">
+            <div class="ds-label">REVENUE STREAMS · 收入构成</div>
+            <ul class="ds-list">
+              <li><strong>矽璓系列联名品牌授权</strong>：与头部工业物联 / 仪表厂商推出"矽璓"系列联名产品</li>
+              <li><strong>智慧终端硬件销售</strong>：XiUOS 智慧终端（3588）+ RS-485 扩展模块</li>
+              <li><strong>教学培训与赛事服务</strong>：1 本教材 + 7 个实验 DEMO，配套高校实训与开源赛事</li>
+            </ul>
+          </div>
+          <div class="deep-section">
+            <div class="ds-label">POSITIONING · 与 Robonix 的关系</div>
+            <ul class="ds-list">
+              <li><strong>同一开源社区、两条产品主线</strong>：依托 CCF 泛在操作系统开放社区，共享开发者与认证体系</li>
+              <li><strong>应用层 Robonix、关节层 XiUOS</strong>：上层智能由 Robonix 智脑承担，底层实时控制由 XiUOS 关节 / RTOS 承担</li>
+              <li><strong>"国产 RISC-V + 国产开源 OS"组合</strong>：与 RISC-V 存算一体芯片形成自主可控闭环</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 分层设计蓝图：Robonix 上层管控 + XiUOS 底层关节 -->
+        <div class="ds-label" style="margin-top: 22px;">DESIGN BLUEPRINT · Robonix / XiUOS 分层协同</div>
+        <div style="margin-top: 10px; border: 1px solid #D5DEE9; border-radius: 12px; overflow: hidden; background: #fff;">
+          <!-- 上层：Robonix -->
+          <div style="padding: 14px 18px; background: linear-gradient(135deg, rgba(28,67,124,0.10), rgba(28,67,124,0.04)); border-bottom: 1px solid #D5DEE9;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <span style="font-family: var(--mono); font-size: 10px; padding: 3px 8px; background: #1C437C; color: #fff; border-radius: 4px; letter-spacing: 0.06em;">UPPER · 智能编排</span>
+              <strong style="font-size: 14px; color: #1C437C;">Robonix 具身智能操作系统</strong>
+              <span style="font-size: 11px; color: var(--muted);">— 任务理解 · 方案生成 · 能力调度 · 跨本体编排</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 11px;">
+              <div style="background: #fff; padding: 8px 10px; border-radius: 6px; border: 1px solid #E0E7EE;"><strong style="color:#1C437C;">Pilot</strong><div style="color: var(--muted); margin-top: 2px;">任务理解 · 方案生成</div></div>
+              <div style="background: #fff; padding: 8px 10px; border-radius: 6px; border: 1px solid #E0E7EE;"><strong style="color:#1C437C;">Atlas</strong><div style="color: var(--muted); margin-top: 2px;">能力目录 · MCP 发现</div></div>
+              <div style="background: #fff; padding: 8px 10px; border-radius: 6px; border: 1px solid #E0E7EE;"><strong style="color:#1C437C;">Executor</strong><div style="color: var(--muted); margin-top: 2px;">gRPC 调用 · 资源调度</div></div>
+              <div style="background: #fff; padding: 8px 10px; border-radius: 6px; border: 1px solid #E0E7EE;"><strong style="color:#1C437C;">Sentinel</strong><div style="color: var(--muted); margin-top: 2px;">安全监管 · 异常上报</div></div>
+            </div>
+          </div>
+          <!-- 中层：端侧 Runtime -->
+          <div style="padding: 12px 18px; background: #F8FAFC; border-bottom: 1px solid #D5DEE9; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+            <span style="font-family: var(--mono); font-size: 10px; padding: 3px 8px; background: #93B5E1; color: #fff; border-radius: 4px; letter-spacing: 0.06em;">MIDDLE · 端侧运行时</span>
+            <span style="font-size: 12px; color: var(--ink-soft);"><strong>Robonix Runtime</strong> · RK3588 / Jetson Orin / 地瓜 RDK</span>
+            <span style="font-size: 11px; color: var(--muted);">| Linux 内核 + Robonix 服务 + 模型推理（YOLO / VLA / 视觉定位）</span>
+          </div>
+          <!-- 底层：XiUOS -->
+          <div style="padding: 14px 18px; background: linear-gradient(135deg, rgba(255,108,0,0.08), rgba(255,108,0,0.03));">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <span style="font-family: var(--mono); font-size: 10px; padding: 3px 8px; background: var(--orange); color: #fff; border-radius: 4px; letter-spacing: 0.06em;">LOWER · 关节实时控制</span>
+              <strong style="font-size: 14px; color: var(--orange);">XiUOS 矽璓 · 关节控制器 / RTOS</strong>
+              <span style="font-size: 11px; color: var(--muted);">— 现场计算 · 实时内核 · 异构 SoC 适配</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 11px;">
+              <div style="background: #fff; padding: 8px 10px; border-radius: 6px; border: 1px solid #F0D8C0;"><strong style="color:var(--orange);">轻量化实时内核</strong><div style="color: var(--muted); margin-top: 2px;">微秒级关节响应</div></div>
+              <div style="background: #fff; padding: 8px 10px; border-radius: 6px; border: 1px solid #F0D8C0;"><strong style="color:var(--orange);">异构 SoC 适配</strong><div style="color: var(--muted); margin-top: 2px;">ARM / RISC-V · AMP 多核</div></div>
+              <div style="background: #fff; padding: 8px 10px; border-radius: 6px; border: 1px solid #F0D8C0;"><strong style="color:var(--orange);">CAN / RS-485 总线</strong><div style="color: var(--muted); margin-top: 2px;">工业级伺服与传感节点</div></div>
+            </div>
+          </div>
+          <!-- 已落地证据 -->
+          <div style="padding: 12px 18px; background: #FEF7E7; border-top: 1px dashed #E5C77E; font-size: 12px; color: #6B5318; line-height: 1.6;">
+            <strong style="color: #8B6914;">已落地验证 ·</strong> 汉特云机器人 XiUOS 植入：XiUOS 运行于 RK3588 <strong>M0 核</strong>（U-Boot AMP 支持），与 Linux 主控核并行；UART5 输出日志、SD 卡信号复用、TF 卡小板转接，已完成汉特云板子移植适配。
+          </div>
+        </div>
+        <div style="margin-top: 10px; font-size: 12px; color: var(--muted); line-height: 1.6;">
+          <strong>设计思路：</strong>Robonix 在上层承担"智脑"角色（任务理解、方案生成、能力编排、跨本体调度），XiUOS 在底层承担"小脑 / 关节"角色（实时感知、电机控制、现场总线管理）。两者通过 gRPC 数据面 + MCP 控制面联通，形成"上层智能 + 底层实时"的完整具身智能 OS 栈。
+        </div>
+
+        <div class="callout" style="margin-top: 20px;">
+          <div class="q-text" style="font-size: 15px;">XiUOS 作为公司次主线产品，主要面向工业物联、具身设备关节等"现场计算"场景，与 Robonix 具身智能 OS 形成互补；本节作为补充介绍，重点仍以 Robonix 为主线展开。</div>
+          <div class="q-source">— PRODUCT LINE · XiUOS 矽璓</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 商业模式与未来前景 -->
+    <section class="content-section" id="sec8">
+      <div class="sec-header">
+        <span class="sec-num">09</span>
+        <h2 class="sec-title">商业模式与未来前景</h2>
+      </div>
+      <p class="sec-lede">公司围绕"<strong>操作系统 + 本体 + 场景</strong>"三位一体战略，依托 CCF 泛在操作系统开放社区构建"<strong>开源社区 × 联合品牌 × 智脑技能 × 行业方案</strong>"的复合商业模式，形成可叠加、可持续放大的价值闭环。</p>
+
+      <!-- 9.1 商业模式总览：三条收入主线 -->
+      <div class="deep-card">
+        <div class="dc-head">
+          <span class="dc-tag">9.1</span>
+          <h3>商业模式总览：三条收入主线</h3>
+        </div>
+        <div class="dc-sub">三条主线不是替代关系，而是叠加关系——操作系统是底座，联合品牌做规模，智脑与技能做深度，定制方案做行业渗透。</div>
+
+        <div class="bm-overview">
+          <div class="bm-layer">
+            <div class="bml-tag bml-platform">联名品牌矩阵</div>
+            <div class="bml-type">CCF 泛在 OS 开放社区 + 矽璓/Robonix 系列联名品牌</div>
+            <div class="bml-cust">头部机器人厂商 · 生态合作伙伴</div>
+            <div class="bml-price">品牌授权费 · 加盟费 · 代理费 · CCF 证书 · 出货量抽成</div>
+            <div class="bml-val">开源换标准 · 品牌换渠道</div>
+          </div>
+          <div class="bm-plus">+</div>
+          <div class="bm-layer">
+            <div class="bml-tag bml-product">智脑与技能包</div>
+            <div class="bml-type">Robonix 智脑 + 技能库 + 教学培训</div>
+            <div class="bml-cust">高校 · 科研院所 · 开发者</div>
+            <div class="bml-price">平台授权费 · 服务费 · 使用费 · 教学建设服务费</div>
+            <div class="bml-val">智脑即产品 · 教学即入口</div>
+          </div>
+          <div class="bm-plus">+</div>
+          <div class="bm-layer">
+            <div class="bml-tag bml-service">深度定制方案</div>
+            <div class="bml-type">行业级具身智能解决方案</div>
+            <div class="bml-cust">行业集成商 · 大型终端客户</div>
+            <div class="bml-price">按项目收费 · 技术服务费 · 分成 · 项目申报咨询</div>
+            <div class="bml-val">解决方案反哺产品</div>
+          </div>
+        </div>
+
+        <!-- 当前业务基线（仅金额脱敏，运营数据保留） -->
+        <div class="baseline-box">
+          <div class="baseline-title">当前业务基线 · 截至 2026 年上半年</div>
+          <div class="baseline-grid">
+            <div class="bs-cell">
+              <div class="bs-num">22,000<span class="bs-unit">套</span></div>
+              <div class="bs-lbl">OS 战略签约</div>
+            </div>
+            <div class="bs-cell">
+              <div class="bs-num">6,000<span class="bs-unit">套 + 1,500 套/年</span></div>
+              <div class="bs-lbl">已执行（云深处 + 汉特云）</div>
+            </div>
+            <div class="bs-cell bs-target">
+              <div class="bs-num">20,000<span class="bs-unit">套</span></div>
+              <div class="bs-lbl">2026 全年目标</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9.2 联名品牌矩阵 -->
+      <div class="deep-card">
+        <div class="dc-head">
+          <span class="dc-tag">9.2</span>
+          <h3>联名品牌矩阵：开源社区 × 联合品牌 × CCF 认证</h3>
+        </div>
+        <div class="dc-sub">以操作系统为核心，依托开源社区进行生态共建，把"软件能力"转化为"品牌资产 + 渠道收入"。</div>
+
+        <div class="deep-grid">
+          <div class="deep-section">
+            <div class="ds-label">REVENUE STREAMS · 收入构成</div>
+            <ul class="ds-list">
+              <li><strong>品牌授权费与生态加盟费</strong>：联合头部机器人厂商推出"矽璓""Robonix"联名品牌</li>
+              <li><strong>CCF 兼容性认证服务</strong>：向适配 XiUOS / Robonix 的硬件厂商颁发 CCF 证书</li>
+              <li><strong>出货量抽成</strong>：构建"操作系统 + 本体 + 场景"联合品牌生态，按出货量持续抽成</li>
+              <li><strong>代理费</strong>：通过区域与行业代理伙伴放大销售半径</li>
+            </ul>
+          </div>
+          <div class="deep-section">
+            <div class="ds-label">KEY DESIGN · 关键设计</div>
+            <ul class="ds-list">
+              <li><strong>开源换标准</strong>：开源操作系统形成事实标准，标准之上叠加品牌授权与认证</li>
+              <li><strong>品牌换渠道</strong>：联名品牌放大合作方销售，反向为公司带来稳定出货</li>
+              <li><strong>认证换生态</strong>：CCF 证书构建可量化的兼容性背书，形成"找 Robonix 适配"的入口</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 已落地联名品牌表 -->
+        <div class="era-table" style="margin-top: 18px;">
+          <div class="era-row era-head">
+            <div class="era-cell">联名品牌</div>
+            <div class="era-cell">合作方</div>
+            <div class="era-cell">合作内容</div>
+            <div class="era-cell">状态</div>
+          </div>
+          <div class="era-row era-now">
+            <div class="era-cell"><strong>云深处-矽璓</strong></div>
+            <div class="era-cell">云深处科技</div>
+            <div class="era-cell">四足机器人 + XiUOS 适配</div>
+            <div class="era-cell">已执行 6,000 套</div>
+          </div>
+          <div class="era-row">
+            <div class="era-cell"><strong>松灵-矽璓</strong></div>
+            <div class="era-cell">松灵机器人</div>
+            <div class="era-cell">Piper 机械臂 / 移动底盘 + 操作系统</div>
+            <div class="era-cell">已签约</div>
+          </div>
+          <div class="era-row">
+            <div class="era-cell"><strong>节卡-矽璓</strong></div>
+            <div class="era-cell">节卡机器人</div>
+            <div class="era-cell">JAKA 协作机器人 + 操作系统</div>
+            <div class="era-cell">已签约</div>
+          </div>
+          <div class="era-row">
+            <div class="era-cell"><strong>汉特云-矽璓</strong></div>
+            <div class="era-cell">汉特云智能</div>
+            <div class="era-cell">服务机器人 / 配送机器人 + XiUOS 植入</div>
+            <div class="era-cell">年 1,500 套</div>
+          </div>
+          <div class="era-row era-now">
+            <div class="era-cell"><strong>BeingBeyond-Robonix</strong></div>
+            <div class="era-cell">BeingBeyond 智在无界</div>
+            <div class="era-cell">灵巧手 + Robonix Primitive 适配</div>
+            <div class="era-cell">已落地联名</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9.3 具身"大脑"与技能包 -->
+      <div class="deep-card">
+        <div class="dc-head">
+          <span class="dc-tag">9.3</span>
+          <h3>具身"大脑"与技能包：Robonix 智脑 × 技能库 × 教学培训</h3>
+        </div>
+        <div class="dc-sub">把 Robonix 智脑（端侧智能平台 + 12 个核心服务模块）与技能库产品化，面向高校、科研院所以及开发者持续输出标准化智能能力。</div>
+
+        <!-- Robonix 智脑 12 个核心服务 -->
+        <div class="ds-label" style="margin-top: 8px;">ROBONIX BRAIN · 12 个核心服务模块</div>
+        <div class="brain-chips">
+          <span class="brain-chip"><b>Pilot</b><i>任务理解 · 方案生成</i></span>
+          <span class="brain-chip"><b>Liaison</b><i>多模态感知 · 对话</i></span>
+          <span class="brain-chip"><b>Executor</b><i>执行 · 异常上报</i></span>
+          <span class="brain-chip"><b>Sentinel</b><i>安全门控 · 急停</i></span>
+          <span class="brain-chip"><b>Vitals</b><i>健康监控</i></span>
+          <span class="brain-chip"><b>Keystone</b><i>用户识别 · 配置</i></span>
+          <span class="brain-chip"><b>Nexus</b><i>高性能通信</i></span>
+          <span class="brain-chip"><b>Atlas</b><i>能力目录</i></span>
+          <span class="brain-chip"><b>Chronos</b><i>时间对齐</i></span>
+          <span class="brain-chip"><b>Scribe</b><i>系统日志</i></span>
+          <span class="brain-chip"><b>Soma</b><i>本体状态</i></span>
+          <span class="brain-chip"><b>Scene</b><i>场景状态</i></span>
+        </div>
+
+        <div class="deep-grid" style="margin-top: 18px;">
+          <div class="deep-section">
+            <div class="ds-label">REVENUE STREAMS · 收入构成</div>
+            <ul class="ds-list">
+              <li><strong>平台授权费 / 服务费 / 使用费</strong>：标准化智脑及技能库授权与使用</li>
+              <li><strong>教学培训建设服务费</strong>：高校 / 科研院所教材、实验、研修、实训配套服务</li>
+            </ul>
+          </div>
+          <div class="deep-section">
+            <div class="ds-label">KEY DESIGN · 关键设计</div>
+            <ul class="ds-list">
+              <li><strong>智脑即产品</strong>：把 Pilot / Liaison / Executor / Sentinel 封装为可授权标准化组件</li>
+              <li><strong>教学即入口</strong>：高校教材、实验、赛事沉淀开发者社区</li>
+              <li><strong>技能库即订阅</strong>：技能包可按次 / 按订阅授权，让项目收入变为可持续收入</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 教学与科研产品 -->
+        <div class="bm-eco-grid" style="margin-top: 18px;">
+          <div class="eco-cell">
+            <div class="eco-icon">EDU</div>
+            <div class="eco-name">XiUOS 教材与实验</div>
+            <ul class="ds-list">
+              <li>1 本教材 + 7 个实验 DEMO</li>
+              <li>GitLink 开源</li>
+              <li>东华大学联合修订 1 本</li>
+              <li><strong>面向：高校、职业院校</strong></li>
+            </ul>
+          </div>
+          <div class="eco-cell">
+            <div class="eco-icon">BRAIN</div>
+            <div class="eco-name">Robonix 教材与实验</div>
+            <ul class="ds-list">
+              <li>2 本教材 + 4 个实验 DEMO</li>
+              <li>GitLink 开源</li>
+              <li>VLA / 视觉定位 / 数据采集</li>
+              <li><strong>面向：人工智能学院、机器人学院</strong></li>
+            </ul>
+          </div>
+          <div class="eco-cell">
+            <div class="eco-icon">COMM</div>
+            <div class="eco-name">社区与赛事</div>
+            <ul class="ds-list">
+              <li>中国开源创新大赛</li>
+              <li>中国系统能力大赛</li>
+              <li>CCF 开源高校行</li>
+              <li>图灵大会泛在 OS 专场</li>
+            </ul>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.6;">持续承办 · 年度迭代 · 长期沉淀开发者生态</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9.4 深度定制化解决方案 -->
+      <div class="deep-card">
+        <div class="dc-head">
+          <span class="dc-tag">9.4</span>
+          <h3>深度定制化解决方案：项目制 × 技术服务 × 联合开发</h3>
+        </div>
+        <div class="dc-sub">基于操作系统底座与硬件平台，输出行业级具身智能解决方案，按项目收费，并为客户提供项目申报咨询与联合开发服务。</div>
+
+        <div class="deep-grid">
+          <div class="deep-section">
+            <div class="ds-label">REVENUE STREAMS · 收入构成</div>
+            <ul class="ds-list">
+              <li><strong>按项目收费</strong>：行业级具身智能解决方案按项目交付</li>
+              <li><strong>技术服务费 / 分成</strong>：长期技术服务或联合开发，按服务费或收益分成结算</li>
+              <li><strong>项目申报咨询</strong>：国家项目、省级项目申报咨询与联合开发</li>
+            </ul>
+          </div>
+          <div class="deep-section">
+            <div class="ds-label">KEY DESIGN · 关键设计</div>
+            <ul class="ds-list">
+              <li><strong>解决方案反哺产品</strong>：通用能力沉淀为标准产品（视觉定位 96% / VLA 65%）</li>
+              <li><strong>生态合作放大单点价值</strong>：与中财管道、荣盛、萧山水务、长三角设计集团等形成"标杆 + 复制"路径</li>
+              <li><strong>政策红利叠加</strong>：技术服务费叠加国家 / 省级项目申报分成</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 典型场景表 -->
+        <div class="era-table" style="margin-top: 18px;">
+          <div class="era-row era-head">
+            <div class="era-cell">场景</div>
+            <div class="era-cell">客户类型</div>
+            <div class="era-cell">解决方案</div>
+          </div>
+          <div class="era-row">
+            <div class="era-cell"><strong>工业数据采集</strong></div>
+            <div class="era-cell">化工 · 化纤 · 供水 · 能源</div>
+            <div class="era-cell">赛博机器人 + 数采终端 + 非侵入式人机协同</div>
+          </div>
+          <div class="era-row">
+            <div class="era-cell"><strong>智慧巡检</strong></div>
+            <div class="era-cell">电力 · 园区 · 管廊</div>
+            <div class="era-cell">四足机器人 + Robonix OS + 视觉定位 / VLA</div>
+          </div>
+          <div class="era-row">
+            <div class="era-cell"><strong>智能装配</strong></div>
+            <div class="era-cell">制造 · 减速机</div>
+            <div class="era-cell">E5 智慧臂 + 边缘算力 + 视觉检测 + VLA 微调</div>
+          </div>
+          <div class="era-row">
+            <div class="era-cell"><strong>智慧仪表</strong></div>
+            <div class="era-cell">仪表厂商 · 工业物联</div>
+            <div class="era-cell">XiUOS 智慧终端（3588）+ RS-485 扩展 + 网关</div>
+          </div>
+          <div class="era-row era-now">
+            <div class="era-cell"><strong>智能化实验室</strong></div>
+            <div class="era-cell">高校 · 研究院</div>
+            <div class="era-cell">E5 工作台 + 教学课程 + 数据采集 + 模型训练</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9.5 演进路径 -->
+      <div class="deep-card">
+        <div class="dc-head">
+          <span class="dc-tag">9.5</span>
+          <h3>商业模式演进路径</h3>
+        </div>
+        <div class="dc-sub">从"卖操作系统 → 卖智脑与技能 → 卖生态与标准"的商业模式跃迁。</div>
+
+        <div class="phase-row">
+          <div class="phase-item">
+            <div class="phase-num">P1</div>
+            <div class="phase-time">未来 6 个月</div>
+            <div class="phase-title">联名品牌放量</div>
+            <div class="phase-mix">联名矩阵 60%+</div>
+            <div class="phase-goal">把"云深处-矽璓 / 汉特云-矽璓"等联名品牌规模化复制，CCF 兼容性证书批量颁发</div>
+          </div>
+          <div class="phase-arrow">→</div>
+          <div class="phase-item">
+            <div class="phase-num">P2</div>
+            <div class="phase-time">6–12 个月</div>
+            <div class="phase-title">智脑与技能产品化</div>
+            <div class="phase-mix">联名 50% + 智脑 30%</div>
+            <div class="phase-goal">Robonix 智脑与技能库标准化、订阅化；高校教材、实验、赛事扩大开发者基本盘</div>
+          </div>
+          <div class="phase-arrow">→</div>
+          <div class="phase-item">
+            <div class="phase-num">P3</div>
+            <div class="phase-time">12–24 个月</div>
+            <div class="phase-title">行业方案规模化</div>
+            <div class="phase-mix">智脑 40% + 定制 35%</div>
+            <div class="phase-goal">行业级具身智能解决方案标准化复制，标杆客户向产业链上下游扩张</div>
+          </div>
+          <div class="phase-arrow">→</div>
+          <div class="phase-item">
+            <div class="phase-num">P4</div>
+            <div class="phase-time">24 个月+</div>
+            <div class="phase-title">生态飞轮</div>
+            <div class="phase-mix">智脑 30% + 联名抽成 30% + 技能 20%</div>
+            <div class="phase-goal">技能市场 + 数据 + 评测 + CCF 认证形成网络效应，构建具身智能时代基础设施</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9.6 未来前景 -->
+      <div class="deep-card future-card">
+        <div class="dc-head">
+          <span class="dc-tag">9.6</span>
+          <h3>未来前景：具身智能 / 泛在计算时代的操作系统基础设施</h3>
+        </div>
+        <div class="dc-sub">公司核心产品的终局定位 = 具身智能 / 泛在计算时代的"<strong>Linux / Android + 应用商店</strong>"——开源、开放、可裁剪、可扩展、自主可控。公司以 <strong>Robonix</strong>（具身智能操作系统）+ <strong>XiUOS 矽璓</strong>（工业物联泛在操作系统）双 OS 矩阵，覆盖"端侧关节 — 边缘设备 — 具身本体 — 云端模型"的完整泛在计算栈；依托 CCF 泛在操作系统开放社区，与产业界联合研发、共建生态；面向 2030 年，目标是发布开源的 Robonix 1.0 / 2.0 稳定版本，形成我国自主可控、开源开放、国际先进的具身智能操作系统底座。</div>
+
+        <!-- 行业类比表 -->
+        <div class="era-table">
+          <div class="era-row era-head">
+            <div class="era-cell">时代</div>
+            <div class="era-cell">操作系统</div>
+            <div class="era-cell">上层生态</div>
+            <div class="era-cell">终局格局</div>
+          </div>
+          <div class="era-row">
+            <div class="era-cell">PC 时代</div>
+            <div class="era-cell">Windows · macOS · Linux</div>
+            <div class="era-cell">Office · Photoshop · 各类应用</div>
+            <div class="era-cell">操作系统 + 应用商店</div>
+          </div>
+          <div class="era-row">
+            <div class="era-cell">智能手机</div>
+            <div class="era-cell">Android · iOS</div>
+            <div class="era-cell">App Store · 微信 · 抖音</div>
+            <div class="era-cell">操作系统 + 应用商店</div>
+          </div>
+          <div class="era-row">
+            <div class="era-cell">云计算</div>
+            <div class="era-cell">Kubernetes · AWS · Azure</div>
+            <div class="era-cell">SaaS · 微服务</div>
+            <div class="era-cell">操作系统 + Marketplace</div>
+          </div>
+          <div class="era-row era-now">
+            <div class="era-cell"><strong>具身智能 / 泛在计算</strong></div>
+            <div class="era-cell"><strong>Robonix + XiUOS 矽璓</strong></div>
+            <div class="era-cell"><strong>技能市场 · 模型市场 · 工业物联 · 行业应用</strong></div>
+            <div class="era-cell"><strong>双 OS + 技能市场</strong></div>
+          </div>
+        </div>
+
+        <!-- 2030 愿景 -->
+        <div class="vision-grid">
+          <div class="vision-cell"><div class="vision-num">10+</div><div class="vision-lbl">具身本体</div></div>
+          <div class="vision-cell"><div class="vision-num">100+</div><div class="vision-lbl">硬件设备</div></div>
+          <div class="vision-cell"><div class="vision-num">30+</div><div class="vision-lbl">大模型</div></div>
+          <div class="vision-cell"><div class="vision-num">1000+</div><div class="vision-lbl">具身技能</div></div>
+          <div class="vision-cell"><div class="vision-num">100+</div><div class="vision-lbl">生态伙伴</div></div>
+          <div class="vision-cell"><div class="vision-num">10万+</div><div class="vision-lbl">部署</div></div>
+        </div>
+
+        <!-- 长期价值 + 为什么是 Robonix -->
+        <div class="deep-grid" style="margin-top: 22px;">
+          <div class="deep-section">
+            <div class="ds-label">长期价值</div>
+            <ul class="ds-list">
+              <li><strong>基础设施化</strong>：成为机器人智能化标准软件底座</li>
+              <li><strong>生态飞轮化</strong>：本体—模型—技能—数据—场景—开发者六位一体</li>
+              <li><strong>标准制定化</strong>：接口规范成为行业事实标准，评测成为行业基线</li>
+              <li><strong>数据资产化</strong>：真实场景数据反哺模型，形成数据护城河</li>
+            </ul>
+          </div>
+          <div class="deep-section">
+            <div class="ds-label">为什么是 Robonix</div>
+            <ul class="ds-list">
+              <li><strong>窗口正确</strong>：具身智能规模化前夜进入，操作系统是产业爆发卡位环节</li>
+              <li><strong>路径务实</strong>：从教育 → 科研 → 行业，先易后难，避免与厂商正面竞争</li>
+              <li><strong>开放生态</strong>：覆盖多形态本体，形成网络效应而非锁定</li>
+              <li><strong>已有基础</strong>：E3/E5 跑通验证、关键指标显著提升</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: 22px;">
+          <div class="q-text" style="font-size: 16px;">从教育实训切入、向科研与工业扩展——<strong>先打磨产品、再放大场景</strong>，避免一上来就与巨头正面竞争。</div>
+          <div class="q-source">— GO-TO-MARKET</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 目标客户 -->
+    <section class="content-section" id="sec9">
+      <div class="sec-header">
+        <span class="sec-num">10</span>
+        <h2 class="sec-title">目标客户与切入路径</h2>
+      </div>
+      <p class="sec-lede">公司当前优先面向四类客户。</p>
+
+      <div class="customer-grid">
+        <div class="customer-card">
+          <div class="cc-head">
+            <div class="cc-name">教育与实训客户</div>
+            <div class="cc-tag">FIRST</div>
+          </div>
+          <div class="cc-desc">高校、职业院校、人工智能学院、机器人学院、实验室建设单位。</div>
+          <ul class="cc-needs">
+            <li>具身智能教学平台</li>
+            <li>机器人实训设备</li>
+            <li>大模型 + 机器人实验课程</li>
+            <li>教学案例和实训教材</li>
+            <li>可展示、可开发、可竞赛的平台</li>
+          </ul>
+        </div>
+
+        <div class="customer-card">
+          <div class="cc-head">
+            <div class="cc-name">科研与实验室客户</div>
+            <div class="cc-tag">FIRST</div>
+          </div>
+          <div class="cc-desc">高校实验室、研究院、科研团队、联合创新中心。</div>
+          <ul class="cc-needs">
+            <li>多本体机器人研究平台</li>
+            <li>VLA 训练与测试平台</li>
+            <li>机器人数据采集工具</li>
+            <li>端侧部署验证环境</li>
+            <li>可扩展的软件系统底座</li>
+          </ul>
+        </div>
+
+        <div class="customer-card">
+          <div class="cc-head">
+            <div class="cc-name">工业与行业客户</div>
+            <div class="cc-tag">MID-TERM</div>
+          </div>
+          <div class="cc-desc">制造、能源、水务、园区、物流和其他自动化场景。</div>
+          <ul class="cc-needs">
+            <li>低成本机器人自动化验证</li>
+            <li>指定场景操作任务</li>
+            <li>机器人与 AI 模型结合</li>
+            <li>端侧设备和传感器接入</li>
+            <li>行业任务快速试点</li>
+          </ul>
+        </div>
+
+        <div class="customer-card">
+          <div class="cc-head">
+            <div class="cc-name">机器人厂商与集成商</div>
+            <div class="cc-tag">LONG-TERM</div>
+          </div>
+          <div class="cc-desc">机械臂厂商、四足机器人厂商、移动机器人厂商和系统集成商。</div>
+          <ul class="cc-needs">
+            <li>机器人智能化软件底座</li>
+            <li>大模型任务编排能力</li>
+            <li>技能生态建设</li>
+            <li>设备能力标准化封装</li>
+            <li>二次开发工具链</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 竞争优势 -->
+    <section class="content-section" id="sec10">
+      <div class="sec-header">
+        <span class="sec-num">11</span>
+        <h2 class="sec-title">竞争优势</h2>
+      </div>
+
+      <div class="adv-grid">
+        <div class="adv-card">
+          <div class="a-num">11.1 · 平台定位</div>
+          <div class="a-name">平台定位优势</div>
+          <div class="a-desc">围绕 OS 建立平台能力：技能积淀长期复用、系统内核持续升级、生态发散式扩展。</div>
+        </div>
+        <div class="adv-card">
+          <div class="a-num">11.2 · 一体化</div>
+          <div class="a-name">软硬件一体化优势</div>
+          <div class="a-desc">硬件基础雄厚 · 操作系统护城河 · AI 能力持续突进 · 多维度一体化发展。</div>
+        </div>
+        <div class="adv-card">
+          <div class="a-num">11.3 · 工程化</div>
+          <div class="a-name">工程化落地优势</div>
+          <div class="a-desc">机械臂控制方案成熟 · 视觉定位技术 · VLA 训练工具链完备 · 世界模型持续跟进 · 端侧部署经验丰富。</div>
+        </div>
+        <div class="adv-card">
+          <div class="a-num">11.5 · 开放生态</div>
+          <div class="a-name">开放生态优势</div>
+          <div class="a-desc">多形态本体、多方厂商覆盖，避免单一硬件路线风险，能够覆盖机械臂、移动底盘、四足机器人和服务机器人等多种产品形态。</div>
+        </div>
+        <div class="adv-card">
+          <div class="a-num">11.6 · 知识产权</div>
+          <div class="a-name">知识产权与文档沉淀</div>
+          <div class="a-desc">已围绕具身智能数据生成、端侧大模型适配、智能终端、机器人控制和平台系统形成专利、软著、技术文档和产品手册储备。</div>
+        </div>
+      </div>
+
+      <!-- 11.4 教育与行业双场景 — 重点展开（含学术与产业双引擎） -->
+      <div class="deep-card adv-spotlight">
+        <div class="dc-head">
+          <span class="dc-tag">11.4</span>
+          <h3>教育与行业双场景优势</h3>
+        </div>
+        <div class="dc-sub">高校前沿 + 行业落地的双引擎结构，让公司既具备纯学术团队的技术深度，也具备纯产业团队的变现能力。</div>
+
+        <div class="deep-grid">
+          <div class="deep-section">
+            <div class="ds-label">教育与科研侧</div>
+            <ul class="ds-list">
+              <li>与国内<strong>一流高校的机器人研究院</strong>、人工智能国家重点实验室保持长期产学研合作</li>
+              <li>团队学术传承源自<strong>国家级操作系统与泛在计算研究的核心谱系</strong>，同时辐射机器人、人工智能与工业物联等相关领域</li>
+              <li>具备<strong>院士科研团队</strong>的前沿判断力与跨学科整合能力</li>
+              <li>持续把握具身智能的技术演进方向与产业节奏</li>
+            </ul>
+          </div>
+          <div class="deep-section">
+            <div class="ds-label">行业与产业侧</div>
+            <ul class="ds-list">
+              <li>深耕制造、能源、园区等真实场景的具身智能落地</li>
+              <li>将高校科研成果快速转化为可部署、可计费、可复制的商业方案</li>
+              <li>沉淀高质量场景数据反哺模型迭代</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: 18px;">
+          <div class="q-text" style="font-size: 15px;"><strong>"高校前沿 + 行业落地"</strong>——形成"<strong>教育养品牌、行业养数据</strong>"的飞轮效应。相比纯学术团队，公司具备更强的商业化执行力；相比纯产业团队，公司具备更深的技术护城河。</div>
+          <div class="q-source">— DUAL-ENGINE POSITIONING · 11.4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 发展规划 -->
+    <section class="content-section" id="sec11">
+      <div class="sec-header">
+        <span class="sec-num">12</span>
+        <h2 class="sec-title">发展规划</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="phase">
+          <div class="phase-dot"></div>
+          <div class="p-time">0 — 3 MONTHS</div>
+          <div class="p-name">第一阶段 · 多线并行定型</div>
+          <ul class="p-list">
+            <li>完成 Robonix 1.0 基础版本</li>
+            <li>多条成熟产品线并行推进：协作机械臂、四足机器人、移动底盘、服务机器人、灵巧手</li>
+            <li>固化 Primitive 接口规范</li>
+            <li>建立标准技能库与演示任务</li>
+            <li>完成教育实训样板方案</li>
+            <li>输出产品手册、报价体系、交付文档</li>
+          </ul>
+          <div class="p-goal">形成可演示、可报价、可部署的多形态标准产品矩阵</div>
+        </div>
+
+        <div class="phase">
+          <div class="phase-dot"></div>
+          <div class="p-time">3 — 9 MONTHS</div>
+          <div class="p-name">第二阶段 · 客户验证</div>
+          <ul class="p-list">
+            <li>在高校和研究院落地样板客户</li>
+            <li>建设具身智能实训室案例</li>
+            <li>完成 2—3 个行业场景验证</li>
+            <li>建立标准交付流程</li>
+            <li>建立开发者文档和技术支持体系</li>
+            <li>形成第一批可复制标杆案例</li>
+          </ul>
+          <div class="p-goal">完成从技术产品到商业产品的转化</div>
+        </div>
+
+        <div class="phase">
+          <div class="phase-dot"></div>
+          <div class="p-time">9 — 18 MONTHS</div>
+          <div class="p-name">第三阶段 · 规模复制</div>
+          <ul class="p-list">
+            <li>扩展更多机器人本体形态</li>
+            <li>建设 Robonix 开发者生态</li>
+            <li>推出软件授权和技能市场</li>
+            <li>拓展教育、科研和行业渠道</li>
+            <li>与机器人厂商和系统集成商形成合作</li>
+            <li>推动平台型收入增长</li>
+          </ul>
+          <div class="p-goal">形成具身智能操作系统平台化收入和生态壁垒</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 投资亮点 -->
+    <section class="content-section" id="sec12">
+      <div class="sec-header">
+        <span class="sec-num">13</span>
+        <h2 class="sec-title">投资亮点</h2>
+      </div>
+
+      <div class="hl-list">
+        <div class="hl-item">
+          <div class="hl-num">1</div>
+          <div>
+            <div class="hl-name">方向明确</div>
+            <div class="hl-desc">具身智能正在进入产业落地窗口，机器人智能化需要基础软件平台。</div>
+          </div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-num">2</div>
+          <div>
+            <div class="hl-name">定位清晰</div>
+            <div class="hl-desc">公司做具身智能操作系统，而不是单一硬件或单点算法。</div>
+          </div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-num">3</div>
+          <div>
+            <div class="hl-name">产品完整</div>
+            <div class="hl-desc">Robonix OS + E5 工作台 + Edge 终端 + Skill Hub + 行业方案。</div>
+          </div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-num">4</div>
+          <div>
+            <div class="hl-name">路径务实</div>
+            <div class="hl-desc">先从教育实训和科研验证切入，再向行业应用和工业场景扩展。</div>
+          </div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-num">5</div>
+          <div>
+            <div class="hl-name">技术已有进展</div>
+            <div class="hl-desc">机械臂能力封装、VLA、端侧部署、数据评测工具链已形成基础。</div>
+          </div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-num">6</div>
+          <div>
+            <div class="hl-name">商业模式多元</div>
+            <div class="hl-desc">软件授权、硬件销售、项目方案、技能服务和生态合作并行。</div>
+          </div>
+        </div>
+        <div class="hl-item" style="grid-column: 1 / -1;">
+          <div class="hl-num">7</div>
+          <div>
+            <div class="hl-name">长期潜力大</div>
+            <div class="hl-desc">可沉淀为机器人智能化时代的软件基础设施和开发者生态。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 结语 -->
+    <section class="content-section" id="sec13">
+      <div class="sec-header">
+        <span class="sec-num">14</span>
+        <h2 class="sec-title">结语</h2>
+      </div>
+
+      <p style="font-family: var(--serif); font-size: 20px; line-height: 1.7; color: var(--ink); margin-bottom: 24px;">公司希望成为<strong>具身智能时代的基础软件与场景落地平台</strong>。</p>
+
+      <p style="font-size: 15px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 28px;">围绕 <strong>XiUOS + Robonix</strong> 两条操作系统主线，公司以"<strong>开源社区 × 联合品牌 × 智脑技能 × 行业方案</strong>"构建完整价值闭环：</p>
+
+      <div class="product-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card" style="background: var(--ink); color: white; border: none;">
+          <div class="card-label" style="color: #93B5E1;">OUR POSITIONING</div>
+          <div class="card-title" style="color: white; font-size: 17px; line-height: 1.5;">开源泛在操作系统的<br>生态建设者</div>
+          <div class="card-text" style="color: #CBD5E1;">依托 CCF 泛在操作系统开放社区，把"矽璓"与"Robonix"系列打造成具身智能时代的开源基础设施。</div>
+        </div>
+        <div class="card" style="background: var(--navy); color: white; border: none;">
+          <div class="card-label" style="color: #93B5E1;">OUR POSITIONING</div>
+          <div class="card-title" style="color: white; font-size: 17px; line-height: 1.5;">领先的端侧智能<br>基础设施提供者</div>
+          <div class="card-text" style="color: #CBD5E1;">以 Robonix 智脑 + Robonix Edge 边缘算力，让智能在机器人本体上稳定运行。</div>
+        </div>
+        <div class="card" style="background: var(--navy-deep); color: white; border: none;">
+          <div class="card-label" style="color: #93B5E1;">OUR POSITIONING</div>
+          <div class="card-title" style="color: white; font-size: 17px; line-height: 1.5;">国际有影响力的<br>具身智能领导者</div>
+          <div class="card-text" style="color: #CBD5E1;">以联名品牌矩阵与行业级解决方案，让中国具身智能产品走向规模化与国际化。</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 32px;">
+        <div class="q-text" style="font-size: 22px;">希秀科技的目标不是做一台机器人，而是让每一家本体厂商、每一个集成商都能在我们的底座上跑出自己的具身智能产品。</div>
+        <div class="q-source">— OUR MISSION</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="layout" style="padding-top: 0; padding-bottom: 0;">
+    <div style="grid-column: 1 / -1;">
+      <div class="footer-grid">
+        <div>
+          <h4>杭州希秀泛在计算</h4>
+          <p style="color: #94A3B8; font-size: 14px; line-height: 1.7; max-width: 360px;">依托北京大学信息技术高等研究院泛在操作系统实验室成立的高技术公司，以XiUOS矽璓、Robonix具身智能操作系统等平台产品为基础，面向工业物联、具身智能与企业数字化持续输出原创成果。</p>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.sysoul.com/" target="_blank">www.sysoul.com</a></li>
+            <li><a href="https://github.com/syswonder/robonix" target="_blank">github.com/syswonder/robonix</a></li>
+            <li><a href="https://robonix.syswonder.org/" target="_blank">robonix.syswonder.org</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>CCF 泛在 OS 开放社区</li>
+            <li>杭州市萧山区 · 钱江世纪城</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 杭州希秀泛在计算技术有限公司 · 商业计划书</span>
+        <span>15 sections · 商业机密</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

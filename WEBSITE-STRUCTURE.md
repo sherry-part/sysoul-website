@@ -7,7 +7,7 @@
 |------|------|------|
 | `/` | 首页 | 品牌视频 + Logo 动画 |
 | `/products` | 产品总览 | 四款产品轮播 + 生态介绍 |
-| `/products/allinone` | 一体机详情 | 智脑盒子产品页 |
+| `/products/allinone` | 一体机详情 | 希秀智脑产品页 |
 | `/products/body` | 联名本体详情 | 联名款机器人本体产品页 |
 | `/products/open-source` | 开源本体详情 | 开源款机器人本体产品页 |
 | `/products/cyber` | 赛博机器人详情 | 数据采集与流程自动化产品页 |

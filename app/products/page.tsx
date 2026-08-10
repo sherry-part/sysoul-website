@@ -61,7 +61,23 @@ export default function Products() {
       </section>
 
       {/* ============================================
-           3. 大脑 — 智脑盒子
+           3. 大脑分隔线
+           ============================================ */}
+      <section className="brain-divider">
+        <ScrollReveal>
+          <div className="brain-divider-content">
+            <span className="brain-divider-label">大脑 · CEREBRUM</span>
+            <h2>Robonix</h2>
+            <p>
+              Robonix 是面向具身智能时代的开源操作系统，向下抽象异构机器人本体，
+              向上编排任务、技能与 AI 模型，为每一台机器人提供统一的计算、控制与智能基础设施。
+            </p>
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* ============================================
+           4. 大脑 — 希秀智脑
            ============================================ */}
       <section className="compare-section brain-section">
         <div className="compare-grid">
@@ -70,7 +86,7 @@ export default function Products() {
               <span className="brain-label">大脑</span>
             </ScrollReveal>
             <ScrollReveal>
-              <h2>智脑盒子<br /><em>一体化控制平台</em></h2>
+              <h2>希秀智脑<br /><em>一体化控制平台</em></h2>
             </ScrollReveal>
             <ScrollReveal>
               <p>
@@ -103,7 +119,7 @@ export default function Products() {
             </ScrollReveal>
             <ScrollReveal>
               <a className="text-link" href="/products/allinone">
-                了解智脑盒子 ↗
+                了解希秀智脑 ↗
               </a>
             </ScrollReveal>
           </div>
@@ -123,7 +139,7 @@ export default function Products() {
                 />
                 <div className="video-play-overlay">
                   <div className="play-btn">▶</div>
-                  <span>智脑盒子演示</span>
+                  <span>希秀智脑演示</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -173,7 +189,23 @@ export default function Products() {
       </section>
 
       {/* ============================================
-           5. 小脑 — 运控算法
+           5. 小脑分隔线
+           ============================================ */}
+      <section className="brain-divider brain-divider--cerebellum">
+        <ScrollReveal>
+          <div className="brain-divider-content">
+            <span className="brain-divider-label">小脑 · CEREBELLUM</span>
+            <h2>XiUOS 矽璓</h2>
+            <p>
+              XiUOS 是面向工业物联与具身设备&ldquo;现场计算&rdquo;场景的轻量化实时操作系统，
+              提供硬实时调度、微秒级中断响应与确定性控制，为机器人的每一个关节赋予精准的运动能力。
+            </p>
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* ============================================
+           6. 小脑 — 运控算法
            ============================================ */}
       <section className="cerebellum-section" id="cerebellum">
         <div className="cerebellum-layout">

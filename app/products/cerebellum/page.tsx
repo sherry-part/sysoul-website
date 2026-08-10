@@ -33,7 +33,7 @@ const specs = [
   { label: "总线协议", value: "EtherCAT、CANopen、Modbus TCP/RTU" },
   { label: "SDK", value: "C / Python，ROS2 + Robonix 技能框架集成" },
   { label: "驱动兼容", value: "兼容主流伺服驱动器（松下、三菱、台达、汇川等）" },
-  { label: "部署平台", value: "智脑盒子 · 嵌入式工控机 · ARM / x86 边缘设备" },
+  { label: "部署平台", value: "希秀智脑 · 嵌入式工控机 · ARM / x86 边缘设备" },
 ];
 
 export default function CerebellumPage() {
@@ -146,6 +146,85 @@ export default function CerebellumPage() {
               </div>
             </ScrollReveal>
           ))}
+        </div>
+      </section>
+
+      {/* Co-branded Products */}
+      <section className="pd-section">
+        <ScrollReveal>
+          <h2>社区联名款开源具身智能产品<br /><em><span style={{ color: "#68e1ff" }}>大脑由 Robonix OS 驱动</span> · <span style={{ color: "#a78bfa" }}>小脑由 XiUOS 驱动</span></em></h2>
+        </ScrollReveal>
+
+        <div className="cobrand-list">
+          {/* Panel 1 — 节卡-矽璓 移动机器人 */}
+          <ScrollReveal>
+            <div className="cobrand-panel">
+              <div className="cobrand-img">
+                <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/jaka.png" alt="" className="cobrand-img-el" />
+              </div>
+              <div className="cobrand-text">
+                <span className="cobrand-tag">节卡-矽璓</span>
+                <b>移动机器人</b>
+                <p>依托社区 Robonix 具身操作系统，与节卡联合研发的移动机器人，适配餐饮、新零售等服务场景，兼顾轻量数采、AI 模型训练需求，打通商用落地与科研实训双赛道。</p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Panel 2 — 云深处-矽璓 四足狗 */}
+          <ScrollReveal>
+            <div className="cobrand-panel cobrand-panel--reverse">
+              <div className="cobrand-text">
+                <span className="cobrand-tag">云深处-矽璓</span>
+                <b>四足狗</b>
+                <p>依托社区 Robonix 具身操作系统，与云深处联合研发的四足狗，具备环境感知与运动控制能力，可运行各类运动控制技能，运动性能优异、环境适应性突出。</p>
+              </div>
+              <div className="cobrand-img">
+                <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/lite3.png" alt="" className="cobrand-img-el" />
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Panel 3 — 汉特云-矽璓 服务机器人 */}
+          <ScrollReveal>
+            <div className="cobrand-panel">
+              <div className="cobrand-img">
+                <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/hantewin.png" alt="" className="cobrand-img-el cobrand-img-el--lg" />
+              </div>
+              <div className="cobrand-text">
+                <span className="cobrand-tag">汉特云-矽璓</span>
+                <b>服务机器人</b>
+                <p>依托社区 Robonix 具身操作系统，与汉特云联合研发的服务机器人，具备自主导航避障、对接电梯门禁，适配室内外物流配送实景应用。</p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Panel 4 — Robonix-D1 灵巧手 */}
+          <ScrollReveal>
+            <div className="cobrand-panel cobrand-panel--reverse">
+              <div className="cobrand-text">
+                <span className="cobrand-tag">Robonix-D1</span>
+                <b>灵巧手</b>
+                <p>依托社区 Robonix 具身操作系统，与智在无界联合研发的机械臂、灵巧手，搭载通用人形机器人大模型，泛化能力强、灵巧操作表现突出。</p>
+              </div>
+              <div className="cobrand-img">
+                <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/d1.png" alt="" className="cobrand-img-el cobrand-img-el--lg" />
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Panel 5 — 松灵-矽璓 机械臂 */}
+          <ScrollReveal>
+            <div className="cobrand-panel">
+              <div className="cobrand-img">
+                <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/piper.png" alt="" className="cobrand-img-el cobrand-img-el--lg" />
+              </div>
+              <div className="cobrand-text">
+                <span className="cobrand-tag">松灵-矽璓</span>
+                <b>机械臂</b>
+                <p>依托社区 Robonix 具身操作系统，与松灵联合研发的具身机械臂，结合开放式机器人智脑与国产软件系统，支持目标定位、任务编排和应用扩展。</p>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

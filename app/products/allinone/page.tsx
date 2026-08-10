@@ -64,8 +64,9 @@ export default function AllinonePage() {
       <SiteHeader productPage />
 
       {/* Hero */}
-      <section className="pd-hero pd-hero-allinone"><div className="pd-hero-content"><ScrollReveal>
-            <h1>一体机<br /><em>智脑盒子</em></h1>
+      <section className="pd-hero pd-hero-allinone">
+        <div className="pd-hero-content"><ScrollReveal>
+            <h1>一体机<br /><em>希秀智脑</em></h1>
           </ScrollReveal>
           <ScrollReveal>
             <p>
@@ -80,6 +81,9 @@ export default function AllinonePage() {
               <span><b>0</b><small>额外适配</small></span>
             </div>
           </ScrollReveal>
+        </div>
+        <div className="pd-hero-visual">
+          <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/agentbrain.png" alt="希秀智脑" />
         </div>
       </section>
 
@@ -125,7 +129,7 @@ export default function AllinonePage() {
         </ScrollReveal>
         <div className="pd-includes-grid">
           {[
-            { icon: "◈", label: "智脑盒子主机", detail: "一体机核心计算单元" },
+            { icon: "◈", label: "希秀智脑主机", detail: "一体机核心计算单元" },
             { icon: "⚡", label: "电源适配器", detail: "65W GaN 快充，全球电压适配" },
             { icon: "↗", label: "Robonix 系统 U 盘", detail: "预装系统镜像与恢复工具" },
             { icon: "⊞", label: "快速入门手册", detail: "中英双语，5 分钟上手" },
@@ -187,7 +191,7 @@ export default function AllinonePage() {
 
       {/* Selling Points */}
       <section className="pd-section pd-section-alt"><ScrollReveal>
-          <h2>为什么选择<br /><em>智脑盒子</em></h2>
+          <h2>为什么选择<br /><em>希秀智脑</em></h2>
         </ScrollReveal>
         <div className="pd-selling-grid">
           {[

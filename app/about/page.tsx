@@ -17,9 +17,9 @@ export default function About() {
         </ScrollReveal>
         <ScrollReveal>
           <p className="about-intro">
-            希秀科技聚焦具身智能操作系统、智能硬件平台与行业应用解决方案，
+            希秀计算聚焦具身智能操作系统、智能硬件平台与行业应用解决方案，
             致力于为教育、科研、工业及服务场景提供可部署、可复用、可持续迭代的具身智能产品体系。
-            公司依托北京大学信息技术高等研究院成立，由梅宏院士领衔创立，总部位于杭州萧山。
+            公司依托北京大学信息技术高等研究院成立，总部位于杭州萧山。
           </p>
         </ScrollReveal>
       </section>
@@ -45,7 +45,7 @@ export default function About() {
           </ScrollReveal>
           <ScrollReveal>
             <p className="timeline-intro">
-              希秀科技以工业物联泛在操作系统 XiUOS 起家，经过五年技术与场景沉淀，
+              希秀计算以工业物联泛在操作系统 XiUOS 起家，经过五年技术与场景沉淀，
               于 2025 年全面转型具身智能，构建&ldquo;双 OS + 多形态硬件&rdquo;产品矩阵。
             </p>
           </ScrollReveal>
@@ -102,8 +102,8 @@ export default function About() {
               <span className="tl-date">2019.11</span>
               <div className="tl-marker" />
               <div className="tl-body">
-                <b>梅宏院士创立泛在操作系统实验室</b>
-                <p>团队面向制造业数字化转型，研发工业物联泛在操作系统 XiUOS，为公司核心技术资产与学术血脉的源头。</p>
+                <b>泛在操作系统实验室创立</b>
+                <p>团队面向制造业数字化转型，启动工业物联泛在操作系统 XiUOS 研发，奠定公司核心技术资产的学术源头。</p>
               </div>
             </div>
           </ScrollReveal>
@@ -114,7 +114,7 @@ export default function About() {
               <div className="tl-marker" />
               <div className="tl-body">
                 <b>CCF 泛在操作系统开放社区成立</b>
-                <p>由梅宏院士牵头，汇聚产学研力量，推动操作系统研究向泛在化、智能化方向演进。</p>
+                <p>汇聚产学研力量，推动操作系统研究向泛在化、智能化方向演进。</p>
               </div>
             </div>
           </ScrollReveal>
@@ -282,7 +282,7 @@ export default function About() {
           <div className="belief-callout" style={{ marginTop: 48 }}>
             <p>
               高校前沿 + 行业落地的<strong>双引擎结构</strong>，让公司既具备纯学术团队的技术深度，
-              也具备纯产业团队的变现能力。院士科研团队提供前沿判断力与跨学科整合能力，
+              也具备纯产业团队的变现能力。学术团队提供前沿判断力与跨学科整合能力，
               持续把握具身智能的技术演进方向与产业节奏。
             </p>
             <span className="belief-tag">— 团队定位</span>
@@ -326,7 +326,7 @@ export default function About() {
 
         <ScrollReveal>
           <div className="conclusion-quote">
-            <p>希秀科技的目标不是做一台机器人，而是让每一家本体厂商、每一个集成商都能在我们的底座上跑出自己的具身智能产品。</p>
+            <p>希秀计算的目标不是做一台机器人，而是让每一家本体厂商、每一个集成商都能在我们的底座上跑出自己的具身智能产品。</p>
             <span>— OUR MISSION</span>
           </div>
         </ScrollReveal>

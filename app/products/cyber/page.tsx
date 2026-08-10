@@ -68,6 +68,9 @@ export default function CyberPage() {
             </div>
           </ScrollReveal>
         </div>
+        <div className="pd-hero-visual">
+          <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/cyberbot.png" alt="赛博机器人" />
+        </div>
       </section>
 
       {/* Overview */}
