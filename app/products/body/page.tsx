@@ -61,7 +61,7 @@ const pricing = [
 export default function BodyPage() {
   return (
     <main className="product-detail-page product-body">
-      <SiteHeader productPage />
+      <SiteHeader />
 
       {/* Hero */}
       <section className="pd-hero pd-hero-body"><div className="pd-hero-content"><ScrollReveal>

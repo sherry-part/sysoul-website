@@ -61,7 +61,7 @@ const pricing = [
 export default function OpenSourcePage() {
   return (
     <main className="product-detail-page product-body">
-      <SiteHeader productPage />
+      <SiteHeader />
 
       {/* Hero */}
       <section className="pd-hero pd-hero-body"><div className="pd-hero-content">

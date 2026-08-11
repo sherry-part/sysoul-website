@@ -2,74 +2,16 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export default function SiteHeader({ productPage = false, homePage = false }: { productPage?: boolean; homePage?: boolean }) {
+export default function SiteHeader() {
   const [solutionsOpen, setSolutionsOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
-  const [submenuOpen, setSubmenuOpen] = useState<"brain" | "cerebellum" | null>(null);
 
   return (
     <header className="site-header">
       <div className="header-main">
-      {!homePage && (
-        <a className="brand" href="/">
-          <Image src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/logo1.webp" width={180} height={42} alt="Sysoul" priority />
-        </a>
-      )}
+      <a className="brand" href="/">
+        <Image src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/logo1.webp" width={180} height={42} alt="Sysoul" priority />
+      </a>
       <nav className="nav-links">
-        <a href="/">首页</a>
-
-        {/* Products dropdown with nested flyout */}
-        <div
-          className="nav-dropdown"
-          onMouseEnter={() => setProductsOpen(true)}
-          onMouseLeave={() => { setProductsOpen(false); setSubmenuOpen(null); }}
-        >
-          <a
-            className={`nav-dropdown-trigger${productPage ? " active" : ""}`}
-            href="/products"
-          >
-            具身产品 <span className="dropdown-arrow">▾</span>
-          </a>
-          {productsOpen && (
-            <div className="nav-dropdown-menu nav-dropdown-menu--products">
-              <a href="/products">总览</a>
-
-              {/* 大脑 — flyout */}
-              <div
-                className="nav-flyout-anchor"
-                onMouseEnter={() => setSubmenuOpen("brain")}
-                onMouseLeave={() => setSubmenuOpen(null)}
-              >
-                <span className="nav-flyout-trigger">
-                  大脑 <span className="flyout-arrow">›</span>
-                </span>
-                {submenuOpen === "brain" && (
-                  <div className="nav-flyout-menu">
-                    <a href="/products/allinone">希秀智脑</a>
-                    <a href="/products/cyber">赛博机器人</a>
-                  </div>
-                )}
-              </div>
-
-              {/* 小脑 — flyout */}
-              <div
-                className="nav-flyout-anchor"
-                onMouseEnter={() => setSubmenuOpen("cerebellum")}
-                onMouseLeave={() => setSubmenuOpen(null)}
-              >
-                <span className="nav-flyout-trigger">
-                  小脑 <span className="flyout-arrow">›</span>
-                </span>
-                {submenuOpen === "cerebellum" && (
-                  <div className="nav-flyout-menu">
-                    <a href="/products/cerebellum">运控算法</a>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-
         {/* Solutions dropdown */}
         <div
           className="nav-dropdown"
@@ -77,27 +19,29 @@ export default function SiteHeader({ productPage = false, homePage = false }: { 
           onMouseLeave={() => setSolutionsOpen(false)}
         >
           <span className="nav-dropdown-trigger">
-            案例与解决方案 <span className="dropdown-arrow">▾</span>
+            解决方案 <span className="dropdown-arrow">▾</span>
           </span>
           {solutionsOpen && (
             <div className="nav-dropdown-menu">
-              <a href="/solutions/enterprise">面向企业的解决方案</a>
-              <a href="/solutions/research">面向科研的解决方案</a>
-              <a href="/solutions/personal">面向个人的解决方案</a>
-              <div className="nav-dropdown-divider" />
-              <a href="/solutions/delivery-robot">智能取送机器人案例</a>
-              <a href="/solutions/bci">脑机交互案例</a>
+              <a href="/solutions/cyber-robot">赛博机器人</a>
+              <a href="/solutions/course-materials">课程素材</a>
+              <a href="/solutions/robot-dog">基于机器狗的解决方案</a>
+              <a href="/solutions/robot-arm">基于机械臂的解决方案</a>
+              <a href="/solutions/dexterous-hand">基于灵巧手的解决方案</a>
+              <a href="/solutions/bci">基于脑机交互的解决方案</a>
+              <a href="/solutions/iot-sensing">基于物联感知的解决方案</a>
+              <a href="/solutions/joint">基于关节的解决方案</a>
             </div>
           )}
         </div>
 
-        <a href="/docs">文档中心</a>
+        <a href="/docs">资源中心</a>
         <a href="/about">关于我们</a>
       </nav>
       <div className="header-actions">
-        <a className="nav-sub" href="https://robonix.syswonder.org/" target="_blank" rel="noreferrer">Robonix <span className="ext-icon">↗</span></a>
-        <a className="nav-sub" href="http://121.43.228.68:4000/" target="_blank" rel="noreferrer">工业物联 <span className="ext-icon">↗</span></a>
-        <a className="header-cta" href="#site-footer">联系 Sysoul <span>↓</span></a>
+        <a className="nav-sub" href="https://robonix.ai" target="_blank" rel="noreferrer">Robonix OS ↗</a>
+        <a className="nav-sub" href="https://xuos.io/" target="_blank" rel="noreferrer">XiUOS ↗</a>
+        <a className="header-cta" href="#site-footer">联系 Sysoul ↓</a>
       </div>
       </div>
     </header>

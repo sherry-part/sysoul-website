@@ -46,7 +46,7 @@ const specs = [
 export default function CyberPage() {
   return (
     <main className="product-detail-page product-cyber">
-      <SiteHeader productPage />
+      <SiteHeader />
 
       {/* Hero */}
       <section className="pd-hero pd-hero-cyber">

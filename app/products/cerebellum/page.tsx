@@ -39,7 +39,7 @@ const specs = [
 export default function CerebellumPage() {
   return (
     <main className="product-detail-page product-cerebellum">
-      <SiteHeader productPage />
+      <SiteHeader />
 
       {/* Hero */}
       <section className="pd-hero pd-hero-cerebellum">

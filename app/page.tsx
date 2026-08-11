@@ -1,74 +1,83 @@
 "use client";
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import SiteHeader from "../components/site-header";
 import Footer from "../components/footer";
 
+const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 export default function Home() {
-  const [showLogo, setShowLogo] = useState(false);
-  const [showSlogan, setShowSlogan] = useState(false);
-  const [showCta, setShowCta] = useState(false);
-
-  useEffect(() => {
-    const t1 = setTimeout(() => setShowLogo(true), 400);
-    const t2 = setTimeout(() => setShowSlogan(true), 1600);
-    const t3 = setTimeout(() => setShowCta(true), 2600);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
-  }, []);
-
   return (
-    <main className="home-page">
-      <SiteHeader homePage />
-      <section className="film-hero">
-        {/* Logo overlay */}
-        <motion.div
-          className="eco-brand"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.div
-            className="eco-logo-wrap"
+    <main className="home-page-v2">
+      <SiteHeader />
+
+      {/* ============================================
+           1. Hero
+           ============================================ */}
+      <section className="hero-v2">
+        <div className="hero-v2-content">
+          <motion.p
+            className="hero-v2-vision"
             initial={{ clipPath: "inset(0 100% 0 0)" }}
-            animate={showLogo ? { clipPath: "inset(0 0% 0 0)" } : {}}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            animate={{ clipPath: "inset(0 0% 0 0)" }}
+            transition={{ duration: 1.2, delay: 0.3, ease }}
           >
-            <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/logo1.webp" alt="Sysoul" className="eco-logo-img" />
-            {showLogo && (
-              <motion.div
-                className="eco-laser-line"
-                initial={{ left: "0%" }}
-                animate={{ left: "100%" }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              />
-            )}
-          </motion.div>
-          <motion.div
-            className="eco-slogan-wrap"
+            让机器人走进千行百业
+          </motion.p>
+          <motion.p
+            className="hero-v2-mission"
             initial={{ clipPath: "inset(0 100% 0 0)" }}
-            animate={showSlogan ? { clipPath: "inset(0 0% 0 0)" } : {}}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            animate={{ clipPath: "inset(0 0% 0 0)" }}
+            transition={{ duration: 1.2, delay: 0.8, ease }}
           >
-            <p className="eco-slogan">让机器人走进千行百业，更好地服务人类</p>
-            <motion.div
-              className="eco-slogan-line"
-              initial={{ scaleX: 0 }}
-              animate={showSlogan ? { scaleX: 1 } : {}}
-              transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
-              style={{ transformOrigin: "left" }}
-            />
-          </motion.div>
-          <motion.a
-            className="eco-cta"
-            href="/products"
-            initial={{ opacity: 0, y: 20 }}
-            animate={showCta ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            进入产品世界 <span>↗</span>
-          </motion.a>
-        </motion.div>
+            打造开放的具身智能基础设施，让机器人更容易掌握技能，服务千行百业。
+          </motion.p>
+        </div>
       </section>
+
+      {/* ============================================
+           2. Robonix
+           ============================================ */}
+      <section className="robonix-intro">
+        <div className="robonix-grid">
+          <motion.div
+            className="robonix-text"
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease }}
+          >
+            <span className="robonix-os-tag">Robonix OS</span>
+            <h2>为每一台机器人<br />提供统一的智能基础设施</h2>
+            <p>向下抽象异构本体，向上编排任务与模型。不锁定硬件，不限制模型。</p>
+            <a className="button" href="https://robonix.ai" target="_blank" rel="noreferrer">了解 Robonix →</a>
+          </motion.div>
+
+          <motion.div
+            className="robonix-cards"
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, delay: 0.2, ease }}
+          >
+            {[
+              { num: "01", title: "硬件抽象", desc: "统一设备抽象层，将机械臂、四足、移动底盘等异构本体纳入同一套接口。一次适配，跨平台复用。", stat: "10+ 已适配硬件", img: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/robonix-1.png" },
+              { num: "02", title: "技能编排", desc: "将感知、规划、执行抽象为可组合的技能单元。开发者像搭积木一样编排任务，AI 模型即插即用。", stat: "40+ Packages", img: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/robonix-2.png" },
+              { num: "03", title: "开放生态", desc: "代码开源、标准开放、社区驱动。不锁定任何硬件与模型，让开发者的成果真正属于自己。", stat: "16+ 高校与研究所 · 10+ 厂商", img: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/robonix-3.png" },
+            ].map((item) => (
+              <div key={item.num} className="robonix-card">
+                <span className="robonix-card-num">{item.num}</span>
+                <b>{item.title}</b>
+                <p>{item.desc}</p>
+                <div className="robonix-card-img">
+                  <img src={item.img} alt={item.title} />
+                </div>
+                <span className="robonix-card-stat">{item.stat}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );

@@ -7,7 +7,7 @@ import { partners } from "../../constants";
 export default function Products() {
   return (
     <main className="product-page">
-      <SiteHeader productPage />
+      <SiteHeader />
 
       {/* ============================================
            1. Product Carousel — full-screen hero

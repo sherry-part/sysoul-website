@@ -61,7 +61,7 @@ const pricing = [
 export default function AllinonePage() {
   return (
     <main className="product-detail-page product-allinone">
-      <SiteHeader productPage />
+      <SiteHeader />
 
       {/* Hero */}
       <section className="pd-hero pd-hero-allinone">

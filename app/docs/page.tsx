@@ -13,7 +13,7 @@ const categories = [
     icon: "⚙",
     title: "XiUOS 小脑",
     desc: "实时控制、关节运控算法、硬件适配与驱动开发指南。",
-    href: "#",
+    href: "https://xuos.io/",
   },
   {
     icon: "⟐",
@@ -34,22 +34,6 @@ export default function Docs() {
     <main className="docs-page">
       <SiteHeader />
 
-      {/* Hero */}
-      <section className="docs-hero"><ScrollReveal>
-          <h1>
-            知识库
-            <br />
-            <em>从入门到精通</em>
-          </h1>
-        </ScrollReveal>
-        <ScrollReveal>
-          <p>
-            无论你是初次接触具身智能，还是正在将技能部署到生产环境，
-            这里都有清晰的指引和深度的参考文档。
-          </p>
-        </ScrollReveal>
-      </section>
-
       {/* Categories */}
       <section className="docs-categories">
         <div className="docs-cat-head"><ScrollReveal>
@@ -58,11 +42,6 @@ export default function Docs() {
               <br />
               <em>找到你需要的</em>
             </h2>
-          </ScrollReveal>
-          <ScrollReveal>
-            <p className="section-intro">
-              文档按产品与模块组织，覆盖从硬件到软件、从入门到进阶的完整内容体系。
-            </p>
           </ScrollReveal>
         </div>
         <div className="docs-cat-grid">
@@ -77,32 +56,6 @@ export default function Docs() {
             </ScrollReveal>
           ))}
         </div>
-      </section>
-
-      {/* CTA Banner */}
-      <section className="docs-cta">
-        <ScrollReveal>
-          <h2>
-            还没找到答案？
-            <br />
-            <em>加入社区提问</em>
-          </h2>
-        </ScrollReveal>
-        <ScrollReveal>
-          <p>
-            前往 Robonix 开发者社区，与数千名开发者交流经验、获取帮助。
-          </p>
-        </ScrollReveal>
-        <ScrollReveal>
-          <a
-            className="button"
-            href="https://robonix.syswonder.org/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            进入开发者社区 ↗
-          </a>
-        </ScrollReveal>
       </section>
 
       <Footer />

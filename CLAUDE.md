@@ -119,7 +119,7 @@ constants.ts                          # 轮播 slides 数据 + 合作伙伴列�
 
 ### 1. 首页 (`/`)
 - **导航栏**: 无 logo (homePage prop 隐藏), 仅 5 个主导航 + 右侧 Robonix/工业物联/联系
-- **Hero**: CSS background-image (`/images/background.jpg`), `background-size: cover`
+- **Hero**: CSS background-image (`/images/background.png`), `background-size: cover`
 - **品牌动画** (Framer Motion): Logo 擦除 → Slogan 出现 → "进入产品世界" CTA 按钮
 - **Footer**: 同全局
 
