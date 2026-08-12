@@ -1,5 +1,6 @@
 import SiteHeader from "../../../components/site-header";
 import Footer from "../../../components/footer";
+import SolutionMediaCard from "../../../components/solution-media-card";
 
 export default function RobotDog() {
   return (
@@ -13,21 +14,11 @@ export default function RobotDog() {
         </p>
         <div className="sol-media-row">
           {[
-            { num: "01", title: "希秀智脑 + 机器狗", sub: "All-in-One + Quadruped", tags: "边缘算力 · Robonix OS · 端侧推理" },
-            { num: "02", title: "控制系统", sub: "Control System", tags: "XiUOS · 动态避障 · 地形适应" },
-            { num: "03", title: "实地测试", sub: "Field Test", tags: "安防巡检 · 物流配送" },
+            { num: "01", title: "希秀智脑 + 机器狗", sub: "All-in-One + Quadruped", desc: "以希秀智脑为边缘算力载体，搭载 Robonix OS 实现端侧 AI 推理与自主决策，让四足机器人具备真正的环境感知与任务理解能力。", tags: "边缘算力 · Robonix OS · 端侧推理", media: { type: "video", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/dog-1.mp4" } },
+            { num: "02", title: "控制系统", sub: "Control System", desc: "基于 XiUOS 硬实时调度内核，实现复杂地形下的动态步态规划与实时避障，毫秒级响应确保运行安全与稳定。", tags: "XiUOS · 动态避障 · 地形适应", media: { type: "video", src: "" } },
+            { num: "03", title: "实地测试", sub: "Field Test", desc: "已完成安防巡检与物流配送场景的实地部署验证，支持多机协同作业与远程人工接管，运行稳定可靠。", tags: "安防巡检 · 物流配送", media: { type: "video", src: "" } },
           ].map((m) => (
-            <div key={m.num} className="sol-media-card">
-              <div className="sol-media-bg-placeholder" />
-              <div className="sol-media-gradient" />
-              <div className="sol-media-content">
-                <span className="sol-card-num">{m.num} / 03</span>
-                <b className="sol-card-title">{m.title}</b>
-                <span className="sol-card-sub">{m.sub}</span>
-                <span className="sol-card-tags">{m.tags}</span>
-                <span className="sol-card-action">↗</span>
-              </div>
-            </div>
+            <SolutionMediaCard key={m.num} num={m.num} title={m.title} sub={m.sub} desc={m.desc} tags={m.tags} media={m.media} />
           ))}
         </div>
       </section>

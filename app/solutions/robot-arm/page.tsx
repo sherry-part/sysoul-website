@@ -1,5 +1,6 @@
 import SiteHeader from "../../../components/site-header";
 import Footer from "../../../components/footer";
+import SolutionMediaCard from "../../../components/solution-media-card";
 
 export default function RobotArm() {
   return (
@@ -13,21 +14,11 @@ export default function RobotArm() {
         </p>
         <div className="sol-media-row">
           {[
-            { num: "01", title: "机械臂平台", sub: "Robot Arm Platform", tags: "Robonix OS · 视觉引导 · 力控装配" },
-            { num: "02", title: "控制系统", sub: "Control System", tags: "轨迹规划 · 技能编排" },
-            { num: "03", title: "精密装配", sub: "Precision Assembly", tags: "柔性操作 · 多品牌适配" },
+            { num: "01", title: "机械臂平台", sub: "Robot Arm Platform", desc: "Robonix OS 统一抽象机械臂硬件接口，支持视觉引导抓取与力控精密装配，一套代码即可适配多品牌机械臂本体。", tags: "Robonix OS · 视觉引导 · 力控装配", media: { type: "image", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/arm-1.png" } as const },
+            { num: "02", title: "控制系统", sub: "Control System", desc: "轨迹规划与技能编排引擎将复杂操作分解为可复用的技能节点，支持示教编程与模型驱动的自主轨迹生成。", tags: "轨迹规划 · 技能编排", media: { type: "video", src: "" } },
+            { num: "03", title: "精密装配", sub: "Precision Assembly", desc: "毫秒级力反馈闭环控制，适配 UR、Franka、节卡等主流机械臂本体，在精密零件装配场景中达到工业级精度。", tags: "柔性操作 · 多品牌适配", media: { type: "video", src: "" } },
           ].map((m) => (
-            <div key={m.num} className="sol-media-card">
-              <div className="sol-media-bg-placeholder" />
-              <div className="sol-media-gradient" />
-              <div className="sol-media-content">
-                <span className="sol-card-num">{m.num} / 03</span>
-                <b className="sol-card-title">{m.title}</b>
-                <span className="sol-card-sub">{m.sub}</span>
-                <span className="sol-card-tags">{m.tags}</span>
-                <span className="sol-card-action">↗</span>
-              </div>
-            </div>
+            <SolutionMediaCard key={m.num} num={m.num} title={m.title} sub={m.sub} desc={m.desc} tags={m.tags} media={m.media} />
           ))}
         </div>
       </section>

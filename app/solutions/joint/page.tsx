@@ -1,5 +1,6 @@
 import SiteHeader from "../../../components/site-header";
 import Footer from "../../../components/footer";
+import SolutionMediaCard from "../../../components/solution-media-card";
 
 export default function Joint() {
   return (
@@ -13,21 +14,10 @@ export default function Joint() {
         </p>
         <div className="sol-media-row">
           {[
-            { num: "01", title: "关节模组", sub: "Joint Module", tags: "XiUOS · EtherCAT · CAN · 伺服控制" },
-            { num: "02", title: "控制架构", sub: "Control Architecture", tags: "力矩反馈 · 多关节协同" },
-            { num: "03", title: "性能测试", sub: "Performance Benchmark", tags: "高精度 · 低延迟 · 多品牌适配" },
+            { num: "01", title: "关节模组", sub: "Joint Module", desc: "基于 XiUOS 硬实时内核的高精度伺服驱动关节模组，支持 EtherCAT、CAN 等工业总线协议，微秒级中断响应确保运动控制确定性。", tags: "XiUOS · EtherCAT · CAN · 伺服控制", media: { type: "video", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/jaka.mp4" } },
+            { num: "02", title: "控制架构", sub: "Control Architecture", desc: "分布式力矩反馈与多关节协同控制架构，实时同步各关节状态，满足高动态场景下的精确协同运动需求。", tags: "力矩反馈 · 多关节协同", media: { type: "image", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/jaka-2.png" } as const },
           ].map((m) => (
-            <div key={m.num} className="sol-media-card">
-              <div className="sol-media-bg-placeholder" />
-              <div className="sol-media-gradient" />
-              <div className="sol-media-content">
-                <span className="sol-card-num">{m.num} / 03</span>
-                <b className="sol-card-title">{m.title}</b>
-                <span className="sol-card-sub">{m.sub}</span>
-                <span className="sol-card-tags">{m.tags}</span>
-                <span className="sol-card-action">↗</span>
-              </div>
-            </div>
+            <SolutionMediaCard key={m.num} num={m.num} total={2} title={m.title} sub={m.sub} desc={m.desc} tags={m.tags} media={m.media} />
           ))}
         </div>
       </section>

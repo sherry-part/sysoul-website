@@ -1,5 +1,6 @@
 import SiteHeader from "../../../components/site-header";
 import Footer from "../../../components/footer";
+import SolutionMediaCard from "../../../components/solution-media-card";
 
 export default function CyberRobot() {
   return (
@@ -20,32 +21,28 @@ export default function CyberRobot() {
               num: "01",
               title: "老旧产线数字化改造",
               sub: "Legacy Line Digitalization",
+              desc: "通过非侵入式数采终端捕获设备运行状态，无需改造产线即可实现毫秒级数据采集与结构化转化，让封闭的老旧设备融入数字工厂。",
               tags: "封闭系统 · 无接口设备 · 零改造",
+              media: { type: "image", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/cyber-1.png" } as const,
             },
             {
               num: "02",
               title: "多源异构数据汇聚",
               sub: "Multi-Source Data Fusion",
+              desc: "融合设备运行数据、应用层日志与现场音视频流，打破信息孤岛，构建统一的生产数据底座，为上层分析与决策提供完整数据支撑。",
               tags: "设备数据 · 应用数据 · 音视频流",
+              media: { type: "image", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/cyber-2.png" } as const,
             },
             {
               num: "03",
-              title: "远程无人值守巡检",
-              sub: "Unattended Inspection",
-              tags: "定时采集 · 自动上报 · 异常预警",
+              title: "你的赛博工作伙伴",
+              sub: "Your Cyber Work Partner",
+              desc: "赛博机器人不仅是数采终端，更是你的赛博工作伙伴——7×24 小时不间断值守，自动识别、采集、上报，让每一台老设备都开口说话。",
+              tags: "7×24 值守 · 自动识别 · 赛博伙伴",
+              media: { type: "image", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/cyber-3.png" } as const,
             },
           ].map((m) => (
-            <div key={m.num} className="sol-media-card">
-              <div className="sol-media-bg-placeholder" />
-              <div className="sol-media-gradient" />
-              <div className="sol-media-content">
-                <span className="sol-card-num">{m.num} / 03</span>
-                <b className="sol-card-title">{m.title}</b>
-                <span className="sol-card-sub">{m.sub}</span>
-                <span className="sol-card-tags">{m.tags}</span>
-                <span className="sol-card-action">↗</span>
-              </div>
-            </div>
+            <SolutionMediaCard key={m.num} num={m.num} title={m.title} sub={m.sub} desc={m.desc} tags={m.tags} media={m.media} />
           ))}
         </div>
       </section>

@@ -1,5 +1,6 @@
 import SiteHeader from "../../../components/site-header";
 import Footer from "../../../components/footer";
+import SolutionMediaCard from "../../../components/solution-media-card";
 
 export default function DexterousHand() {
   return (
@@ -13,21 +14,11 @@ export default function DexterousHand() {
         </p>
         <div className="sol-media-row">
           {[
-            { num: "01", title: "灵巧手硬件", sub: "Dexterous Hand", tags: "Robonix OS · 强化学习 · 自适应抓取" },
-            { num: "02", title: "控制策略", sub: "Control Strategy", tags: "多指协同 · 力反馈" },
-            { num: "03", title: "操控实验", sub: "Manipulation", tags: "精密制造 · 医疗辅助" },
+            { num: "01", title: "灵巧手硬件", sub: "Dexterous Hand", desc: "多指多自由度灵巧手，搭载 Robonix OS 与强化学习策略，实现自适应柔性抓取，可处理从易碎物品到不规则零件的多样化操控需求。", tags: "Robonix OS · 强化学习 · 自适应抓取", media: { type: "video", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/hand.mp4" } },
+            { num: "02", title: "控制策略", sub: "Control Strategy", desc: "多指协同运动规划结合实时力反馈，精确控制指尖接触点与抓取力度，在动态环境中保持稳定操控。", tags: "多指协同 · 力反馈", media: { type: "video", src: "" } },
+            { num: "03", title: "操控实验", sub: "Manipulation", desc: "面向精密制造与医疗辅助场景，完成微小零件装配、易碎物品抓取等高难度操控任务，验证方案可行性。", tags: "精密制造 · 医疗辅助", media: { type: "video", src: "" } },
           ].map((m) => (
-            <div key={m.num} className="sol-media-card">
-              <div className="sol-media-bg-placeholder" />
-              <div className="sol-media-gradient" />
-              <div className="sol-media-content">
-                <span className="sol-card-num">{m.num} / 03</span>
-                <b className="sol-card-title">{m.title}</b>
-                <span className="sol-card-sub">{m.sub}</span>
-                <span className="sol-card-tags">{m.tags}</span>
-                <span className="sol-card-action">↗</span>
-              </div>
-            </div>
+            <SolutionMediaCard key={m.num} num={m.num} title={m.title} sub={m.sub} desc={m.desc} tags={m.tags} media={m.media} />
           ))}
         </div>
       </section>

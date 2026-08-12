@@ -1,5 +1,6 @@
 import SiteHeader from "../../../components/site-header";
 import Footer from "../../../components/footer";
+import SolutionMediaCard from "../../../components/solution-media-card";
 
 export default function CourseMaterials() {
   return (
@@ -13,21 +14,11 @@ export default function CourseMaterials() {
         </p>
         <div className="sol-media-row">
           {[
-            { num: "01", title: "课程大纲", sub: "Curriculum", tags: "操作系统 · 机器人控制 · AI 部署" },
-            { num: "02", title: "实验平台", sub: "Lab Platform", tags: "仿真环境 · 示例代码" },
-            { num: "03", title: "教学现场", sub: "In Action", tags: "高校合作 · 实训基地" },
+            { num: "01", title: "课程大纲", sub: "Curriculum", desc: "涵盖操作系统原理、机器人控制、AI 模型部署三大模块，理论结合实践，为高校提供完整的具身智能教学体系。", tags: "操作系统 · 机器人控制 · AI 部署", media: { type: "image", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/课程-1.png" } as const },
+            { num: "02", title: "实验平台", sub: "Lab Platform", desc: "配套仿真环境与示例代码，学生可在虚拟环境中验证算法后一键部署到真实硬件，降低实验门槛与设备成本。", tags: "仿真环境 · 示例代码", media: { type: "image", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/教学-2.jpg" } as const },
+            { num: "03", title: "教学现场", sub: "In Action", desc: "与多所高校共建具身智能实训基地，提供师资培训、实验指导与技术支持，加速具身智能人才培养。", tags: "高校合作 · 实训基地", media: { type: "image", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/教学-3.jpg" } as const },
           ].map((m) => (
-            <div key={m.num} className="sol-media-card">
-              <div className="sol-media-bg-placeholder" />
-              <div className="sol-media-gradient" />
-              <div className="sol-media-content">
-                <span className="sol-card-num">{m.num} / 03</span>
-                <b className="sol-card-title">{m.title}</b>
-                <span className="sol-card-sub">{m.sub}</span>
-                <span className="sol-card-tags">{m.tags}</span>
-                <span className="sol-card-action">↗</span>
-              </div>
-            </div>
+            <SolutionMediaCard key={m.num} num={m.num} title={m.title} sub={m.sub} desc={m.desc} tags={m.tags} media={m.media} />
           ))}
         </div>
       </section>

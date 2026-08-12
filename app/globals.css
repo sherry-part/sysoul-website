@@ -5399,6 +5399,21 @@ h1, h2, h3, p { margin-top: 0; }
   margin-bottom: 48px;
 }
 
+.about-video-banner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 64px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.about-video-banner video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
 .about-hero-title {
   font-size: clamp(40px, 5vw, 56px);
   font-weight: 600;
@@ -5566,6 +5581,23 @@ h1, h2, h3, p { margin-top: 0; }
   margin-right: 8px;
 }
 
+/* Honors gallery — centered award images */
+.honors-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+.honors-gallery img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  object-fit: contain;
+}
+
 /* Panel 4: Team grid */
 .about-team-grid {
   display: grid;
@@ -5628,6 +5660,10 @@ h1, h2, h3, p { margin-top: 0; }
 
 /* Responsive */
 @media (max-width: 768px) {
+  .about-video-banner {
+    margin-bottom: 40px;
+    border-radius: 8px;
+  }
   .about-intro {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -5770,6 +5806,13 @@ h1, h2, h3, p { margin-top: 0; }
   min-height: 420px;
 }
 
+.sol-media-row--two {
+  grid-template-columns: 1fr 1fr;
+}
+.sol-media-row--two .sol-media-card:first-child .sol-card-title {
+  font-size: 15px;
+}
+
 /* ============================================
    Card — internal expand, not grid resize
    ============================================ */
@@ -5782,22 +5825,12 @@ h1, h2, h3, p { margin-top: 0; }
   transition: border-color 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Focus: dim siblings, highlight self */
-.sol-media-row:hover .sol-media-card {
-  opacity: 0.4;
-  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
+/* Focus: border highlight on hover */
 .sol-media-row:hover .sol-media-card:hover {
-  opacity: 1;
-}
-.sol-media-row .sol-media-card:first-child {
-  opacity: 0.75;
-}
-.sol-media-row:hover .sol-media-card:first-child {
-  opacity: 0.4;
+  border-color: rgba(130, 232, 255, 0.35);
 }
 .sol-media-row:hover .sol-media-card:first-child:hover {
-  opacity: 1;
+  border-color: rgba(130, 232, 255, 0.35);
 }
 
 /* --- BG layer: image / video fills card --- */
@@ -5894,6 +5927,19 @@ h1, h2, h3, p { margin-top: 0; }
               opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.sol-card-desc {
+  display: block;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 8px;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sol-media-card:first-child .sol-card-desc {
+  color: rgba(255, 255, 255, 0.65);
+}
+
 /* --- Tech tags: hidden by default, reveal on hover --- */
 .sol-card-tags {
   display: block;
@@ -5945,6 +5991,53 @@ h1, h2, h3, p { margin-top: 0; }
   justify-content: flex-end;
   padding: 24px;
   background: var(--bg-secondary);
+}
+
+/* ============================================
+   Media Lightbox — click to enlarge
+   ============================================ */
+.media-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(12px);
+  animation: lb-fade-in 0.25s ease;
+}
+@keyframes lb-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.media-lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.media-lightbox-close:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.5);
+}
+.media-lightbox-el {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 6px;
+  box-shadow: 0 0 60px rgba(0,0,0,0.5);
+  object-fit: contain;
 }
 
 @media (max-width: 768px) {

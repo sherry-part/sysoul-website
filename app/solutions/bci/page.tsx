@@ -1,5 +1,6 @@
 import SiteHeader from "../../../components/site-header";
 import Footer from "../../../components/footer";
+import SolutionMediaCard from "../../../components/solution-media-card";
 
 export default function BCI() {
   return (
@@ -13,21 +14,9 @@ export default function BCI() {
         </p>
         <div className="sol-media-row">
           {[
-            { num: "01", title: "BCI 设备", sub: "Brain-Computer Interface", tags: "EEG · 多通道 · 干湿电极混合" },
-            { num: "02", title: "信号处理", sub: "Signal Processing", tags: "深度学习 · 实时解码 · ≤50ms" },
-            { num: "03", title: "机器人控制", sub: "Robot Control", tags: "外骨骼 · 机械臂 · 意念操控" },
+            { num: "01", title: "机器人控制", sub: "Robot Control", desc: "通过 Robonix OS 将脑电解码意图实时映射为机器人控制指令，已实现意念操控机械车与机械臂的完整闭环，用户无需任何物理操作即可驱动机器人执行任务。", tags: "意念操控 · 机械车 · 机械臂 · Robonix OS", media: { type: "video", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/脑机.mp4" } },
           ].map((m) => (
-            <div key={m.num} className="sol-media-card">
-              <div className="sol-media-bg-placeholder" />
-              <div className="sol-media-gradient" />
-              <div className="sol-media-content">
-                <span className="sol-card-num">{m.num} / 03</span>
-                <b className="sol-card-title">{m.title}</b>
-                <span className="sol-card-sub">{m.sub}</span>
-                <span className="sol-card-tags">{m.tags}</span>
-                <span className="sol-card-action">↗</span>
-              </div>
-            </div>
+            <SolutionMediaCard key={m.num} num={m.num} total={1} title={m.title} sub={m.sub} desc={m.desc} tags={m.tags} media={m.media} />
           ))}
         </div>
       </section>

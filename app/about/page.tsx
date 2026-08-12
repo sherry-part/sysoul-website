@@ -1,6 +1,7 @@
 import SiteHeader from "../../components/site-header";
 import Footer from "../../components/footer";
 import ScrollReveal from "../../components/scroll-reveal";
+import AutoPlayVideo from "../../components/autoplay-video";
 import { partners } from "../../constants";
 
 const timelineMilestones = [
@@ -71,8 +72,13 @@ export default function About() {
       <SiteHeader />
 
       {/* Panel 1: 关于希秀 */}
-      <section className="about-panel">
+      <section className="about-panel" style={{ paddingTop: 60 }}>
         <span className="about-panel-label">关于希秀</span>
+
+        <div className="about-video-banner">
+          <AutoPlayVideo src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/Sysoul.mp4" />
+        </div>
+
         <div className="about-intro">
           <div className="about-intro-left">
             <h1 className="about-hero-title">
@@ -143,6 +149,11 @@ export default function About() {
               ))}
             </ul>
           </div>
+        </div>
+
+        <div className="honors-gallery">
+          <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/honor-1.png" alt="荣誉奖项" />
+          <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/honor-2.png" alt="荣誉奖项" />
         </div>
       </section>
 
