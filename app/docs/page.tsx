@@ -16,12 +16,6 @@ const categories = [
     href: "https://xuos.io/",
   },
   {
-    icon: "⟐",
-    title: "技能 SDK",
-    desc: "技能创建、测试、发布全流程，多平台部署与调试工具。",
-    href: "#",
-  },
-  {
     icon: "↗",
     title: "包目录",
     desc: "Robonix 预置技能与工具包，开箱即用，期待你的复用与贡献。",

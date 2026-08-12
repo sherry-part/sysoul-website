@@ -23,12 +23,11 @@ export default function SiteHeader() {
           </span>
           {solutionsOpen && (
             <div className="nav-dropdown-menu">
-              <a href="/solutions/cyber-robot">赛博机器人</a>
               <a href="/solutions/robot-dog">基于机器狗的解决方案</a>
               <a href="/solutions/robot-arm">基于机械臂的解决方案</a>
               <a href="/solutions/dexterous-hand">基于灵巧手的解决方案</a>
               <a href="/solutions/joint">基于关节的解决方案</a>
-              <a href="/solutions/bci">基于脑机交互的解决方案</a>
+              <a href="/solutions/cyber-robot">赛博机器人</a>
               <a href="/solutions/iot-sensing">基于工业物联的解决方案</a>
               <a href="/solutions/course-materials">课程素材</a>
             </div>
