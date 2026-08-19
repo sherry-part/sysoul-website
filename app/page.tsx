@@ -46,7 +46,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease }}
           >
-            <span className="robonix-os-tag">Robonix OS</span>
+            <span className="robonix-os-tag">Robonix OS 具身智能操作系统</span>
             <h2>为每一台机器人<br />提供统一的智能基础设施</h2>
             <p>向下抽象异构本体，向上编排任务与模型。不锁定硬件，不限制模型。</p>
             <a className="button" href="https://robonix.ai" target="_blank" rel="noreferrer">了解 Robonix →</a>
@@ -61,7 +61,7 @@ export default function Home() {
           >
             <span className="robonix-card-num">01</span>
             <b>硬件抽象</b>
-            <p>统一设备抽象层，将机械臂、四足、移动底盘等异构本体纳入同一套接口。一次适配，跨平台复用。</p>
+            <p>以能力抽象屏蔽本体差异，使模型、技能与任务不与具体机器人耦合，并在能力兼容的本体之间复用。</p>
             <div className="robonix-card-img">
               <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/robonix-1.png" alt="硬件抽象" />
             </div>
@@ -77,7 +77,7 @@ export default function Home() {
           >
             <span className="robonix-card-num">02</span>
             <b>技能编排</b>
-            <p>将感知、规划、执行抽象为可组合的技能单元。开发者像搭积木一样编排任务，AI 模型即插即用。</p>
+            <p>感知与行动被封装为由硬件原语构成的技能，技能既可编程实现，也可由模型实现；执行任务时，Robonix进行规划，并完成技能编排。</p>
             <div className="robonix-card-img">
               <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/robonix-2.png" alt="技能编排" />
             </div>
@@ -93,7 +93,7 @@ export default function Home() {
           >
             <span className="robonix-card-num">03</span>
             <b>开放生态</b>
-            <p>代码开源、标准开放、社区驱动。不锁定任何硬件与模型，让开发者的成果真正属于自己。</p>
+            <p>代码开源、标准开放、社区驱动。</p>
             <div className="robonix-card-img">
               <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/team.png" alt="团队" style={{ marginTop: 12 }} />
               <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/robonix-3.png" alt="开放生态" />

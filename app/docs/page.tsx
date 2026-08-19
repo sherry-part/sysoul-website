@@ -6,20 +6,26 @@ const categories = [
   {
     icon: "⊡",
     title: "Robonix 操作系统",
-    desc: "内核架构、技能管理、设备抽象层与实时调度文档。",
+    desc: "内核架构、技能管理、设备抽象层。",
     href: "https://book.robonix.ai",
   },
   {
     icon: "⚙",
     title: "XiUOS 小脑",
-    desc: "实时控制、关节运控算法、硬件适配与驱动开发指南。",
+    desc: "实时控制、关节运控算法、硬件适配。",
     href: "https://xuos.io/",
   },
   {
     icon: "↗",
     title: "包目录",
-    desc: "Robonix 预置技能与工具包，开箱即用，期待你的复用与贡献。",
+    desc: "Robonix 预置技能与工具包，开箱即用。",
     href: "https://packages.robonix.ai",
+  },
+  {
+    icon: "▤",
+    title: "课程素材",
+    desc: "面向高校与开发者的教学课件、实验平台。",
+    href: "/solutions/course-materials",
   },
 ];
 
@@ -45,7 +51,7 @@ export default function Docs() {
                 <span className="docs-cat-icon">{cat.icon}</span>
                 <b>{cat.title}</b>
                 <small>{cat.desc}</small>
-                <span className="docs-cat-arrow">浏览文档 →</span>
+                <span className="docs-cat-arrow">浏览 →</span>
               </a>
             </ScrollReveal>
           ))}

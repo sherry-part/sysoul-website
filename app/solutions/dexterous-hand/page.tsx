@@ -16,8 +16,8 @@ export default function DexterousHand() {
         <div className="sol-media-row">
           {[
             { num: "01", title: "快 — 更快上手", sub: "Rapid Onboarding", desc: "Robonix OS 内置灵巧手技能库与预训练模型，开发者无需从零训练 RL 策略。即插即用的硬件抽象层让灵巧手接入后即刻可用，快速验证操控方案。", tags: "Robonix OS · 预训练模型 · 即插即用 · 快速验证", media: { type: "video", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/hand-1.mp4" } as const},
-            { num: "02", title: "交互 — 更自然交互", sub: "Natural Interaction", desc: "Robonix 将灵巧手操控抽象为高层技能指令，用户通过简单的 API 调用即可完成复杂操控任务。支持遥操作、手势映射等多种交互模态，让灵巧手真正\"听话\"。", tags: "技能 API · 遥操作 · 手势映射 · 高层指令", media: { type: "video" as const, src: "" } },
-            { num: "03", title: "扩展 — 功能边界", sub: "Extensible Capabilities", desc: "Robonix OS 开放技能框架让灵巧手的能力不再受限——从精密制造到医疗辅助，从实验室操作到危险环境作业，通过技能包的热插拔即可快速切换应用场景，持续拓展机器人的功能边界。", tags: "技能热插拔 · 场景切换 · 功能扩展 · Robonix OS", media: { type: "video" as const, src: "" } },
+            { num: "02", title: "交互 — 更自然交互", sub: "Natural Interaction", desc: "Robonix 将灵巧手操控抽象为高层技能指令，用户通过简单的 API 调用即可完成复杂操控任务。支持遥操作、手势映射等多种交互模态，让灵巧手真正\"听话\"。", tags: "技能 API · 遥操作 · 手势映射 · 高层指令", media: { type: "video" as const, src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/hand-2.mp4" } },
+            { num: "03", title: "扩展 — 功能边界", sub: "Extensible Capabilities", desc: "Robonix OS 开放技能框架让灵巧手的能力不再受限——从精密制造到医疗辅助，从实验室操作到危险环境作业，通过技能包的热插拔即可快速切换应用场景，持续拓展机器人的功能边界。", tags: "技能热插拔 · 场景切换 · 功能扩展 · Robonix OS", media: { type: "image" as const, src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/hand-3.png" } },
           ].map((m) => (
             <SolutionMediaCard key={m.num} num={m.num} title={m.title} sub={m.sub} desc={m.desc} tags={m.tags} media={m.media} />
           ))}

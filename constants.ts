@@ -69,7 +69,7 @@ export const slides: Slide[] = [
 
 export const partners = [
   { name: "CCF", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/CCF.png" },
-  { name: "Syswonder", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/Syswonder.svg" },
+  { name: "矽望社区", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/Syswonder.svg" },
   { name: "PKU", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/PKU.png" },
   { name: "THU", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/THU.png" },
   { name: "SJTU", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/SJTU.png" },
@@ -77,6 +77,7 @@ export const partners = [
   { name: "ICT-CAS", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/ICT-CAS.png" },
   { name: "HZDU", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/HZDU.svg" },
   { name: "ZJUT", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/ZJUT.png" },
+  { name: "东北大学", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/NEU.png" },
   { name: "AIIT", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/AIIT.png" },
   { name: "AgileX", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/agilex.png" },
   { name: "Aubo", logo: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/Aubo.png" },

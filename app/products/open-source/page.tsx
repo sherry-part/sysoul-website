@@ -14,7 +14,7 @@ const specs = [
   { label: "供电", value: "DC 48V，标配 500W 电源模块" },
   { label: "本体重量", value: "约 18kg（单臂 7-DOF 款）" },
   { label: "开放资源", value: "原理图、PCB 设计文件、控制协议、固件源码" },
-  { label: "社区支持", value: "GitHub Issues + Syswonder 开发者论坛" },
+  { label: "社区支持", value: "GitHub Issues + 矽望社区开发者论坛" },
 ];
 
 const features = [

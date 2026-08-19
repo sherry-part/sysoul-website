@@ -16,7 +16,7 @@ export default function RobotArm() {
         <div className="sol-media-row">
           {[
             { num: "01", title: "快 — 更快上手", sub: "Rapid Onboarding", desc: "Robonix OS 统一抽象机械臂硬件接口，一套代码适配多品牌机械臂。拖拽式技能编排让开发者快速搭建从感知到执行的完整工作流，大幅缩短开发周期。", tags: "Robonix OS · 硬件抽象 · 技能编排 · 快速部署", media: { type: "image", src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/arm-1.png" } as const },
-            { num: "02", title: "交互 — 更自然交互", sub: "Natural Interaction", desc: "Robonix 支持示教编程、语音指令与手势引导等多种交互方式，降低机械臂的操作门槛。即使是零编程经验的产线工人，也能快速掌握机器人操作。", tags: "示教编程 · 语音指令 · 手势引导 · 零门槛", media: { type: "video" as const, src: "" } },
+            { num: "02", title: "交互 — 更自然交互", sub: "Natural Interaction", desc: "Robonix 支持示教编程、语音指令与手势引导等多种交互方式，降低机械臂的操作门槛。即使是零编程经验的产线工人，也能快速掌握机器人操作。", tags: "示教编程 · 语音指令 · 手势引导 · 零门槛", media: { type: "video" as const, src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/arm-2.mp4" } },
             { num: "03", title: "扩展 — 功能边界", sub: "Extensible Capabilities", desc: "Robonix OS 开放技能框架让机械臂的能力不再受限——从精密装配到物流分拣，从实验室研究到产线部署，通过技能包的热插拔即可快速切换应用场景，持续拓展机器人的功能边界。", tags: "技能热插拔 · 场景切换 · 功能扩展 · Robonix OS", media: { type: "image" as const, src: "https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/arm-3.png" } },
           ].map((m) => (
             <SolutionMediaCard key={m.num} num={m.num} title={m.title} sub={m.sub} desc={m.desc} tags={m.tags} media={m.media} />

@@ -291,7 +291,7 @@ export default function EcosystemTree({ show }: { show: boolean }) {
                 animate={showLogo ? { clipPath: "inset(0 0% 0 0)" } : {}}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               >
-                <img src="/images/logo1.webp" alt="Sysoul" className="eco-logo-img" />
+                <img src="https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/public/images/logo1.webp" alt="Sysoul" className="eco-logo-img" />
                 {/* Laser scan line */}
                 {showLogo && (
                   <motion.div
